@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221204230) do
+ActiveRecord::Schema.define(version: 20140221215440) do
 
   create_table "blogelator_posts", force: true do |t|
     t.string   "title"
@@ -21,16 +21,6 @@ ActiveRecord::Schema.define(version: 20140221204230) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
-  end
-
-  create_table "taggings", force: true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context",       limit: 128
-    t.datetime "created_at"
   end
 
 end

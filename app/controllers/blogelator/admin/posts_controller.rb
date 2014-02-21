@@ -4,6 +4,7 @@ module Blogelator
   module Admin
     class PostsController < ApplicationController
       before_action :set_post, only: [:show, :edit, :update, :destroy]
+      layout "blogelator/admin"
 
       # GET /admin/posts
       def index

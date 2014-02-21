@@ -1,0 +1,35 @@
+{
+  "camelcase": true,
+  "indent": 2,
+  "white": false,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "sub": true,
+  "undef": true,
+  "boss": true,
+  "eqnull": true,
+  "browser": true,
+  "predef": {
+    "alert": true,
+    "confirm": true,
+    "console": true,
+    "test": true,
+    "equal": true,
+    "ok": true,
+    "sinon": true,
+    "require": true,
+    "$": true,
+    "jQuery": true,
+    "Ember": true,
+    "Handlebars": true,
+    "App": true,
+    "Blogelator": true,
+    "module": true,
+    "test": true
+  }
+}
+

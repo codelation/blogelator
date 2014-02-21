@@ -1,4 +1,3 @@
 Rails.application.routes.draw do
-
-  mount Blogelator::Engine => "/blogelator"
+  mount Blogelator::Engine => "/blog"
 end
