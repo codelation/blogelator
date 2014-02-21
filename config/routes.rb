@@ -1,7 +1,7 @@
 Blogelator::Engine.routes.draw do
-  resource :posts
+  resources :posts, path: "/"
   
   namespace :admin do
-    resources :posts
+    resources :posts, path: "/"
   end
 end
