@@ -16,7 +16,10 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
+  s.add_dependency "cancan"
+  s.add_dependency "ember-rails", "~> 0.14.1"
+  s.add_dependency "ember-source", "~> 1.4.0"
   s.add_dependency "rails", "~> 4.0.3"
-
+  
   s.add_development_dependency "sqlite3"
 end
