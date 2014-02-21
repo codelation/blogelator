@@ -33,7 +33,7 @@ module Blogelator
         authorize! :create, @post
 
         if @post.save
-          redirect_to @post, notice: 'Post was successfully created.'
+          redirect_to admin_post_url(@post), notice: 'Post was successfully created.'
         else
           render action: 'new'
         end
@@ -43,7 +43,7 @@ module Blogelator
       def update
         authorize! :update, @post
         if @post.update(post_params)
-          redirect_to @post, notice: 'Post was successfully updated.'
+          redirect_to admin_post_url(@post), notice: 'Post was successfully updated.'
         else
           render action: 'edit'
         end
@@ -65,7 +65,7 @@ module Blogelator
 
       # Only allow a trusted parameter "white list" through.
       def post_params
-        params[:post]
+        params.require(:post).permit(:title, :body_markdown)
       end
     end
   end

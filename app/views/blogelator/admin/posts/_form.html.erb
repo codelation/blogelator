@@ -1,16 +1,23 @@
-<%= form_for(@post) do |f| %>
+<%= form_for(@post, url: @post.new_record? ? admin_posts_path : admin_post_path(@post)) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this admin_post from being saved:</h2>
-
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
       <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
+      
     </div>
   <% end %>
-
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body_markdown, "Body" %><br>
+    <%= f.text_area :body_markdown %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

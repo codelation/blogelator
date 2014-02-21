@@ -1,8 +1,9 @@
-<h1>Listing admin_posts</h1>
+<h1>Listing Posts</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Title</th>
       <th></th>
       <th></th>
       <th></th>
@@ -10,11 +11,12 @@
   </thead>
 
   <tbody>
-    <% @posts.each do |admin_post| %>
+    <% @posts.each do |post| %>
       <tr>
-        <td><%= link_to 'Show', admin_post %></td>
-        <td><%= link_to 'Edit', edit_admin_post_path(admin_post) %></td>
-        <td><%= link_to 'Destroy', admin_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= post.title %></td>
+        <td><%= link_to 'Show', admin_post_path(post) %></td>
+        <td><%= link_to 'Edit', edit_admin_post_path(post) %></td>
+        <td><%= link_to 'Destroy', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
