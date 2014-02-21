@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-    <% @admin_posts.each do |admin_post| %>
+    <% @posts.each do |admin_post| %>
       <tr>
         <td><%= link_to 'Show', admin_post %></td>
         <td><%= link_to 'Edit', edit_admin_post_path(admin_post) %></td>

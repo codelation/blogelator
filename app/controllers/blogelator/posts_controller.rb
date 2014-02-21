@@ -6,7 +6,7 @@ module Blogelator
     
     # GET /
     def index
-      @posts = Post.all
+      @posts = Blogelator::Post.all
     end
     
     # GET /post-title
@@ -17,7 +17,7 @@ module Blogelator
   
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @post = Blogelator::Post.find(params[:id])
     end
   end
 end
