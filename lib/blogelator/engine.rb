@@ -1,5 +1,5 @@
-require "blogelator/config"
-require "blogelator/version"
+require_relative "config"
+require_relative "version"
 require "cancan"
 
 module Blogelator
