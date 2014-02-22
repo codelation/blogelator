@@ -2,7 +2,8 @@ PATH
   remote: .
   specs:
     blogelator (0.0.1)
-      cancan
+      bourbon (~> 3.1.8)
+      cancan (~> 1.6.10)
       ember-rails (~> 0.14.1)
       ember-source (~> 1.4.0)
       jquery-rails (~> 3.0.4)
@@ -45,6 +46,9 @@ GEM
       ember-source
       execjs
       handlebars-source
+    bourbon (3.1.8)
+      sass (>= 3.2.0)
+      thor
     builder (3.1.4)
     cancan (1.6.10)
     diff-lcs (1.2.5)

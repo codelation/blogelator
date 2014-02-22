@@ -1,5 +1,6 @@
 require_relative "config"
 require_relative "version"
+require "bourbon"
 require "cancan"
 require "ember-rails"
 require "jquery-rails"

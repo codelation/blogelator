@@ -16,7 +16,8 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "cancan"
+  s.add_dependency "bourbon", "~> 3.1.8"
+  s.add_dependency "cancan", "~> 1.6.10"
   s.add_dependency "ember-rails", "~> 0.14.1"
   s.add_dependency "ember-source", "~> 1.4.0"
   s.add_dependency "jquery-rails", "~> 3.0.4"

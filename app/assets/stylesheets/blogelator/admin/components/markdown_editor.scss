@@ -1,0 +1,22 @@
+@import "bourbon";
+
+.blogelator-markdown-editor {
+  @include clearfix;
+  
+  .body-markdown {
+    float: left;
+    font-size: 0.9em;
+    height: 500px;
+    padding: 0.5em;
+    width: 49%;
+    @include box-sizing(border-box);
+  }
+  .body-html {
+    float: right;
+    font-size: 1em;
+    height: 500px;
+    padding: 0.5em;
+    width: 49%;
+    @include box-sizing(border-box);
+  }
+}
