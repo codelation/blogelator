@@ -11,7 +11,6 @@
 //= require_tree ./admin/models
 //= require_tree ./admin/routes
 //= require_tree ./admin/templates
-//= require_tree ./admin/views
 
 App = Ember.Application.create({
   LOG_TRANSITIONS: true
