@@ -1,22 +1,84 @@
+/*
+ *= require codemirror
+ *= require monokai
+ *= require_self
+ */
 @import "bourbon";
 
 .blogelator-markdown-editor {
   @include clearfix;
   
-  .body-markdown {
+  .CodeMirror {
+    border: 1px solid #eee;
     float: left;
+    font-family: "Melno", monospace;
     font-size: 0.9em;
     height: 500px;
-    padding: 0.5em;
+    padding: 2.5em 0.5em 0.5em 0.5em;
+    position: relative;
     width: 49%;
     @include box-sizing(border-box);
+    
+    &:before {
+      content: "Markdown";
+      color: #aaa;
+      display: block;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      position: absolute;
+      text-transform: uppercase;
+      top: 10px;
+      left: 10px;
+    }
   }
   .body-html {
+    border: 1px solid #eee;
     float: right;
-    font-size: 1em;
+    font-size: 0.9em;
     height: 500px;
-    padding: 0.5em;
+    padding: 2.5em 0.5em 0.5em 0.5em;
+    position: relative;
     width: 49%;
     @include box-sizing(border-box);
+    
+    &:before {
+      content: "Preview";
+      color: #aaa;
+      display: block;
+      position: absolute;
+      text-transform: uppercase;
+      top: 10px;
+      left: 10px;
+    }
+  }
+  
+  .cm-header-1 {
+    font-size: 2.25em;
+    font-weight: bold;
+  }
+  .cm-header-2 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .cm-header-3 {
+    font-size: 1.75em;
+    font-weight: bold;
+  }
+  .cm-header-4 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .cm-header-5 {
+    font-size: 1.25em;
+    font-weight: bold;
+  }
+  .cm-header-6 {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  .cm-em {
+    font-style: italic;
+  }
+  .cm-strong {
+    font-weight: bold;
   }
 }

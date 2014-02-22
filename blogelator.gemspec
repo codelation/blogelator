@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "ember-rails", "~> 0.14.1"
   s.add_dependency "ember-source", "~> 1.4.0"
   s.add_dependency "jquery-rails", "~> 3.0.4"
+  s.add_dependency "neat", "~> 1.5.0"
   s.add_dependency "rails", "~> 4.0.3"
   s.add_dependency "redcarpet", "~> 3.1.1"
   s.add_dependency "sass", "~> 3.2.14"

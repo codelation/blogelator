@@ -1,6 +1,7 @@
 require_relative "config"
 require_relative "version"
 require "bourbon"
+require "neat"
 require "cancan"
 require "ember-rails"
 require "jquery-rails"
@@ -12,5 +13,17 @@ module Blogelator
     initializer "blogelator.assets.precompile" do |app|
       app.config.assets.precompile += %w(blogelator/admin.css blogelator/admin.js)
     end
+    
+    initializer "blogelator.handlebars.config" do |app|
+      unless app.config.handlebars.templates_root.is_a?(Array)
+        app.config.handlebars.templates_root = [app.config.handlebars.templates_root]
+      end
+      if app.config.handlebars.templates_root.include?("templates")
+        app.config.handlebars.templates_root << "blogelator"
+      else
+        app.config.handlebars.templates_root << "blogelator/templates"
+      end
+    end
+    
   end
 end

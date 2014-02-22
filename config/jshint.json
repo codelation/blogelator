@@ -28,9 +28,9 @@
     "Handlebars": true,
     "App": true,
     "DS": true,
-    "Blogelator": true,
     "marked": true,
-    "hljs": true,
+    "prettyPrintOne": true,
+    "CodeMirror": true,
     "module": true,
     "test": true
   }

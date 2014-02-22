@@ -1,11 +1,9 @@
 @import "bourbon";
+@import "neat";
 
 .blogelator .admin .posts .new {
+  @include outer-container;
   input.title {
-    font-size: 20px;
-    margin-bottom: 0.5em;
-    padding: 0.2em;
     width: 100%;
-    @include box-sizing(border-box);
   }
 }

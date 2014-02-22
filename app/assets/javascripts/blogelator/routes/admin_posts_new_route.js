@@ -1,7 +1,7 @@
 (function() {
   "use strict";
   
-   App.BlogelatorAdminPostsNewRoute = Ember.Route.extend({
+   App.AdminPostsNewRoute = Ember.Route.extend({
     model: function() {
       return App.Post.createRecord();
     }
