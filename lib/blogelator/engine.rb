@@ -9,7 +9,7 @@ module Blogelator
     isolate_namespace Blogelator
     
     initializer "blogelator.assets.precompile" do |app|
-      app.config.assets.precompile += %w(admin.css admin.js)
+      app.config.assets.precompile += %w(blogelator/admin.css blogelator/admin.js)
     end
   end
 end
