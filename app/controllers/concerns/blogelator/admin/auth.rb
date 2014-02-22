@@ -11,7 +11,7 @@ module Blogelator
       end
       
       def blogelator_current_user
-        current_user
+        respond_to?(:current_user) ? current_user : nil
       end
       
       def current_ability
