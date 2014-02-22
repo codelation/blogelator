@@ -27,7 +27,9 @@
     "Ember": true,
     "Handlebars": true,
     "App": true,
+    "DS": true,
     "Blogelator": true,
+    "marked": true,
     "module": true,
     "test": true
   }

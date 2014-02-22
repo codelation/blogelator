@@ -3,7 +3,7 @@
 
   App.MarkdownEditorComponent = Ember.Component.extend({
     classNames: ['blogelator-markdown-editor'],
-    templateName: "blogelator/admin/components/markdown-editor",
+    layoutName: "blogelator/admin/components/markdown-editor",
     
     html: function() {
       var content = this.get('content');

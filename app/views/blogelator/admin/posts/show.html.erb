@@ -1,9 +1,0 @@
-<p id="notice"><%= notice %></p>
-
-<h1><%= @post.title %></h1>
-<div class="post-body">
-  <%=raw @post.body_html %>
-</div>
-
-<%= link_to 'Edit', edit_admin_post_path(@post) %> |
-<%= link_to 'Back', admin_posts_path %>

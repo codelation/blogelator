@@ -1,0 +1,15 @@
+<div>
+  {{#each post in content}}
+    <div>
+      {{#link-to post}}
+        {{post.title}}
+      {{/link-to}}
+    </div>
+  {{/each}}
+</div>
+
+<div>
+  {{#link-to "blogelator.admin.posts.new"}}
+    New Post
+  {{/link-to}}
+</div>

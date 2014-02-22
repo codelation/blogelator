@@ -5,11 +5,14 @@ module Blogelator
     class PostsController < ApplicationController
       before_action :set_post, only: [:show, :edit, :update, :destroy]
       layout "blogelator/admin"
+      respond_to :json
+      respond_to :html, only: [:index]
 
       # GET /admin/posts
       def index
         @posts = Blogelator::Post.all
         authorize! :read, @posts
+        respond_with @posts
       end
 
       # GET /admin/posts/1
