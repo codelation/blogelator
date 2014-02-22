@@ -1,5 +1,5 @@
 module Blogelator
   class ApplicationController < ActionController::Base
-    layout: "blogelator/application"
+    layout "blogelator/application"
   end
 end
