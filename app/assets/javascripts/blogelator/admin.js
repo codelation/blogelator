@@ -3,6 +3,7 @@
 //= require handlebars
 //= require ember
 //= require ember-data
+//= require prettify
 //= require marked
 //= require_self
 //= require_tree ./admin/components
@@ -16,7 +17,9 @@ App = Ember.Application.create({
   LOG_TRANSITIONS: true
 });
 
-App.Store = DS.Store.extend();
+App.Store = DS.Store.extend({
+  adapter: DS.RESTAdapter.extend({})
+});
 
 App.Router.map(function() {
   this.resource('blogelator.admin.posts', { path: '/' }, function() {
@@ -24,4 +27,11 @@ App.Router.map(function() {
     this.route('new');
     this.route('show', { path: '/:post_id' });
   });
+});
+
+marked.setOptions({
+  langPrefix: 'prettyprint lang-',
+  highlight: function(code, lang) {
+    return prettyPrintOne(code, lang);
+  }
 });

@@ -30,6 +30,7 @@
     "DS": true,
     "Blogelator": true,
     "marked": true,
+    "hljs": true,
     "module": true,
     "test": true
   }
