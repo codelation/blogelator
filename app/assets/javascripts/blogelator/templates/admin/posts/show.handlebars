@@ -1,0 +1,14 @@
+<div class="show">
+  <div class="list">
+    {{#each post in controllers.adminPosts}}
+      <div>
+        {{#link-to "admin.posts.show" post}}
+          {{post.title}}
+        {{/link-to}}
+      </div>
+    {{/each}}
+  </div>
+  <div class="item">
+    {{title}}
+  </div>
+</div>

@@ -1,4 +1,22 @@
-<h1>Blogelator</h1>
 <div class="blogelator">
-  {{outlet}}
+  <div class="admin">
+    <div class="header">
+      <ul>
+        <li>
+          <a {{bind-attr href="App.blogelatorPath"}}>Blog</a>
+        </li>
+        <li>
+          {{#link-to "admin.posts"}}
+            Content
+          {{/link-to}}
+        </li>
+        <li>
+          {{#link-to "admin.posts.new"}}
+            New Post
+          {{/link-to}}
+        </li>
+      </ul>
+    </div>
+    {{outlet}}
+  </div>
 </div>

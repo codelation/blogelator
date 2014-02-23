@@ -1,15 +1,20 @@
-<div>
-  {{#each post in content}}
-    <div>
-      {{#link-to post}}
-        {{post.title}}
-      {{/link-to}}
-    </div>
-  {{/each}}
-</div>
-
-<div>
-  {{#link-to "admin.posts.new"}}
-    New Post
-  {{/link-to}}
+<div class="index">
+  <div class="list">
+    {{#if content.isUpdating}}
+      Loading...
+    {{else}}
+      {{#each post in content}}
+        <div>
+          {{#link-to "admin.posts.show" post}}
+            {{post.title}}
+          {{/link-to}}
+        </div>
+      {{else}}
+        No Posts :(
+      {{/each}}
+    {{/if}}
+  </div>
+  <div class="item">
+    Hey, let's create a {{#link-to "admin.posts.new"}}new post{{/link-to}}!
+  </div>
 </div>

@@ -3,6 +3,8 @@
 
 .blogelator .admin .posts .new {
   @include outer-container;
+  max-width: 98%;
+  
   input.title {
     width: 100%;
   }

@@ -17,6 +17,7 @@ module Blogelator
       # GET /admin/posts/1
       def show
         authorize! :read, @post
+        respond_with @post
       end
 
       # GET /admin/posts/new

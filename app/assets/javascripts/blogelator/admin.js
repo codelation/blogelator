@@ -12,15 +12,19 @@
 //= require_tree ./templates
 
 App = Ember.Application.create({
-  LOG_TRANSITIONS: true
+  LOG_TRANSITIONS: true,
+  blogelatorPath: location.pathname.replace(/\/admin\/?/, '')
 });
 
 App.Store = DS.Store.extend({
-  adapter: DS.RESTAdapter.extend({})
+  adapter: DS.RESTAdapter.extend({
+    namespace: location.pathname.substring(1, location.pathname.length-1)
+  })
 });
 
 App.Router.map(function() {
-  this.resource('admin.posts', { path: '/' }, function() {
+  this.route('index', { path: '/' });
+  this.resource('admin.posts', { path: '/posts' }, function() {
     this.route('edit', { path: '/:post_id/edit' });
     this.route('new');
     this.route('show', { path: '/:post_id' });

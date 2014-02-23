@@ -8,3 +8,18 @@
 @import "bourbon";
 @import "bitters/bitters";
 @import "neat";
+
+.blogelator .admin {
+  .header {
+    ul {
+      list-style: none;
+      padding-left: 0;
+      li {
+        display: inline-block;
+        a {
+          padding: 5px 10px;
+        }
+      }
+    }
+  }
+}
