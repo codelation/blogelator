@@ -1,23 +1,25 @@
 /*
  *= require codemirror
- *= require monokai
  *= require_self
  */
 @import "bourbon";
 @import "bitters/variables";
 
 .blogelator-markdown-editor {
+  background-color: #f2f2f2;
   @include clearfix;
   
   .CodeMirror {
+    background-color: #fff;
     border: 1px solid #eee;
+    color: #444;
     float: left;
     font-family: "Melno", monospace;
-    font-size: 0.9em;
+    font-size: 0.8em;
     height: 500px;
     padding: 2.5em 0.5em 0.5em 0.5em;
     position: relative;
-    width: 49%;
+    width: 49.8%;
     @include box-sizing(border-box);
     
     &:before {
@@ -33,14 +35,43 @@
     }
   }
   .body-html {
+    background-color: #fff;
     border: 1px solid #eee;
     float: right;
     font-size: 0.9em;
     height: 500px;
     padding: 2.5em 0.5em 0.5em 0.5em;
     position: relative;
-    width: 49%;
+    width: 49.8%;
     @include box-sizing(border-box);
+    
+    code {
+      background-color: #fbfbfb;
+      font-family: "Melno", monospace;
+    }
+    
+    code.prettyprint {
+      border: 1px solid #eee;
+      border-radius: 4px;
+      display: block;
+      font-family: "Melno", monospace;
+      line-height: normal;
+      overflow-x: auto;
+      padding: 1em;
+      width: 100%;
+      
+      .str { color: #ca2969; } /* string */
+      .kwd { color: #814ede; } /* keyword */
+      .com { color: #aaa; font-style: italic; } /* comment */
+      .typ { color: #477dca; } /* type */
+      .lit { color: #83c53d; } /* literal */
+      .pun { color: #777; } /* punctuation */
+      .pln { color: #444; } /* plaintext */
+      .tag { color: #477dca; } /* html/xml tag */
+      .atn { color: #814ede; } /* html/xml attribute name */
+      .atv { color: #ca2969; } /* html/xml attribute value */
+      .dec { color: #83c53d; } /* decimal */
+    }
     
     &:before {
       content: "Preview";
@@ -55,12 +86,15 @@
     }
   }
   
+  // Markdown styles
+  // ------------------------------------
   .cm-header-1,
   .cm-header-2,
   .cm-header-3,
   .cm-header-4,
   .cm-header-5,
   .cm-header-6 {
+    color: #222;
     font-size: 1.1em;
     font-weight: bold;
   }
@@ -68,6 +102,7 @@
     font-style: italic;
   }
   .cm-strong {
+    color: #222;
     font-weight: bold;
   }
   .cm-comment {
@@ -84,4 +119,25 @@
       color: #aaa;
     }
   }
+  
+  // Code Styles
+  // ------------------------------------
+  .cm-atom,
+  .cm-tag {
+    color: #477dca;
+  }
+  .cm-keyword {
+    color: #814ede;
+  }
+  .cm-number {
+    color: #83c53d;
+  }
+  .cm-operator {
+    color: #777;
+  }
+  .cm-string {
+    color: #ca2969;
+  }
+  
+  
 }

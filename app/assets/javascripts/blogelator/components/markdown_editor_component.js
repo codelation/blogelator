@@ -23,13 +23,14 @@
     didInsertElement: function() {
       var textArea = this.$('textarea')[0],
           editor = CodeMirror.fromTextArea(textArea, {
+            indentWithTabs: false,
+            lineWrapping: true,
             mode: 'gfm',
             smartIndent: false,
-            indentWithTabs: false,
             tabSize: 2
           });
       
-      // Spaces instead of tabs
+      // Replace tab with spaces
       editor.addKeyMap({
         Tab: function(cm) {
           var spaces = new Array(cm.getOption("indentUnit") + 1).join(" ");
@@ -43,10 +44,9 @@
     editorDidChange: function() {
       var editor = this.get('editor'),
           self = this;
-      console.log("WAT1");
+          
       this.set('markdown', editor.getValue());
       editor.on('change', function(instance) {
-        console.log("WAT");
         self.set('markdown', instance.getValue());
       });
     }.observes('editor'),
