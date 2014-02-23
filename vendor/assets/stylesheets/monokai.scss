@@ -23,6 +23,7 @@ pre .dec, code .dec { color: #ae81ff; } /* decimal */
 pre.prettyprint, code.prettyprint {
 	background-color: #272822;
 	border-radius: 4px;
+  line-height: normal;
 }
 
 pre.prettyprint {

@@ -1,4 +1,16 @@
-//= require codemirror
+//= require codemirror/codemirror
+//= require codemirror/overlay
+//= require codemirror/markdown
+//= require codemirror/gfm
+//= require codemirror/coffeescript
+//= require codemirror/css
+//= require codemirror/htmlmixed
+//= require codemirror/javascript
+//= require codemirror/php
+//= require codemirror/ruby
+//= require codemirror/sass
+//= require codemirror/xml
+//= require codemirror/yaml
 //= require marked
 
 (function() {
@@ -9,11 +21,23 @@
     markdown: '',
     
     didInsertElement: function() {
-      var textArea = this.$('textarea')[0];
+      var textArea = this.$('textarea')[0],
+          editor = CodeMirror.fromTextArea(textArea, {
+            mode: 'gfm',
+            smartIndent: false,
+            indentWithTabs: false,
+            tabSize: 2
+          });
       
-      this.set('editor', CodeMirror.fromTextArea(textArea, {
-        mode: 'markdown'
-      }));
+      // Spaces instead of tabs
+      editor.addKeyMap({
+        Tab: function(cm) {
+          var spaces = new Array(cm.getOption("indentUnit") + 1).join(" ");
+          cm.replaceSelection(spaces, "end", "+input");
+        }
+      });
+      
+      this.set('editor', editor);
     },
     
     editorDidChange: function() {

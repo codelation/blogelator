@@ -4,6 +4,7 @@
  *= require_self
  */
 @import "bourbon";
+@import "bitters/variables";
 
 .blogelator-markdown-editor {
   @include clearfix;
@@ -20,10 +21,11 @@
     @include box-sizing(border-box);
     
     &:before {
-      content: "Markdown";
+      content: "GitHub Flavored Markdown";
       color: #aaa;
       display: block;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: $base-font-family;
+      line-height: normal;
       position: absolute;
       text-transform: uppercase;
       top: 10px;
@@ -44,6 +46,8 @@
       content: "Preview";
       color: #aaa;
       display: block;
+      font-family: $base-font-family;
+      line-height: normal;
       position: absolute;
       text-transform: uppercase;
       top: 10px;
@@ -51,28 +55,13 @@
     }
   }
   
-  .cm-header-1 {
-    font-size: 2.25em;
-    font-weight: bold;
-  }
-  .cm-header-2 {
-    font-size: 2em;
-    font-weight: bold;
-  }
-  .cm-header-3 {
-    font-size: 1.75em;
-    font-weight: bold;
-  }
-  .cm-header-4 {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-  .cm-header-5 {
-    font-size: 1.25em;
-    font-weight: bold;
-  }
+  .cm-header-1,
+  .cm-header-2,
+  .cm-header-3,
+  .cm-header-4,
+  .cm-header-5,
   .cm-header-6 {
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: bold;
   }
   .cm-em {
@@ -80,5 +69,19 @@
   }
   .cm-strong {
     font-weight: bold;
+  }
+  .cm-comment {
+    color: #aaa;
+  }
+  
+  .cm-link {
+    color: $base-link-color;
+    & + .cm-tag {
+      color: $base-link-color;
+    }
+    & + .cm-string,
+    & + .cm-tag + .cm-string {
+      color: #aaa;
+    }
   }
 }

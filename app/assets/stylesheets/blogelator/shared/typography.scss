@@ -1,0 +1,8 @@
+@import "bourbon";
+@import "bitters/variables";
+
+mark {
+  background-color: $highlight-color;
+  box-shadow: $highlight-color 0 0 5px;
+  padding: 2px 3px;
+}
