@@ -18,7 +18,7 @@ App = Ember.Application.create({
 
 App.Store = DS.Store.extend({
   adapter: DS.RESTAdapter.extend({
-    namespace: location.pathname.substring(1, location.pathname.length-1)
+    namespace: App.blogelatorPath.substring(1) + '/admin'
   })
 });
 
