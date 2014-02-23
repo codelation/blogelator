@@ -1,5 +1,5 @@
 module Blogelator
   class PostSerializer < ActiveModel::Serializer
-    attributes :id, :title
+    attributes :id, :body_html, :body_markdown, :title
   end
 end

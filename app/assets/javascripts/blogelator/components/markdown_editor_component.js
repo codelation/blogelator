@@ -18,7 +18,6 @@
 
   App.MarkdownEditorComponent = Ember.Component.extend({
     classNames: ['blogelator-markdown-editor'],
-    markdown: '',
     
     didInsertElement: function() {
       var textArea = this.$('textarea')[0],
@@ -44,20 +43,19 @@
     editorDidChange: function() {
       var editor = this.get('editor'),
           self = this;
-          
-      this.set('markdown', editor.getValue());
+      
       editor.on('change', function(instance) {
-        self.set('markdown', instance.getValue());
+        self.set('content', instance.getValue());
       });
     }.observes('editor'),
     
     html: function() {
-      var markdown = this.get('markdown');
-      if (Ember.isNone(markdown)) {
-        markdown = '';
+      var content = this.get('content');
+      if (Ember.isNone(content)) {
+        content = '';
       }
-      return marked(markdown);
-    }.property('markdown')
+      return marked(content);
+    }.property('content')
 	});
   
 })();

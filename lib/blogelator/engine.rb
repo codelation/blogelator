@@ -5,6 +5,8 @@ require "neat"
 require "cancan"
 require "ember-rails"
 require "jquery-rails"
+require "pygments.rb"
+require "redcarpet"
 
 module Blogelator
   class Engine < ::Rails::Engine

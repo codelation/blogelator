@@ -4,11 +4,9 @@
     {{view Ember.TextField class="title" placeholder="Title" valueBinding="title"}}
   </div>
   <div class="field">
-    {{markdown-editor}}
+    {{markdown-editor contentBinding="bodyMarkdown"}}
   </div>
   <div>
-    {{#link-to "admin.posts.index"}}
-      Back
-    {{/link-to}}
+    <button {{action "save"}}>Save</button>
   </div>
 </div>
