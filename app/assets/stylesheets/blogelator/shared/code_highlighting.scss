@@ -11,6 +11,9 @@
   width: 100%;
   
   .sm,   /* Pygments Literal.String */
+  .s1,   /* Pygments Literal.String.Single */
+  .s2,   /* Pygments Literal.String.Double */
+  .sx,   /* Pygments Literal.String.Other */
   .str { /* prettyprint string */
     color: #ca2969;
   }
@@ -63,13 +66,10 @@
   .sb,   /* Pygments Literal.String.Backtick */
   .sc,   /* Pygments Literal.String.Char */
   .sd,   /* Pygments Literal.String.Doc */
-  .s2,   /* Pygments Literal.String.Double */
   .se,   /* Pygments Literal.String.Escape */
   .sh,   /* Pygments Literal.String.Heredoc */
   .si,   /* Pygments Literal.String.Interpol */
-  .sx,   /* Pygments Literal.String.Other */
   .sr,   /* Pygments Literal.String.Regex */
-  .s1,   /* Pygments Literal.String.Single */
   .lit { /* prettyprint literal */
     color: #83c53d;
   }
