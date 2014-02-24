@@ -1,8 +1,11 @@
 Blogelator::Engine.routes.draw do
-  namespace :admin do
+  # Admin Routes Ember history location support
+  get "/admin", to: "admin/posts#index"
+  get "/admin/*path", to: "admin/posts#index"
+  namespace :admin, path: "api" do
     resources :posts
   end
-  get "/admin", to: "admin/posts#index"
   
+  # Public Routes
   resources :posts, path: "/"
 end

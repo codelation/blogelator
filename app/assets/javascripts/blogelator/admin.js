@@ -13,13 +13,18 @@
 
 App = Ember.Application.create({
   LOG_TRANSITIONS: true,
-  blogelatorPath: location.pathname.replace(/\/admin\/?/, '')
+  blogelatorPath: '/' + location.pathname.split('/')[1]
 });
 
 App.Store = DS.Store.extend({
   adapter: DS.RESTAdapter.extend({
-    namespace: App.blogelatorPath.substring(1) + '/admin'
+    namespace: App.blogelatorPath.substring(1) + '/api'
   })
+});
+
+App.Router.reopen({
+  rootURL: App.blogelatorPath + '/admin',
+  location: 'history'
 });
 
 App.Router.map(function() {
