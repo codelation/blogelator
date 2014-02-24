@@ -4,7 +4,7 @@
     <div class="date">
       <%= local_time(@post.published_at, format: '%B %e, %Y') %>
     </div>
-    <div class="summary">
+    <div class="body">
       <%=raw @post.body_html %>
     </div>
   </div>

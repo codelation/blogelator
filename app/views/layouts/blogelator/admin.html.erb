@@ -6,7 +6,7 @@
   <%= javascript_include_tag "blogelator/admin" %>
   <%= csrf_meta_tags %>
 </head>
-<body class="blogelator <%= @body_class || 'default' %>">
+<body class="<%= body_class %>">
 
 <%= yield %>
 
