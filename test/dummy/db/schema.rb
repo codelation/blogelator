@@ -11,16 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221215440) do
+ActiveRecord::Schema.define(version: 20140224025218) do
 
   create_table "blogelator_posts", force: true do |t|
-    t.string   "title"
+    t.string   "title",         default: "", null: false
     t.integer  "author_id"
-    t.text     "body_html"
-    t.text     "body_markdown"
+    t.text     "body_html",     default: "", null: false
+    t.text     "body_markdown", default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
   end
+
+  create_table "blogelator_tags", force: true do |t|
+    t.string   "name"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blogelator_tags", ["post_id"], name: "index_blogelator_tags_on_post_id"
 
 end
