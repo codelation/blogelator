@@ -1,0 +1,24 @@
+// Styles for PostsController#show
+
+@import "bourbon";
+@import "bitters/variables";
+@import "neat";
+
+body.blogelator.posts.show {
+  .post {
+    & > h1 {
+      margin-bottom: 0;
+      text-align: center;
+      
+      a {
+        color: #222;
+      }
+    }
+    
+    & > .date {
+      font-size: 0.8em;
+      margin: -0.2em auto 2em auto;
+      text-align: center;
+    }
+  }
+}

@@ -4,7 +4,6 @@ module Blogelator
 
     def initialize(user)
       if user
-        puts "WAT: #{user}"
         can :manage, Blogelator::Post
       end
     end

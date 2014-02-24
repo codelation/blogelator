@@ -1,7 +1,7 @@
 @import "bourbon";
 @import "neat";
 
-.blogelator .admin .posts .index {
+.blogelator.admin.posts.index {
   @include outer-container;
   .list {
     @include span-columns(3);

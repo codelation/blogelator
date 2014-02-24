@@ -2,10 +2,12 @@
 @import "bitters/variables";
 @import "bitters/lists";
 
-ul {
-  @extend %default-ul;
-}
+body.blogelator {
+  ul {
+    @extend %default-ul;
+  }
 
-ol {
-  @extend %default-ol;
+  ol {
+    @extend %default-ol;
+  }
 }

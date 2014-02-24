@@ -1,0 +1,7 @@
+<header>  
+  <% if controller.controller_name == "posts" && controller.action_name == "index" %>
+    <h1><%= link_to site_title, root_path %></h2>
+  <% else %>
+    <h2><%= link_to site_title, root_path %></h2>
+  <% end %>
+</header>

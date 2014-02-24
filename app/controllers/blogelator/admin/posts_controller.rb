@@ -16,6 +16,7 @@ module Blogelator
 
       # GET /admin/posts/1
       def show
+        @title = @post.title
         respond_with @post
       end
 

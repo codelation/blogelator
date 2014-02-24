@@ -18,9 +18,11 @@ Gem::Specification.new do |s|
 
   s.add_dependency "bourbon", "~> 3.1.8"
   s.add_dependency "cancan", "~> 1.6.10"
+  s.add_dependency "deface", "~> 1.0.0"
   s.add_dependency "ember-rails", "~> 0.14.1"
   s.add_dependency "ember-source", "~> 1.4.0"
   s.add_dependency "jquery-rails", "~> 3.0.4"
+  s.add_dependency "local_time", "~> 0.3.0"
   s.add_dependency "neat", "~> 1.5.0"
   s.add_dependency "pygments.rb", "~> 0.5.4"
   s.add_dependency "rails", "~> 4.0.3"

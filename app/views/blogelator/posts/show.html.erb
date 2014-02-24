@@ -1,0 +1,11 @@
+<% cache(@post) do %>
+  <div class="post">
+    <h1><%= link_to @post.title, @post %></h1>
+    <div class="date">
+      <%= local_time(@post.published_at, format: '%B %e, %Y') %>
+    </div>
+    <div class="summary">
+      <%=raw @post.body_html %>
+    </div>
+  </div>
+<% end %>

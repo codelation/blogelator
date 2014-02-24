@@ -3,11 +3,25 @@ module Blogelator
     has_many :tags
     belongs_to :author, class_name: Blogelator::Config.user_class
     
+    before_create :set_slug
     before_save :parse_markdown
+    
+    scope :published,   -> { where("published_at IS NOT NULL") }
+    scope :unpublished, -> { where("published_at IS NULL") }
     
     def active_model_serializer
       Blogelator::PostSerializer
     end
+    
+    def published?
+      self.published_at.nil?
+    end
+    
+    def to_param
+      self.slug
+    end
+    
+  private
     
     def parse_markdown
       markdown = Redcarpet::Markdown.new(Blogelator::HTMLRenderer, {
@@ -17,6 +31,14 @@ module Blogelator
         space_after_headers: true
       })
       self.body_html = markdown.render(self.body_markdown)
+    end
+    
+    def set_slug
+      self.slug = self.title.parameterize
+      existing_slug_count = self.class.where(slug: self.slug).count
+      if existing_slug_count > 0
+        self.slug = self.slug + "-#{existing_slug_count}"
+      end
     end
   end
 end

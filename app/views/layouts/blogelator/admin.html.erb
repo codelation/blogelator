@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blogelator</title>
+  <title><%= page_title %></title>
   <%= stylesheet_link_tag    "blogelator/admin", media: "all" %>
   <%= javascript_include_tag "blogelator/admin" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="blogelator <%= @body_class || 'default' %>">
 
 <%= yield %>
 

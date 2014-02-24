@@ -8,4 +8,5 @@ Blogelator::Engine.routes.draw do
   
   # Public Routes
   resources :posts, path: "/"
+  root to: "posts#index"
 end

@@ -1,4 +1,4 @@
-.highlight {
+body.blogelator .highlight {
   background-color: #fbfbfb;
   border: 1px solid #eee;
   border-radius: 4px;
@@ -6,10 +6,11 @@
   font-family: "Melno", monospace;
   font-size: 0.8em;
   line-height: normal;
+  margin: 0 0 1em;
   overflow-x: auto;
   padding: 1em;
   width: 100%;
-  
+
   .sm,   /* Pygments Literal.String */
   .s1,   /* Pygments Literal.String.Single */
   .s2,   /* Pygments Literal.String.Double */
@@ -36,7 +37,7 @@
     color: #aaa;
     font-style: italic;
   }
-  
+
   .na,   /* Pygments Name.Attribute */
   .nb,   /* Pygments Name.Builtin */
   .nc,   /* Pygments Name.Class */
@@ -99,7 +100,7 @@
   .dec { /* prettyprint decimal */
     color: #83c53d;
   }
-  
+
   .w  { color: transparent } /* Pygments Text.Whitespace */
   .ge { font-style: italic } /* Pygments Generic.Emph */
   .gs { font-weight: bold }  /* Pygments Generic.Strong */

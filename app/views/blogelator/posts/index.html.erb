@@ -1,5 +1,5 @@
-<% @posts.each do |post| %>
-  <h1><%= post.title %></h1>
-  <%=raw post.body_html %>
-  <i><%= post.created_at %></i>
+<% cache(@posts) do %>
+  <div class="posts">
+    <%= render @posts %>
+  </div>
 <% end %>

@@ -1,0 +1,7 @@
+includeFiles = "{$includeFiles,.env,.gitignore,.foreman}"
+excludeFiles = "{$excludeFiles,*.sqlite3}"
+excludeInFileChooser = "{$excludeInFileChooser,log,tmp}"
+excludeInFolderSearch = "{$excludeInFolderSearch,log,tmp}"
+
+softTabs = true
+tabSize = 2
