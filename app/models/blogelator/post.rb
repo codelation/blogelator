@@ -6,8 +6,8 @@ module Blogelator
     before_create :set_slug
     before_save :parse_markdown
     
-    scope :published,   -> { where("published_at IS NOT NULL") }
-    scope :unpublished, -> { where("published_at IS NULL") }
+    scope :published,   -> { where("published_at IS NOT NULL").order("published_at DESC") }
+    scope :unpublished, -> { where("published_at IS NULL").order("created_at DESC") }
     
     def active_model_serializer
       Blogelator::PostSerializer

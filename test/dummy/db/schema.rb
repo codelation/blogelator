@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224025218) do
+ActiveRecord::Schema.define(version: 20140224205647) do
 
   create_table "blogelator_posts", force: true do |t|
     t.string   "title",         default: "", null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140224025218) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.datetime "published_at"
   end
 
   create_table "blogelator_tags", force: true do |t|

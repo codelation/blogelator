@@ -8,7 +8,7 @@ PATH
       ember-rails (~> 0.14.1)
       ember-source (~> 1.4.0)
       jquery-rails (~> 3.0.4)
-      local_time
+      local_time (~> 0.3.0)
       neat (~> 1.5.0)
       pygments.rb (~> 0.5.4)
       rails (~> 4.0.3)
