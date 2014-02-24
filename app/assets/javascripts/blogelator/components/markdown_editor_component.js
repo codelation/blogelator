@@ -18,6 +18,7 @@
 
   App.MarkdownEditorComponent = Ember.Component.extend({
     classNames: ['blogelator-markdown-editor'],
+    updateDelay: 200,
     
     didInsertElement: function() {
       var textArea = this.$('textarea')[0],
@@ -42,10 +43,17 @@
     
     editorDidChange: function() {
       var editor = this.get('editor'),
+          context = { name: 'parseMarkdown' },
+          updateDelay = this.get('updateDelay'),
           self = this;
       
-      editor.on('change', function(instance) {
-        self.set('content', instance.getValue());
+      var updateContent = function() {
+        self.set('content', editor.getValue());
+      };
+      
+      editor.setValue(this.get('content'));
+      editor.on('change', function() {
+        Ember.run.debounce(context, updateContent, updateDelay);
       });
     }.observes('editor'),
     

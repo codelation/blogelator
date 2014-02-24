@@ -9,9 +9,12 @@
     {{/each}}
   </div>
   <div class="item">
-    <h1>{{title}}</h1>
-    <div class="codehilite">
-      {{{bodyHtml}}}
+    <div class="edit">
+      {{#link-to "admin.posts.edit" content}}
+        Edit
+      {{/link-to}}
     </div>
+    <h1>{{title}}</h1>
+    {{{bodyHtml}}}
   </div>
 </div>

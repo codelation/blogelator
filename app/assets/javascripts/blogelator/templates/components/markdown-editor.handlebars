@@ -1,5 +1,8 @@
 {{view Ember.TextArea class="body-markdown" placeholder="GitHub Flavored Markdown" valueBinding="content" viewName="textArea"}}
 
 <div class="body-html">
+  {{#if title}}
+    <h1>{{title}}</h1>
+  {{/if}}
   {{{html}}}
 </div>

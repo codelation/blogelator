@@ -1,12 +1,4 @@
 <div class="new">
   <h2>New Post</h2>
-  <div class="field">
-    {{view Ember.TextField class="title" placeholder="Title" valueBinding="title"}}
-  </div>
-  <div class="field">
-    {{markdown-editor contentBinding="bodyMarkdown"}}
-  </div>
-  <div>
-    <button {{action "save"}}>Save</button>
-  </div>
+  {{render "admin/posts/_form" controller="adminPostsNew"}}
 </div>

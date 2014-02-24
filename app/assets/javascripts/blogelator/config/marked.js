@@ -2,7 +2,7 @@
 //= require prettify
 
 marked.setOptions({
-  langPrefix: 'prettyprint lang-',
+  langPrefix: 'highlight lang-',
   smartypants: true,
   highlight: function(code, lang) {
     return prettyPrintOne(code, lang);

@@ -1,0 +1,9 @@
+<div class="field">
+  {{view Ember.TextField class="title" placeholder="Title" valueBinding="title"}}
+</div>
+<div class="field">
+  {{markdown-editor contentBinding="bodyMarkdown" titleBinding="title"}}
+</div>
+<div>
+  <button {{action "save"}}>Save</button>
+</div>
