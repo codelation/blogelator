@@ -1,12 +1,41 @@
+@import "bourbon";
+@import "bitters/variables";
+
 body.blogelator.admin {
-  .header {
+  header {
+    background-color: #444;
+    border-bottom: 1px solid #f2f2f2;
+    margin-bottom: 1em;
+    padding: 0;
+    
     ul {
+      border-bottom: 5px solid $base-accent-color;
       list-style: none;
-      padding-left: 0;
+      margin: 0;
+      padding: 0;
+      @include clearfix;
+      
       li {
-        display: inline-block;
+        display: block;
+        float: left;
+        margin: 0;
+        
         a {
-          padding: 5px 10px;
+          border-bottom: 5px solid $base-accent-color;
+          color: lighten($base-accent-color, 5%);
+          display: block;
+          font-size: 1.2em;
+          margin: 0 0 -5px;
+          padding: 0.5em 0.5em 0.5em 0.5em;
+          
+          &:hover {
+            border-bottom: 5px solid #fff;
+            color: #fff;
+          }
+          &.active {
+            border-bottom: 5px solid complement(saturate($base-accent-color, 100%));
+            color: complement(saturate($base-accent-color, 100%));
+          }
         }
       }
     }

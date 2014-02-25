@@ -16,22 +16,3 @@ App = Ember.Application.create({
   blogelatorPath: '/' + location.pathname.split('/')[1]
 });
 
-App.Store = DS.Store.extend({
-  adapter: DS.RESTAdapter.extend({
-    namespace: App.blogelatorPath.substring(1) + '/api'
-  })
-});
-
-App.Router.reopen({
-  rootURL: App.blogelatorPath + '/admin',
-  location: 'history'
-});
-
-App.Router.map(function() {
-  this.route('index', { path: '/' });
-  this.resource('admin.posts', { path: '/posts' }, function() {
-    this.route('edit', { path: '/:post_id/edit' });
-    this.route('new');
-    this.route('show', { path: '/:post_id' });
-  });
-});

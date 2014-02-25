@@ -1,17 +1,7 @@
 @import "bourbon";
-@import "bitters/variables";
 @import "neat";
 
-body.blogelator.admin.posts.new {
-  header ul li a.posts-index-link.active {
-    border-bottom: 5px solid $base-accent-color;
-    color: lighten($base-accent-color, 5%);
-    &:hover {
-      border-bottom: 5px solid #fff;
-      color: #fff;
-    }
-  }
-  
+body.blogelator.admin.posts.edit {
   input.title {
     width: 100%;
   }

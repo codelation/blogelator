@@ -1,20 +1,23 @@
-<div class="index">
-  <div class="list">
-    {{#if content.isUpdating}}
-      Loading...
-    {{else}}
-      {{#each post in content}}
-        <div>
-          {{#link-to "admin.posts.show" post}}
-            {{post.title}}
-          {{/link-to}}
+<section>
+  {{#if content.isUpdating}}
+    Loading...
+  {{else}}
+    {{#each post in content}}
+      {{#link-to "admin.posts.show" post class="post" tagName="div"}}
+        <h2>{{post.title}}</h2>
+        <div class="date">
+          TODO: Show Date
         </div>
-      {{else}}
-        No Posts :(
-      {{/each}}
-    {{/if}}
-  </div>
-  <div class="item">
-    Hey, let's create a {{#link-to "admin.posts.new"}}new post{{/link-to}}!
-  </div>
-</div>
+        <div class="summary">
+          TODO: Show Summary<br />
+          TODO: Show Summary
+        </div>
+      {{/link-to}}
+    {{else}}
+      No Posts :(
+    {{/each}}
+  {{/if}}
+</section>
+<article>
+  Hey, let's create a {{#link-to "admin.posts.new"}}new post{{/link-to}}!
+</article>

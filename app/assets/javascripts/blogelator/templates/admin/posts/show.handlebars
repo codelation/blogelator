@@ -1,20 +1,27 @@
-<div class="show">
-  <div class="list">
-    {{#each post in controllers.adminPosts}}
-      <div>
-        {{#link-to "admin.posts.show" post}}
-          {{post.title}}
-        {{/link-to}}
+<section>
+  {{#each post in controllers.adminPosts}}
+    {{#link-to "admin.posts.show" post class="post" tagName="div"}}
+      <h2>{{post.title}}</h2>
+      <div class="date">
+        TODO: Show Date
       </div>
-    {{/each}}
+      <div class="summary">
+        TODO: Show Summary<br/>
+        TODO: Show Summary
+      </div>
+    {{/link-to}}
+  {{/each}}
+</section>
+<article>
+  <div class="buttons">
+    {{#link-to "admin.posts.edit" content class="edit"}}
+      Edit
+    {{/link-to}}
+    <span class="publish">Publish</span>
   </div>
-  <div class="item">
-    <div class="edit">
-      {{#link-to "admin.posts.edit" content}}
-        Edit
-      {{/link-to}}
-    </div>
+  <div class="post">
     <h1>{{title}}</h1>
+    <div class="date">TODO: Show Date</div>
     {{{bodyHtml}}}
   </div>
-</div>
+</article>

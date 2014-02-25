@@ -1,0 +1,66 @@
+@import "bourbon";
+@import "bitters/variables";
+@import "neat";
+
+body.blogelator.admin.posts {
+  main {
+    @include outer-container;
+    max-width: 98%;
+    
+    section {
+      @include span-columns(4);
+      
+      .post {
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+        cursor: pointer;
+        margin: 0;
+        padding: 1em;
+        
+        & > h2 {
+          color: #888;
+          font-size: 1.2em;
+          margin-bottom: 0;
+        }
+        
+        & > .date {
+          color: #bbb;
+          font-size: 0.8em;
+          margin: -0.2em auto 0.5em auto;
+        }
+        
+        & > .summary {
+          color: #aaa;
+          font-size: 0.9em;
+        }
+        
+        &.active,
+        &:hover {
+          h2 {
+            color: #000;
+          }
+          
+          & > .date {
+            color: #aaa;
+          }
+          
+          & > .summary {
+            color: #888;
+          }
+        }
+        
+        &.active {
+          background-color: #fff;
+          border-bottom: 1px solid $base-accent-color;
+          border-top: 1px solid $base-accent-color;
+        }
+      }
+    }
+    
+    article {
+      @include span-columns(8);
+      margin-right: 0; // Required until HTMLBars!!
+    }
+  }
+}

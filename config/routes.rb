@@ -1,5 +1,5 @@
 Blogelator::Engine.routes.draw do
-  # Admin Routes Ember history location support
+  # Admin Routes with Ember.Router location: 'history' support
   get "/admin", to: "admin/posts#index"
   get "/admin/*path", to: "admin/posts#index"
   namespace :admin, path: "api" do
