@@ -1,9 +1,11 @@
-<div class="field">
-  {{view Ember.TextField class="title" placeholder="Title" valueBinding="title"}}
+<div class="post-form">
+  <div class="field">
+    {{view Ember.TextField class="title" placeholder="Blog Post Title" valueBinding="title"}}
+  </div>
+  <div class="field">
+    {{markdown-editor contentBinding="bodyMarkdown" titleBinding="title" dateBinding="date"}}
+  </div>
 </div>
-<div class="field">
-  {{markdown-editor contentBinding="bodyMarkdown" titleBinding="title" dateBinding="date"}}
-</div>
-<div>
+<div class="action-bar">
   <button {{action "save"}}>Save</button>
 </div>

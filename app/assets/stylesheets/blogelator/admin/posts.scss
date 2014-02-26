@@ -4,8 +4,6 @@
 
 body.blogelator.admin.posts {
   main {
-    @include outer-container;
-    max-width: 98%;
     
     section {
       @include span-columns(4);
@@ -34,7 +32,17 @@ body.blogelator.admin.posts {
           color: #aaa;
           font-size: 0.9em;
         }
+      }
+    }
+  }
+}
         
+body.blogelator.admin.posts {
+  main {
+    section {
+      @include span-columns(4);
+
+      .post {
         &.active,
         &:hover {
           h2 {
@@ -62,5 +70,36 @@ body.blogelator.admin.posts {
       @include span-columns(8);
       margin-right: 0; // Required until HTMLBars!!
     }
+  }
+}
+
+body.blogelator.admin.posts {
+  .post-form {
+    @include outer-container;
+    max-width: 98%;
+    overflow: hidden;
+    
+    input.title {
+      border-radius: 0px;
+      width: 100%;
+    }
+  
+    .html-preview {
+      & > h1 {
+        margin-bottom: 0;
+        text-align: center;
+      }
+
+      & > .date {
+        color: #aaa;
+        font-size: 0.8em;
+        margin: -0.2em auto 2em auto;
+        text-align: center;
+      }
+    }
+  }
+  
+  .action-bar {
+    background-color: #444;
   }
 }

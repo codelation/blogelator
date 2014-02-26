@@ -16,7 +16,7 @@ body.blogelator.admin.posts.show {
       }
       
       .publish {
-        @include button(simple, complement(saturate($base-accent-color, 100%)));
+        @include button(simple, lighten(saturate($base-accent-color, 100%), 30%));
         font-size: 1em;
       }
     }

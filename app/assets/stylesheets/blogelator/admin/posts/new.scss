@@ -11,22 +11,4 @@ body.blogelator.admin.posts.new {
       color: #fff;
     }
   }
-  
-  input.title {
-    width: 100%;
-  }
-  
-  .body-html {
-    & > h1 {
-      margin-bottom: 0;
-      text-align: center;
-    }
-  
-    & > .date {
-      color: #aaa;
-      font-size: 0.8em;
-      margin: -0.2em auto 2em auto;
-      text-align: center;
-    }
-  }
 }

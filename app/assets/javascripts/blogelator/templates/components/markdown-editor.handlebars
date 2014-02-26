@@ -1,15 +1,6 @@
-{{view Ember.TextArea class="body-markdown" placeholder="GitHub Flavored Markdown" valueBinding="content" viewName="textArea"}}
-
-<div class="body-html">
-  {{#if title}}
-    <h1>{{title}}</h1>
-  {{else}}
-    <h1>Title of the Blog Post</h1>
-  {{/if}}
-  {{#if date}}
-    <div class="date">{{date}}</div>
-  {{else}}
-    <div class="date">TODO: Show Date</div>
-  {{/if}}
-  {{{html}}}
+{{view Ember.TextArea class="body-markdown" valueBinding="content"}}
+<div class="html-preview">
+  <div class="body">
+    {{{html}}}
+  </div>
 </div>

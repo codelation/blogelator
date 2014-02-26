@@ -6,8 +6,8 @@
 @import "bitters/variables";
 
 .blogelator-markdown-editor {
-  background-color: #f2f2f2;
   font-size: 0.8em;
+  margin-bottom: 1em;
   @include clearfix;
   
   .CodeMirror {
@@ -16,48 +16,77 @@
     color: #444;
     float: left;
     font-family: "Melno", monospace;
-    height: 500px;
-    padding: 2.5em 0.5em 0.5em 0.5em;
+    height: 100%;
+    padding: 0.5em;
     position: relative;
     width: 49.8%;
     @include box-sizing(border-box);
     
     &:before {
+      background-color: rgba(#fff, 0.95);
       content: "GitHub Flavored Markdown";
       color: #aaa;
       display: block;
       font-family: $base-font-family;
+      left: 0;
       line-height: normal;
+      padding: 10px;
       position: absolute;
       text-transform: uppercase;
-      top: 10px;
-      left: 10px;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+    }
+    
+    .CodeMirror-code {
+      padding-top: 2em;
     }
   }
-  .body-html {
+  .html-preview {
     background-color: #fff;
     border: 1px solid #eee;
     float: right;
-    height: 500px;
-    padding: 2.5em 0.5em 0.5em 0.5em;
+    height: 100%;
+    margin-top: 0em;
+    padding: 0.5em;
     position: relative;
     width: 49.8%;
     @include box-sizing(border-box);
     
     &:before {
+      background-color: rgba(#fff, 0.95);
       content: "Preview";
       color: #aaa;
       display: block;
       font-family: $base-font-family;
+      left: 0;
       line-height: normal;
+      padding: 10px;
       position: absolute;
       text-transform: uppercase;
-      top: 10px;
-      left: 10px;
+      top: 0;
+      width: 100%;
+      z-index: 10;
     }
     
-    .highlight {
+    .body {
+      height: 100%;
+      overflow: auto;
+      padding-top: 2em;
+    }
+    
+    .highlight, pre code {
+      background-color: #fbfbfb;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      display: block;
+      font-family: "Melno", monospace;
       font-size: 1em;
+      line-height: normal;
+      margin: 0 0 1em;
+      overflow-x: auto;
+      padding: 1em;
+      width: 100%;
     }
   }
   

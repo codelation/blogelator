@@ -1,10 +1,15 @@
 @import "bourbon";
 @import "bitters/variables";
 
+html {
+  height: 100%;
+}
+
 body.blogelator.admin {
+  height: 100%;
+  
   header {
     background-color: #444;
-    border-bottom: 1px solid #f2f2f2;
     margin-bottom: 1em;
     padding: 0;
     
@@ -33,8 +38,8 @@ body.blogelator.admin {
             color: #fff;
           }
           &.active {
-            border-bottom: 5px solid complement(saturate($base-accent-color, 100%));
-            color: complement(saturate($base-accent-color, 100%));
+            border-bottom: 5px solid lighten(saturate($base-accent-color, 100%), 30%);
+            color: lighten(saturate($base-accent-color, 100%), 30%);
           }
         }
       }
