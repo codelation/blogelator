@@ -6,7 +6,6 @@
 @import "bitters/variables";
 
 .blogelator-markdown-editor {
-  font-size: 0.8em;
   margin-bottom: 1em;
   @include clearfix;
   
@@ -16,6 +15,7 @@
     color: #444;
     float: left;
     font-family: "Melno", monospace;
+    font-size: 0.8em;
     height: 100%;
     padding: 0.5em;
     position: relative;
@@ -81,7 +81,7 @@
       border-radius: 4px;
       display: block;
       font-family: "Melno", monospace;
-      font-size: 1em;
+      font-size: 0.8em;
       line-height: normal;
       margin: 0 0 1em;
       overflow-x: auto;

@@ -1,4 +1,5 @@
 //= require codemirror/codemirror
+//= require codemirror/closebrackets
 //= require codemirror/overlay
 //= require codemirror/markdown
 //= require codemirror/gfm
@@ -26,6 +27,7 @@
     didInsertElement: function() {
       var textArea = this.$('textarea')[0],
           editor = CodeMirror.fromTextArea(textArea, {
+            autoCloseBrackets: true,
             indentWithTabs: false,
             lineWrapping: true,
             mode: 'gfm',
