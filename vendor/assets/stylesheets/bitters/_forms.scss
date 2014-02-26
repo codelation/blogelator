@@ -7,84 +7,86 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color
 $form-font-size: $base-font-size;
 $form-font-family: $base-font-family;
 
-fieldset {
-  background: lighten($base-border-color, 10);
-  border: 1px solid $base-border-color;
-  margin: 0 0 ($base-line-height / 2) 0;
-  padding: $base-line-height;
-}
-
-input,
-label,
-select {
-  display: block;
-  font-family: $form-font-family;
-  font-size: $form-font-size;
-}
-
-label {
-  font-weight: bold;
-  margin-bottom: $base-line-height / 4;
-
-  &.required:after {
-    content: "*";
+body.blogelator .post {
+  fieldset {
+    background: lighten($base-border-color, 10);
+    border: 1px solid $base-border-color;
+    margin: 0 0 ($base-line-height / 2) 0;
+    padding: $base-line-height;
   }
 
-  abbr {
-    display: none;
-  }
-}
-
-textarea,
-#{$all-text-inputs} {
-  @include box-sizing(border-box);
-  @include transition(border-color);
-  background-color: white;
-  border-radius: $form-border-radius;
-  border: 1px solid $form-border-color;
-  box-shadow: $form-box-shadow;
-  font-family: $form-font-family;
-  font-size: $form-font-size;
-  margin-bottom: $base-line-height / 2;
-  padding: ($base-line-height / 3) ($base-line-height / 3);
-  resize: vertical;
-  width: 100%;
-
-  &:hover {
-    border-color: $form-border-color-hover;
+  input,
+  label,
+  select {
+    display: block;
+    font-family: $form-font-family;
+    font-size: $form-font-size;
   }
 
-  &:focus {
-    border-color: $form-border-color-focus;
-    box-shadow: $form-box-shadow-focus;
-    outline: none;
+  label {
+    font-weight: bold;
+    margin-bottom: $base-line-height / 4;
+
+    &.required:after {
+      content: "*";
+    }
+
+    abbr {
+      display: none;
+    }
   }
-}
 
-input[type="search"] {
-  @include appearance(none);
-}
+  textarea,
+  #{$all-text-inputs} {
+    @include box-sizing(border-box);
+    @include transition(border-color);
+    background-color: white;
+    border-radius: $form-border-radius;
+    border: 1px solid $form-border-color;
+    box-shadow: $form-box-shadow;
+    font-family: $form-font-family;
+    font-size: $form-font-size;
+    margin-bottom: $base-line-height / 2;
+    padding: ($base-line-height / 3) ($base-line-height / 3);
+    resize: vertical;
+    width: 100%;
 
-input[type="checkbox"], input[type="radio"] {
-  display: inline;
-  margin-right: $base-line-height / 4;
-}
+    &:hover {
+      border-color: $form-border-color-hover;
+    }
 
-input[type="file"] {
-  width: 100%;
-}
+    &:focus {
+      border-color: $form-border-color-focus;
+      box-shadow: $form-box-shadow-focus;
+      outline: none;
+    }
+  }
 
-select {
-  width: auto;
-  margin-bottom: $base-line-height;
-}
+  input[type="search"] {
+    @include appearance(none);
+  }
 
-button,
-input[type="submit"] {
-  @extend %button;
-  @include appearance(none);
-  cursor: pointer;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
+  input[type="checkbox"], input[type="radio"] {
+    display: inline;
+    margin-right: $base-line-height / 4;
+  }
+
+  input[type="file"] {
+    width: 100%;
+  }
+
+  select {
+    width: auto;
+    margin-bottom: $base-line-height;
+  }
+
+  button,
+  input[type="submit"] {
+    @extend %button;
+    @include appearance(none);
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
 }
