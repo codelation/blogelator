@@ -33,6 +33,10 @@ body.blogelator .post {
     }
   }
   
+  a {
+    text-decoration: none;
+  }
+  
   mark {
     background-color: $highlight-color;
     box-shadow: $highlight-color 0 0 5px;

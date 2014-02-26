@@ -54,7 +54,7 @@
     
     editorDidChange: function() {
       var editor = this.get('editor'),
-          preview = this.$('.html-preview .body'),
+          preview = this.$('.html-preview .post'),
           parserContext = { name: 'parseMarkdown' },
           parseDelay = this.get('parseDelay'),
           scrollContext = { name: 'scrollViewport' },
