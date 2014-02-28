@@ -1,0 +1,25 @@
+@import "bourbon";
+@import "blogelator/variables";
+
+body.blogelator {
+  ul, ol {
+    margin: 0;
+    padding: 0;
+    margin-bottom: $base-line-height / 2;
+    padding-left: $base-line-height;
+  }
+
+  dl {
+    line-height: $base-line-height;
+    margin-bottom: $base-line-height / 2;
+
+    dt {
+      font-weight: bold;
+      margin-top: $base-line-height / 2;
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
+}

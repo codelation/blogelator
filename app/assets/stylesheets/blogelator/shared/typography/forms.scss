@@ -1,3 +1,6 @@
+@import "bourbon";
+@import "blogelator/variables";
+
 $form-border-color: $base-border-color;
 $form-border-color-hover: darken($base-border-color, 10);
 $form-border-color-focus: $base-accent-color;
@@ -7,7 +10,7 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color
 $form-font-size: $base-font-size;
 $form-font-family: $base-font-family;
 
-body.blogelator .post {
+body.blogelator {
   fieldset {
     background: lighten($base-border-color, 10);
     border: 1px solid $base-border-color;

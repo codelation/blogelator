@@ -1,7 +1,7 @@
 // Styles for PostsController#show
 
 @import "bourbon";
-@import "bitters/variables";
+@import "blogelator/variables";
 @import "neat";
 
 body.blogelator.posts.show {
@@ -11,14 +11,18 @@ body.blogelator.posts.show {
       text-align: center;
       
       a {
-        color: #222;
+        border-bottom: 1px solid $base-body-color;
+        color: $base-font-color;
+        text-decoration: none;
+        @include transition(border-bottom 0.2s linear);
+        
+        &:hover {
+          border-bottom: 1px solid lighten($base-accent-color, 30%);
+        }
       }
     }
     
     & > .date {
-      color: #aaa;
-      font-size: 0.8em;
-      margin: -0.2em auto 2em auto;
       text-align: center;
     }
   }

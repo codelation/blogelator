@@ -15,30 +15,22 @@ $base-border-radius: em(3);
 // Colors
 ///////////////////////////////////////////////////////////////////////////////
 
-$blue: #477DCA;
-$dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #DDD;
-$light-red: #FBE3E4;
-$light-yellow: #FFF6BF;
-$light-green: #E6EFC2;
-
 // Body Color
 $base-body-color: white;
 
 //  Font Colors
 $base-font-color: #3e3e3e;
-$base-accent-color: $blue;
-$highlight-color: $light-yellow;
+$base-accent-color: #7ac906;
+$highlight-color: #fff6bf;
 
 //  Text Link Colors
 $base-link-color: $base-accent-color;
-$hover-link-color: darken($base-accent-color, 15);
+$hover-link-color: darken($base-accent-color, 8%);
 
 // Border color
-$base-border-color: $light-gray;
+$base-border-color: #ddd;
 
 // Flash Colors
-$error-color: $light-red;
-$notice-color: $light-yellow;
-$success-color: $light-green;
+$error-color: #fbe3e4;
+$notice-color: #fff6bf;
+$success-color: #e6efc2;

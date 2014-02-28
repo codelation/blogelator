@@ -1,5 +1,5 @@
 @import "bourbon";
-@import "bitters/variables";
+@import "blogelator/variables";
 @import "neat";
 
 body.blogelator.admin.posts {
@@ -22,12 +22,6 @@ body.blogelator.admin.posts {
           margin-bottom: 0;
         }
         
-        & > .date {
-          color: #bbb;
-          font-size: 0.8em;
-          margin: -0.2em auto 0.5em auto;
-        }
-        
         & > .summary {
           color: #aaa;
           font-size: 0.9em;
@@ -47,10 +41,6 @@ body.blogelator.admin.posts {
         &:hover {
           h2 {
             color: #000;
-          }
-          
-          & > .date {
-            color: #aaa;
           }
           
           & > .summary {
@@ -87,13 +77,6 @@ body.blogelator.admin.posts {
     .html-preview {
       & > h1 {
         margin-bottom: 0;
-        text-align: center;
-      }
-
-      & > .date {
-        color: #aaa;
-        font-size: 0.8em;
-        margin: -0.2em auto 2em auto;
         text-align: center;
       }
     }

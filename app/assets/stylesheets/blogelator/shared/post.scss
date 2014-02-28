@@ -1,14 +1,22 @@
-body.blogelator .post {
+// Styles for all blog posts
+@import "bourbon";
+@import "../variables";
+@import "neat";
+
+body.blogelator.posts .post {
   color: $base-font-color;
   font-family: $base-font-family;
   font-size: $base-font-size;
-  -webkit-font-smoothing: antialiased;
   line-height: $base-line-height;
-  
+  -webkit-font-smoothing: antialiased;
+}
+
+// Post heading styles
+body.blogelator.posts .post {
   h1, h2, h3, h4, h5, h6 {
     font-family: $header-font-family;
     line-height: 1.25em;
-    margin: 0;
+    margin: 0 0 0.5em;
     text-rendering: optimizeLegibility; // Fix the character spacing for headings
   }
 
@@ -35,14 +43,25 @@ body.blogelator .post {
   h6 {
     font-size: $base-font-size;
   }
+}
 
+// Post date style
+body.blogelator.posts .post {
+  & > .date {
+    color: lighten($base-font-color, 40%);
+    font-size: 0.8em;
+    margin: -0.2em auto 1em auto;
+  }
+}
+
+// Post body styles
+body.blogelator.posts .post {
   p {
     margin: 0 0 ($base-line-height * .5);
   }
 
   a {
     color: $base-link-color;
-    text-decoration: none;
     @include transition(color 0.1s linear);
 
     &:hover {
@@ -85,6 +104,16 @@ body.blogelator .post {
   del {
     color: lighten($base-font-color, 15);
   }
+  
+  code {
+    background-color: darken($base-body-color, 3%);
+    border: 1px solid $base-border-color;
+    border-radius: $base-border-radius;
+    font-size: 0.95em;
+    margin-left: 1px;
+    margin-right: 1px;
+    padding: 0 4px;
+  }
 
   blockquote {
     border-left: 2px solid $base-border-color;
@@ -100,7 +129,22 @@ body.blogelator .post {
     &:before {
       content: '\2014 \00A0';
     }
-  }
-  
+  } 
 }
 
+// Post margins
+body.blogelator.posts {
+  .post > h1,
+  .post > h2,
+  .post > .date,
+  .post > .summary,
+  .post > .body {
+    @include outer-container;
+    max-width: 700px;
+    padding: 0 10px;
+  }
+  .post > h1,
+  .post > h2 {
+    padding: 0 8px;
+  }
+}
