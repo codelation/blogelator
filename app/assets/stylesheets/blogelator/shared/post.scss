@@ -105,6 +105,11 @@ body.blogelator.posts .post {
     color: lighten($base-font-color, 15);
   }
   
+  pre {
+    margin: 0;
+    padding: 0;
+  }
+  
   code {
     background-color: darken($base-body-color, 3%);
     border: 1px solid $base-border-color;
