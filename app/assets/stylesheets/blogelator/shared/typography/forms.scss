@@ -85,7 +85,6 @@ body.blogelator {
 
   button,
   input[type="submit"] {
-    @extend %button;
     @include appearance(none);
     cursor: pointer;
     user-select: none;
