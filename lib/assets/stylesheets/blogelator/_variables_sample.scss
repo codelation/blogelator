@@ -1,3 +1,5 @@
+@import "bourbon";
+
 // Typography
 $sans-serif: $helvetica;
 $serif: $georgia;
@@ -11,7 +13,7 @@ $base-line-height: $base-font-size * 1.5;
 $base-border-radius: em(3);
 
 // Body Color
-$base-body-color: white;
+$base-body-color: #fff;
 
 // Font Colors
 $base-font-color: #3e3e3e;

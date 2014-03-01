@@ -1,0 +1,38 @@
+@import "bourbon";
+
+// Typography
+$sans-serif: $helvetica;
+$serif: $georgia;
+
+$base-font-family: $sans-serif;
+$header-font-family: $base-font-family;
+
+// Sizes
+$base-font-size: 1em;
+$base-line-height: $base-font-size * 1.5;
+$base-border-radius: em(3);
+
+// Body Color
+$base-body-color: #fff;
+
+// Font Colors
+$base-font-color: #3e3e3e;
+$base-accent-color: #df0061;
+
+// Text Link Colors
+$base-link-color: $base-accent-color;
+$hover-link-color: darken($base-accent-color, 8%);
+
+// Border color
+$base-border-color: #ddd;
+
+// Flash Colors
+$error-color: #fbe3e4;
+$notice-color: #fff6bf;
+$success-color: #e6efc2;
+
+// Admin Colors
+$admin-header-color: #444;
+$admin-header-accent-color: $base-accent-color;
+$admin-header-active-color: #fff;
+$admin-header-highlight-color: lighten($base-accent-color, 20%);
