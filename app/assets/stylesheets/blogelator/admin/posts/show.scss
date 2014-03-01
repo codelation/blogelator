@@ -1,0 +1,31 @@
+@import "bourbon";
+@import "blogelator/variables";
+@import "neat";
+
+body.blogelator.admin.posts.show {
+  article.post > * {
+    max-width: 100%;
+  }
+  article.post > h1 {
+    margin: 0.5em 0 0 0;
+    padding: 0;
+    text-align: center;
+  }
+  article.post > .date {
+    text-align: center;
+  }
+  footer {
+    a {
+      background-color: $base-accent-color;
+      color: $base-body-color;
+      display: block;
+      float: right;
+      font-weight: bold;
+      margin: 6px;
+      min-width: 100px;
+      padding: 5px;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
+}

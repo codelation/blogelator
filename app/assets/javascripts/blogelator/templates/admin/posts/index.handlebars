@@ -1,4 +1,4 @@
-<section>
+<section class="posts-list">
   {{#if content.isUpdating}}
     Loading...
   {{else}}
@@ -18,6 +18,12 @@
     {{/each}}
   {{/if}}
 </section>
-<article>
-  Hey, let's create a {{#link-to "admin.posts.new"}}new post{{/link-to}}!
+<article class="post">
+  <p>
+    Select a post from the left to view, edit, or publish.
+  </p>
+  <p>
+    Create a {{#link-to "admin.posts.new"}}new post{{/link-to}}!
+  </p>
+  <a href="https://github.com/codelation/blogelator" class="logo" target="_blank">Powered by Blogelator</a>
 </article>

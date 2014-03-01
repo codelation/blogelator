@@ -2,6 +2,7 @@
 
 @import "bourbon";
 @import "blogelator/variables";
+@import "blogelator/mixins/blogelator_logo";
 @import "neat";
 
 body.blogelator {
@@ -39,5 +40,10 @@ body.blogelator {
         }
       }
     }
+  }
+  
+  footer .logo {
+    @include blogelator-logo(32);
+    margin: 1em auto;
   }
 }

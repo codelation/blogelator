@@ -1,5 +1,7 @@
 @import "bourbon";
 @import "blogelator/variables";
+@import "blogelator/mixins/blogelator_logo";
+@import "neat";
 
 body.blogelator.admin {
   header,
@@ -55,10 +57,24 @@ body.blogelator.admin {
 body.blogelator.admin {
   main {
     bottom: 45px;
-    padding: 0.6em 0.5em 0.5em 0.5em;
+    overflow: hidden;
     position: absolute;
     top: 45px;
     width: 100%;
+    
+    section.posts-list {
+      @include span-columns(4);
+      height: 100%;
+      overflow: auto;
+      padding: 0.5em;
+    }
+    article.post {
+      @include span-columns(8);
+      height: 100%;
+      margin: 0;
+      padding: 0.5em;
+      overflow: auto;
+    }
   }
 }
 
@@ -66,5 +82,10 @@ body.blogelator.admin {
   footer {
     bottom: 0;
     top: auto;
+    
+    .logo {
+      @include blogelator-logo(30);
+      margin: 5px 0 0 5px;
+    }
   }
 }

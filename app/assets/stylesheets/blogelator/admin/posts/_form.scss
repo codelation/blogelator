@@ -3,7 +3,10 @@
 @import "neat";
 
 body.blogelator.admin.posts {
-  input.title {
-    font-size: 1.1em;
+  .post-form {
+    padding: 0.5em;
+    input.title {
+      font-size: 1.1em;
+    }
   }
 }
