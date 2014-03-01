@@ -1,9 +1,13 @@
-body.blogelator .highlight {
-  background-color: #fbfbfb;
-  border: 1px solid #eee;
-  border-radius: 4px;
+@import "bourbon";
+@import "blogelator/variables";
+
+body.blogelator .highlight,
+body.blogelator .post pre code.highlight {
+  background-color: darken($base-body-color, 3%);
+  border: 1px solid $base-border-color;
+  border-radius: $base-border-radius;
   display: block;
-  font-family: "Melno", "Monaco", monospace;
+  font-family: "Menlo", "Monaco", monospace;
   font-size: 0.8em;
   line-height: normal;
   margin: 0 0 1em;

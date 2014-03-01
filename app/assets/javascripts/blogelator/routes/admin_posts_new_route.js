@@ -33,8 +33,17 @@
         }
       }
     },
+    
     model: function() {
       return App.Post.createRecord();
+    },
+    
+    renderTemplate: function() {
+      this.render(); 
+      this.render('admin/posts/_form_action_bar', {
+        into: 'application',
+        outlet: 'footer'
+      });
     }
   });
   

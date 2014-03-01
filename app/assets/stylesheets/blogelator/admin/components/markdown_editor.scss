@@ -10,20 +10,20 @@
   @include clearfix;
   
   .CodeMirror {
-    background-color: #fff;
-    border: 1px solid #eee;
-    color: #444;
+    background-color: $base-body-color;
+    border: 1px solid $base-border-color;
+    color: $base-font-color;
     float: left;
-    font-family: "Melno", monospace;
-    font-size: 0.8em;
+    font-family: "Menlo", "Monaco", monospace;
     height: 100%;
+    line-height: 1.1em;
     padding: 0.5em;
     position: relative;
     width: 49.8%;
     @include box-sizing(border-box);
     
     &:before {
-      background-color: rgba(#fff, 0.95);
+      background-color: rgba($base-body-color, 0.92);
       content: "GitHub Flavored Markdown";
       color: #aaa;
       display: block;
@@ -36,25 +36,27 @@
       top: 0;
       width: 100%;
       z-index: 10;
+      @include box-sizing(border-box);
     }
     
     .CodeMirror-sizer {
+      font-size: 0.8em;
       padding-top: 2em;
     }
   }
   .html-preview {
-    background-color: #fff;
-    border: 1px solid #eee;
+    background-color: $base-body-color;
+    border: 1px solid $base-border-color;
     float: right;
     height: 100%;
     margin-top: 0em;
-    padding: 0.5em;
+    padding: 0.5em 0.5em 0 0.5em;
     position: relative;
     width: 49.8%;
     @include box-sizing(border-box);
     
     &:before {
-      background-color: rgba(#fff, 0.95);
+      background-color: rgba($base-body-color, 0.92);
       content: "Preview";
       color: #aaa;
       display: block;
@@ -67,26 +69,13 @@
       top: 0;
       width: 100%;
       z-index: 10;
+      @include box-sizing(border-box);
     }
     
     .post {
       height: 100%;
       overflow: auto;
       padding-top: 2em;
-    }
-    
-    .highlight, pre code {
-      background-color: #fbfbfb;
-      border: 1px solid #eee;
-      border-radius: 4px;
-      display: block;
-      font-family: "Melno", monospace;
-      font-size: 0.8em;
-      line-height: normal;
-      margin: 0 0 1em;
-      overflow-x: auto;
-      padding: 1em;
-      width: 100%;
     }
   }
   

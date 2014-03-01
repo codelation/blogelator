@@ -1,0 +1,9 @@
+@import "bourbon";
+@import "blogelator/variables";
+@import "neat";
+
+body.blogelator.admin.posts {
+  input.title {
+    font-size: 1.1em;
+  }
+}

@@ -3,12 +3,14 @@
 @import "neat";
 
 body.blogelator.admin.posts.new {
+  background-color: darken($base-body-color, 5%);
+  
   header ul li a.posts-index-link.active {
     border-bottom: 5px solid $base-accent-color;
-    color: lighten($base-accent-color, 5%);
+    color: $base-accent-color;
     &:hover {
-      border-bottom: 5px solid #fff;
-      color: #fff;
+      border-bottom: 5px solid $admin-header-highlight-color;
+      color: $admin-header-highlight-color;
     }
   }
 }
