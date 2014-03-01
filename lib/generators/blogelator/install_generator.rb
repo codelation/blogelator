@@ -37,5 +37,17 @@ INITIALIZER
       rake "blogelator:install:migrations"
     end
     
+    def mount_engine
+      insert_into_file(File.join("config", "routes.rb"), :after => "Application.routes.draw do\n") do <<-MOUNTENGINE
+  # This line mounts Blogelator's routes to the path '#{@blogelator_route}'.
+  # This means, any requests to '#{@blogelator_route}', will go to Blogelator::PostsController.
+  # If you would like to change where this engine is mounted, simply change the :at option to something different.
+  #
+  # We ask that you don't use the :as option here, as Blogelator relies on it being the default of "blogelator"
+  mount Blogelator::Engine, at: "#{@blogelator_route}"
+        MOUNTENGINE
+      end
+    end
+    
   end
 end
