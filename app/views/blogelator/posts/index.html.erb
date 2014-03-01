@@ -1,5 +1,35 @@
 <% cache(@posts) do %>
-  <div class="posts">
+  <% if @posts.length > 0 %>
     <%= render @posts %>
-  </div>
+  <% else %>
+    <div class="post">
+      <h2>
+        <a href="https://github.com/codelation/blogelator">
+          Welcome to Blogelator
+        </a>
+      </h2>
+      <div class="date">
+        <%= local_time(Time.now, format: '%B %e, %Y') %>
+      </div>
+      <div class="summary">
+        <p>
+          Navigate to <%= link_to "#{File.join(request.path, "admin")}", blogelator.admin_path %>
+          to create your first blog post. You will need to have your authentication set up
+          already before you can access the Blogelator admin section.
+        </p>
+        <p>
+          For more information about setting up Blogelator, check out the Readme on GitHub:
+        </p>
+        <blockquote>
+          <a href="https://github.com/codelation/blogelator">https://github.com/codelation/blogelator</a>
+        </blockquote>
+        <p>
+          Thanks for using Blogelator,
+        </p>
+        <p>
+          <a href="http://twitter.com/brianpattison">@brianpattison</a>
+        </p>
+      </div>
+    </div>
+  <% end %>
 <% end %>
