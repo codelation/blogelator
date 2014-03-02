@@ -26,6 +26,22 @@ Blogelator::Config.user_class = "#{@user_class}"
 INITIALIZER
     end
     
+    def create_stylesheets
+      create_file "app/assets/stylesheets/blogelator/application.css.scss", <<-APPLICATIONCSS
+/*
+ *= require blogelator/application/all
+ *= require_self
+ */
+APPLICATIONCSS
+
+      create_file "app/assets/stylesheets/blogelator/admin.css.scss", <<-ADMINCSS
+/*
+ *= require blogelator/admin/all
+ *= require_self
+ */
+ADMINCSS
+    end
+    
     def copy_variables_file
       puts File.expand_path("../../../..", __FILE__)
       source = "lib/assets/stylesheets/blogelator/_variables_sample.scss"

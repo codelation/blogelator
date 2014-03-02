@@ -16,7 +16,7 @@ module Blogelator
     
     # Precompile Blogelator Assets
     initializer "blogelator.assets.precompile" do |app|
-      app.config.assets.precompile += %w(blogelator.css blogelator/admin.css blogelator/admin.js)
+      app.config.assets.precompile += %w(blogelator/application.css blogelator/admin.css blogelator/admin.js)
     end
     
     # Add Blogelator Handlebars Templates Path
