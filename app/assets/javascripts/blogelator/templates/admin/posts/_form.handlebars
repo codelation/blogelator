@@ -1,8 +1,6 @@
 <div class="post-form">
-  <div class="field">
+  <div>
     {{view Ember.TextField class="title" placeholder="Blog Post Title" valueBinding="title"}}
   </div>
-  <div class="field">
-    {{markdown-editor contentBinding="bodyMarkdown" titleBinding="title" dateBinding="date"}}
-  </div>
+  {{markdown-editor contentBinding="bodyMarkdown" titleBinding="title" dateBinding="date"}}
 </div>

@@ -33,8 +33,7 @@
             mode: 'gfm',
             smartIndent: false,
             tabSize: 2
-          }), 
-          self = this;
+          });
       
       // Replace tab with spaces
       editor.addKeyMap({
@@ -44,12 +43,6 @@
         }
       });
       this.set('editor', editor);
-      
-      // Resize the editor when the window is resized
-      $(window).on('resize', function() {
-        self.resizeEditor();
-      });
-      this.resizeEditor();
     },
     
     editorDidChange: function() {
@@ -100,29 +93,10 @@
       return marked(content);
     }.property('content'),
     
-    resizeEditor: function() {
-      var resizeContext = { name: 'resizeWindow' },
-          resizeDelay = this.get('resizeDelay'),
-          self = this;
-          
-      var resizeEditor = function() {
-        var element = $(self.get('element')),
-            windowHeight = $(window).height(),
-            negativeHeight = self.get('negativeHeight'),
-            viewportHeight = windowHeight - negativeHeight;
-          
-        self.set('viewportHeight', viewportHeight);
-        element.height(viewportHeight);
-      };
-      
-      Ember.run.debounce(resizeContext, resizeEditor, resizeDelay);
-    },
-    
     willDestroyElement: function() {
       var editor = this.get('editor');
       editor.off('change');
       editor.off('scroll');
-      $(window).off('resize');
     }
 	});
   

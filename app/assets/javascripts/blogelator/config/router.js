@@ -2,7 +2,7 @@
   "use strict";
   
   App.Router.reopen({
-    rootURL: App.blogelatorPath + '/admin',
+    rootURL: (App.get('blogelatorPath') === '/' ? '' : App.get('blogelatorPath')) + '/admin',
     location: 'history'
   });
 

@@ -14,6 +14,5 @@
 
 App = Ember.Application.create({
   LOG_TRANSITIONS: true,
-  blogelatorPath: '/' + location.pathname.split('/')[1]
+  blogelatorPath: '/' + (location.pathname.split('/')[1] === 'admin' ? '' : location.pathname.split('/')[1])
 });
-

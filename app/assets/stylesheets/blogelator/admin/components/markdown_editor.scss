@@ -6,8 +6,12 @@
 @import "blogelator/variables";
 
 .blogelator-markdown-editor {
+  bottom: -0.5em;
+  left: 0.5em;
   margin-bottom: 1em;
-  @include clearfix;
+  position: absolute;
+  right: 0.5em;
+  top: 3.5em;
   
   .CodeMirror {
     background-color: $base-body-color;
