@@ -3,7 +3,7 @@
   
   App.IndexRoute = Ember.Route.extend({
     beforeModel: function() {
-      this.transitionTo('admin.posts');
+      this.transitionTo('posts');
     }
   });
   

@@ -10,25 +10,40 @@ Gem::Specification.new do |s|
   s.authors     = ["Brian Pattison", "Matthew Sullivan"]
   s.email       = ["brian@81designs.com", "matthew@81designs.com"]
   s.homepage    = "http://github.com/81designs/blogelator"
-  s.summary     = "A custom built blogging engine for our company website."
-  s.description = "A custom built blogging engine for our company website, made with love."
+  s.summary     = "A blog in the form of a mountable Rails::Engine."
+  s.description = "Blogelator is a mountable Rails::Engine for adding a blog to your Rails app."
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
+  s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "bourbon", "~> 3.1.8"
-  s.add_dependency "cancan", "~> 1.6.10"
-  s.add_dependency "deface", "~> 1.0.0"
-  s.add_dependency "ember-rails", "~> 0.14.1"
-  s.add_dependency "ember-source", "~> 1.4.0"
+  s.add_dependency "bourbon", "~> 3.1"
+  s.add_dependency "cancan", "~> 1.6"
+  s.add_dependency "deface", "~> 1.0"
+  s.add_dependency "ember-rails", "~> 0.14"
+  s.add_dependency "ember-source", "~> 1.4"
   s.add_dependency "jquery-rails", "~> 3.0.4"
-  s.add_dependency "local_time", "~> 0.3.0"
-  s.add_dependency "neat", "~> 1.5.0"
-  s.add_dependency "pygments.rb", "~> 0.5.4"
-  s.add_dependency "rails", "~> 4.0.3"
-  s.add_dependency "redcarpet", "~> 3.1.1"
-  s.add_dependency "sass", "~> 3.2.14"
+  s.add_dependency "local_time", "~> 0.3"
+  s.add_dependency "neat", "~> 1.5"
+  s.add_dependency "pygments.rb", "~> 0.5"
+  s.add_dependency "rails", "~> 4.0"
+  s.add_dependency "redcarpet", "~> 3.1"
+  s.add_dependency "sass-rails", "~> 4.0"
+  s.add_dependency "uglifier", "~> 2.4"
   
-  s.add_development_dependency "sqlite3"
-  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "awesome_print", "~> 1.2"
+  s.add_development_dependency "better_errors", "~> 1.1"
+  s.add_development_dependency "binding_of_caller", "~> 0.7"
+  s.add_development_dependency "capybara", "~> 2.2"
+  s.add_development_dependency "database_cleaner", "~> 1.2"
+  s.add_development_dependency "dotenv-rails", "~> 0.10"
+  s.add_development_dependency "factory_girl_rails", "~> 4.4"
+  s.add_development_dependency "foreman", "~> 0.63"
+  s.add_development_dependency "guard", "~> 2.5"
+  s.add_development_dependency "guard-rspec", "~> 4.2"
+  s.add_development_dependency "puma", "~> 2.8"
+  s.add_development_dependency "quiet_assets", "~> 1.0"
+  s.add_development_dependency "rb-fsevent", "~> 0.9"
+  s.add_development_dependency "rspec-rails", "~> 2.14"
+  s.add_development_dependency "sqlite3", "~> 1.3"
+  s.add_development_dependency "terminal-notifier-guard", "~> 1.5"
 end

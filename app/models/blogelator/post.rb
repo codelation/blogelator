@@ -3,8 +3,7 @@ module Blogelator
     has_many :tags
     belongs_to :author, class_name: Blogelator::Config.user_class
     
-    before_create :set_slug
-    before_save :parse_markdown
+    before_save :parse_markdown, :set_slug
     
     scope :published,   -> { where("published_at IS NOT NULL").order("published_at DESC") }
     scope :unpublished, -> { where("published_at IS NULL").order("created_at DESC") }
@@ -14,7 +13,7 @@ module Blogelator
     end
     
     def published?
-      self.published_at.nil?
+      !self.published_at.nil?
     end
     
     def to_param
@@ -34,10 +33,12 @@ module Blogelator
     end
     
     def set_slug
-      self.slug = self.title.parameterize
-      existing_slug_count = self.class.where(slug: self.slug).count
-      if existing_slug_count > 0
-        self.slug = self.slug + "-#{existing_slug_count}"
+      if self.published_at && self.slug.nil?
+        self.slug = self.title.parameterize
+        existing_slug_count = self.class.where(slug: self.slug).count
+        if existing_slug_count > 0
+          self.slug = self.slug + "-#{existing_slug_count}"
+        end
       end
     end
   end
