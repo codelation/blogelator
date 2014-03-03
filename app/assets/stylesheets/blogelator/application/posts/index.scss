@@ -56,6 +56,7 @@ body.blogelator.posts.index .pagination {
     position: relative;
     text-align: center;
     text-decoration: none;
+    @include transition(all 0.1s linear);
     
     &:before {
       @extend .fa;

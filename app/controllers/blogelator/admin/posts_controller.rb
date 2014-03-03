@@ -17,7 +17,7 @@ module Blogelator
       # GET /admin/posts/1
       def show
         @title = @post.title
-        respond_with @post
+        render json: @post
       end
 
       # POST /admin/posts
@@ -25,9 +25,9 @@ module Blogelator
         @post = Blogelator::Post.new(post_params)
         
         if @post.save
-          respond_with @post, status: :created
+          render json: @post, status: :created
         else
-          respond_with @post, status: :unprocessable_entity
+          render json: @post, status: :unprocessable_entity
         end
       end
 
@@ -36,7 +36,7 @@ module Blogelator
         if @post.update(post_params)
           head :no_content
         else
-          respond_with @post, status: :unprocessable_entity
+          render json: @post, status: :unprocessable_entity
         end
       end
 
