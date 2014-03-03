@@ -1,7 +1,6 @@
 language: ruby
 rvm:
   - 2.0.0
-script: ./travis.sh
 notifications:
   email: false
   webhooks: 
