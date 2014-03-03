@@ -262,6 +262,7 @@ DEPENDENCIES
   guard-rspec (~> 4.2)
   puma (~> 2.8)
   quiet_assets (~> 1.0)
+  rake
   rb-fsevent (~> 0.9)
   rspec-rails (~> 2.14)
   sqlite3 (~> 1.3)
