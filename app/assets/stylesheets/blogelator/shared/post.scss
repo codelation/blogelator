@@ -4,10 +4,13 @@
 @import "neat";
 
 body.blogelator.posts .post {
+  border-bottom: 1px solid lighten($base-border-color, 8%);
   color: $base-font-color;
   font-family: $base-font-family;
   font-size: $base-font-size;
   line-height: $base-line-height;
+  margin-bottom: 2em;
+  padding-bottom: 1em;
   -webkit-font-smoothing: antialiased;
 }
 

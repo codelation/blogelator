@@ -9,3 +9,19 @@
     </div>
   </div>
 <% end %>
+
+<div class="more-posts">
+  <% if @previous_post %>
+    <%= link_to @previous_post, class: "previous" do %>
+      <%= @previous_post.title %><br />
+      <%= local_time(@previous_post.published_at, format: '%B %e, %Y') %>
+    <% end %>
+  <% end %>
+  
+  <% if @next_post %>
+    <%= link_to @next_post, class: "next" do %>
+      <%= @next_post.title %><br />
+      <%= local_time(@next_post.published_at, format: '%B %e, %Y') %>
+    <% end %>
+  <% end %>
+</div>

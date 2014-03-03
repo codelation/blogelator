@@ -2,28 +2,63 @@
 
 @import "bourbon";
 @import "blogelator/variables";
+@import "blogelator/mixins/blogelator_button";
 @import "neat";
 
-body.blogelator.posts.show {
-  .post {
-    & > h1 {
-      margin-bottom: 0;
-      text-align: center;
+body.blogelator.posts.show .post {
+  & > h1 {
+    margin-bottom: 0;
+    text-align: center;
+    
+    a {
+      border-bottom: 1px solid $base-body-color;
+      color: $base-font-color;
+      text-decoration: none;
+      @include transition(border-bottom 0.2s linear);
       
-      a {
-        border-bottom: 1px solid $base-body-color;
-        color: $base-font-color;
-        text-decoration: none;
-        @include transition(border-bottom 0.2s linear);
-        
-        &:hover {
-          border-bottom: 1px solid lighten($base-accent-color, 30%);
-        }
+      &:hover {
+        border-bottom: 1px solid lighten($base-accent-color, 30%);
       }
     }
+  }
+  
+  & > .date {
+    text-align: center;
+  }
+}
+
+body.blogelator.posts.show .more-posts {
+  @include outer-container;
+  max-width: 700px;
+  padding: 0 1em;
+  
+  a.previous {
+    @include blogelator-button($base-body-color, $base-accent-color, "chevron-circle-left", "left");
+    float: left;
+  }
+  
+  a.next {
+    @include blogelator-button($base-body-color, $base-accent-color, "chevron-circle-right", "right");
+    float: right;
+  }
+  
+  a.previous,
+  a.next {
+    line-height: normal;
+    max-width: 300px;
+    text-align: left;
+    width: auto;
     
-    & > .date {
-      text-align: center;
+    time {
+      color: lighten($base-font-color, 40%);
+      font-size: 0.8em;
+      font-weight: normal;
+    }
+    
+    &:hover {
+      time {
+        color: rgba($base-body-color, 0.8);
+      }
     }
   }
 }

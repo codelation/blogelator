@@ -19,9 +19,19 @@ module Blogelator
     
   private
   
+    def set_next_post
+      @next_post = Blogelator::Post.where("published_at > ?", @post.published_at).order("published_at ASC").first
+    end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Blogelator::Post.find_by_slug(params[:id])
+      set_previous_post
+      set_next_post
+    end
+    
+    def set_previous_post
+      @previous_post = Blogelator::Post.where("published_at < ?", @post.published_at).order("published_at DESC").first
     end
   end
 end
