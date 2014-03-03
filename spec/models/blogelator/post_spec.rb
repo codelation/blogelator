@@ -29,7 +29,7 @@ module Blogelator
   describe Post, "#body_html" do
     it "returns the converted HTML from #body_markdown on save" do
       post = create(:post)
-      post.body_html.should eq("<h2>Heading.h2</h2>\n\n<p>Here&rsquo;s a paragraph with some <strong>bold</strong> text.</p>\n\n<ul>\n<li>And some</li>\n<li>List</li>\n<li>Items</li>\n</ul>\n")
+      post.body_html.should eq("<p>Here&rsquo;s a paragraph with some <strong>bold</strong> text.</p>\n\n<h2>Heading.h2</h2>\n\n<ul>\n<li>And some</li>\n<li>List</li>\n<li>Items</li>\n</ul>\n")
     end
   end
   
@@ -71,7 +71,7 @@ module Blogelator
   end
   
   describe Post, "#summary" do
-    it "should limit to 300 characters of the body text by default" do
+    it "should limit to 300 characters of the first paragraph by default" do
       post = create(:long_post, published_at: Time.now)
       post.summary.should include("This should be in the summary.")
       post.summary.should include("&hellip;")
@@ -82,6 +82,11 @@ module Blogelator
       post = create(:post, body_markdown: "Hello world.", published_at: Time.now)
       post.summary.should include("Hello world.")
       post.summary.should_not include("&#8230;")
+    end
+    
+    it "returns a custom summary if set before save" do
+      post = create(:post, custom_summary: "Custom summary.", published_at: Time.now)
+      post.summary.should include("Custom summary.")
     end
   end
   
