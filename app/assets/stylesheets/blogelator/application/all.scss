@@ -6,6 +6,7 @@
  *= require_self
  */
 
+@import "font-awesome/variables";
 @font-face {
   font-family: 'FontAwesome';
   src: font-url('fontawesome-webfont.eot?v=#{$fa-version}');

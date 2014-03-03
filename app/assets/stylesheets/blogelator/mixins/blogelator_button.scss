@@ -26,7 +26,7 @@
   }
   
   @if $icon != "none" {
-    $icon-class: ".fa-" + $icon;
+    $icon-class: "." + $fa-css-prefix + "-" + $icon;
     padding: 0.8em 1.1em;
     
     &:before {
