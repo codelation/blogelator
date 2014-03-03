@@ -7,7 +7,7 @@ PATH
       deface (~> 1.0)
       ember-rails (~> 0.14)
       ember-source (~> 1.4)
-      font-awesome-sass (~> 4.0)
+      font-awesome-sass (~> 4.0.1)
       jquery-rails (~> 3.0.4)
       kaminari (~> 0.15)
       local_time (~> 0.3)

@@ -1,6 +1,8 @@
 @import "bourbon";
 @import "blogelator/variables";
-@import "font-awesome";
+@import "font-awesome/variables";
+@import "font-awesome/core";
+@import "font-awesome/icons";
 
 @mixin blogelator-button($background-color:$base-body-color, $accent-color:$base-accent-color, $icon:"none", $icon-position:"none") {
   background-color: $background-color;

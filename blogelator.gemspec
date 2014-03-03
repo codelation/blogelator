@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "deface", "~> 1.0"
   s.add_dependency "ember-rails", "~> 0.14"
   s.add_dependency "ember-source", "~> 1.4"
-  s.add_dependency "font-awesome-sass", "~> 4.0"
+  s.add_dependency "font-awesome-sass", "~> 4.0.1"
   s.add_dependency "jquery-rails", "~> 3.0.4"
   s.add_dependency "kaminari", "~> 0.15"
   s.add_dependency "local_time", "~> 0.3"
