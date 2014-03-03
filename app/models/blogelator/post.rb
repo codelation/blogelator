@@ -1,9 +1,11 @@
 module Blogelator
   class Post < ActiveRecord::Base
+    attr_accessor :custom_summary
+    
     has_many :tags
     belongs_to :author, class_name: Blogelator::Config.user_class
     
-    before_save :parse_markdown, :set_slug
+    before_save :parse_markdown, :set_slug, :set_summary
     
     scope :published,   -> { where("published_at IS NOT NULL").order("published_at DESC") }
     scope :unpublished, -> { where("published_at IS NULL").order("created_at DESC") }
@@ -23,15 +25,28 @@ module Blogelator
     end
     
   private
-    
-    def parse_markdown
-      markdown = Redcarpet::Markdown.new(Blogelator::HTMLRenderer, {
+  
+    def markdown
+      @markdown ||= Redcarpet::Markdown.new(Blogelator::HTMLRenderer, {
         autolink: true,
         disable_indented_code_blocks: true,
         fenced_code_blocks: true,
         space_after_headers: true
       })
+    end
+    
+    def parse_markdown
       self.body_html = markdown.render(self.body_markdown)
+    end
+    
+    def set_summary
+      if @custom_summary.blank?
+        summary_text = self.body_markdown.first(300).strip
+        summary_text += "..." if self.body_markdown.length > 300
+        self.summary = markdown.render(summary_text)
+      else
+        self.summary = markdown.render(@custom_summary)
+      end
     end
     
     def set_slug

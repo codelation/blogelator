@@ -59,6 +59,18 @@ feature "User visits the blog" do
     page.should_not have_content "Post 6"
   end
   
+  it "has the summary of each blog post" do
+    create(:post, title: "Post 1", published_at: Time.now)
+    create(:long_post, title: "Post 2", published_at: Time.now - 1.day)
+    
+    visit blogelator.root_path
+    
+    page.should have_content "paragraph with some bold text"
+    page.should have_content "This should be in the summary."
+    page.should have_content "…"
+    page.should_not have_content "This should not show up in the summary."
+  end
+  
   it "should take them to the post when they click the title" do
     post = create(:post, title: "Click Me Please!", published_at: Time.now)
     
