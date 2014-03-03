@@ -6,7 +6,10 @@ module Blogelator
     
     # GET /
     def index
-      @posts = Blogelator::Post.published
+      page = params[:page] ? params[:page].to_i : 1
+      per_page = Blogelator::Config.posts_per_page
+      
+      @posts = Blogelator::Post.published.page(page).per(per_page)
     end
     
     # GET /post-title

@@ -2,20 +2,76 @@
 
 @import "bourbon";
 @import "blogelator/variables";
+@import "font-awesome";
 @import "neat";
 
-body.blogelator.posts.index {
-  .post {
-    border-bottom: 1px solid lighten($base-border-color, 8%);
-    margin-bottom: 2em;
-    padding-bottom: 1em;
+body.blogelator.posts.index .post {
+  border-bottom: 1px solid lighten($base-border-color, 8%);
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  
+  & > h2 {
+    margin-bottom: 0;
     
-    & > h2 {
-      margin-bottom: 0;
-      
-      a {
-        text-decoration: none;
-      }
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+body.blogelator.posts.index .pagination {
+  @include outer-container;
+  max-width: 700px;
+  padding: 0 1em;
+  
+  a {
+    background-color: $base-body-color;
+    border: 1px solid $base-accent-color;
+    border-radius: 1.5em;
+    color: $base-accent-color;
+    display: block;
+    font-weight: bold;
+    height: 3em;
+    line-height: 3em;
+    min-width: 120px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    
+    &:before {
+      @extend .fa;
+      height: 1em;
+      font-size: 1.3em;
+      margin-top: -0.5em;
+      position: absolute;
+      top: 50%;
+    }
+    
+    &:active,
+    &:hover {
+      background-color: $base-accent-color;
+      color: $base-body-color;
+    }
+  }
+}
+ 
+body.blogelator.posts.index .pagination {
+  a.older {
+    float: left;
+    padding-left: 1em;
+    
+    &:before {
+      @extend .fa-chevron-circle-left;
+      left: 0.7em;
+    }
+  }
+  a.newer {
+    float: right;
+    padding-right: 1em;
+    
+    &:before {
+      @extend .fa-chevron-circle-right;
+      right: 0.7em;
     }
   }
 }

@@ -8,6 +8,8 @@ module Blogelator
     scope :published,   -> { where("published_at IS NOT NULL").order("published_at DESC") }
     scope :unpublished, -> { where("published_at IS NULL").order("created_at DESC") }
     
+    validates_presence_of :title
+    
     def active_model_serializer
       Blogelator::PostSerializer
     end

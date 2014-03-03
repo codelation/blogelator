@@ -1,6 +1,10 @@
 <% cache(@posts) do %>
   <% if @posts.length > 0 %>
     <%= render @posts %>
+    <div class="pagination">
+      <%= link_to_next_page @posts, "Older", class: "older" %>
+      <%= link_to_previous_page @posts, "Newer", class: "newer" %>
+    </div>
   <% else %>
     <div class="post">
       <h2>

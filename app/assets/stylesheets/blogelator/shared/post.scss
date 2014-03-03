@@ -149,10 +149,10 @@ body.blogelator.posts {
   .post > .body {
     @include outer-container;
     max-width: 700px;
-    padding: 0 10px;
+    padding: 0 $base-font-size;
   }
   .post > h1,
   .post > h2 {
-    padding: 0 8px;
+    padding: 0 $base-font-size - 2px;
   }
 }

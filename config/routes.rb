@@ -7,6 +7,8 @@ Blogelator::Engine.routes.draw do
   end
   
   # Public Routes
-  resources :posts, path: "/"
+  resources :posts, path: "/" do
+    get "/page/:page", action: "index", on: :collection
+  end
   root to: "posts#index"
 end

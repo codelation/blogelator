@@ -21,8 +21,11 @@ module Blogelator
     
     def create_initializer_file
       create_file "config/initializers/blogelator.rb", <<-INITIALIZER
-Blogelator::Config.site_name  = "#{@site_name}"
-Blogelator::Config.user_class = "#{@user_class}"
+Blogelator::Config.tap do |config|
+  config.posts_per_page = 5
+  config.site_name      = "#{@site_name}"
+  config.user_class     = "#{@user_class}"
+end
 INITIALIZER
     end
     
