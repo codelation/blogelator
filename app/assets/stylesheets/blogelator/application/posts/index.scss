@@ -17,6 +17,25 @@ body.blogelator.posts.index .post {
       text-decoration: none;
     }
   }
+  
+  .summary {
+    .continue {
+      color: $base-body-color;
+      font-size: 0.8em;
+      margin: 0 0.2em;
+    }
+  }
+  
+  &:hover {
+    .summary .continue {
+      border-bottom: 1px solid $base-body-color;
+      color: lighten($base-font-color, 30%);
+      
+      &:hover {
+        color: $base-accent-color;
+      }
+    }
+  }
 }
 
 body.blogelator.posts.index .pagination {

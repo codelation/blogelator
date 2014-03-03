@@ -41,9 +41,10 @@ module Blogelator
     
     def set_summary
       if @custom_summary.blank?
-        summary_text = self.body_markdown.split("\n\n").first.first(300).strip
+        summary_text = self.body_markdown.split("\n\n").first.to_s.first(300).strip
         summary_text += "..." if self.body_markdown.length > 300
-        self.summary = markdown.render(summary_text)
+        summary_text = markdown.render(summary_text).to_s
+        self.summary = summary_text.gsub("<p>", "").gsub("</p>", "")
       else
         self.summary = markdown.render(@custom_summary)
       end

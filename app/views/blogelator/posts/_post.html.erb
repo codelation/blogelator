@@ -5,8 +5,10 @@
       <%= local_time(post.published_at, format: '%B %e, %Y') %>
     </div>
     <div class="summary">
-      <%=raw post.summary %>
-      <%= link_to "Continue Reading", post %>
+      <p>
+        <%=raw post.summary %>
+        <%= link_to raw("Continue reading &raquo;"), post, class: "continue" %>
+      </p>
     </div>
   </div>
 <% end %>
