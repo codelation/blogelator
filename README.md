@@ -1,5 +1,6 @@
 # Blogelator
 
+[![Build Status](https://travis-ci.org/codelation/blogelator.png?branch=master)](https://travis-ci.org/codelation/blogelator)
 [![Code Climate](https://codeclimate.com/github/codelation/blogelator.png)](https://codeclimate.com/github/codelation/blogelator)
 
 Blogelator is a mountable `Rails::Engine` for adding a blog to your Rails app.
