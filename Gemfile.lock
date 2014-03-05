@@ -8,7 +8,7 @@ PATH
       ember-rails (~> 0.14)
       ember-source (~> 1.4)
       font-awesome-sass (~> 4.0)
-      jquery-rails
+      jquery-rails (~> 3.1)
       kaminari (~> 0.15)
       local_time (~> 0.3)
       neat (~> 1.5)
@@ -175,6 +175,8 @@ GEM
       yajl-ruby (~> 1.1.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
+    qunit-rails (0.0.7)
+      railties
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -262,6 +264,7 @@ DEPENDENCIES
   guard-rspec (~> 4.2)
   puma (~> 2.8)
   quiet_assets (~> 1.0)
+  qunit-rails (~> 0.0.7)
   rake
   rb-fsevent (~> 0.9)
   rspec-rails (~> 2.14)

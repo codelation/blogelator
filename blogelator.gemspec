@@ -44,6 +44,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "guard-rspec", "~> 4.2"
   s.add_development_dependency "puma", "~> 2.8"
   s.add_development_dependency "quiet_assets", "~> 1.0"
+  s.add_development_dependency "qunit-rails", "~> 0.0.7"
   s.add_development_dependency "rake"
   s.add_development_dependency "rb-fsevent", "~> 0.9"
   s.add_development_dependency "rspec-rails", "~> 2.14"

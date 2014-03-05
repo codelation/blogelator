@@ -32,7 +32,10 @@
     "prettyPrintOne": true,
     "CodeMirror": true,
     "module": true,
-    "test": true
+    "test": true,
+    "visit": true,
+    "find": true,
+    "andThen": true
   }
 }
 
