@@ -1,9 +1,3 @@
-module('Admin Post', {
-  setup: function() {
-    App.reset();
-  }
-});
-
 test('User visits the the page for a post.', function() {
   visit('/posts/1');
   andThen(function() {

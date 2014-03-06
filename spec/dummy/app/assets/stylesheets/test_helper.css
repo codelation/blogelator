@@ -1,4 +1,21 @@
 /*
  *= require application
  *= require_tree .
+ *= require_self
 */
+
+#ember-testing {
+  border: 1px solid #ccc;
+  display: block;
+  height: 300px;
+  overflow: auto;
+  position: absolute;
+  right: 1em;
+  top: 200px;
+  width: 400px;
+  z-index: 9999;
+}
+
+#ember-app {
+  zoom: 50%;
+}

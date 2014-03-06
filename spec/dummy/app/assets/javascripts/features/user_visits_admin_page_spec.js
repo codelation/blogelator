@@ -1,9 +1,3 @@
-module('Admin', {
-  setup: function() {
-    App.reset();
-  }
-});
-
 test('User visits the admin page.', function() {
   visit('/');
   andThen(function() {
