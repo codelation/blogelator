@@ -264,7 +264,7 @@ DEPENDENCIES
   guard-rspec (~> 4.2)
   puma (~> 2.8)
   quiet_assets (~> 1.0)
-  qunit-rails (~> 0.0.7)
+  qunit-rails
   rake
   rb-fsevent (~> 0.9)
   rspec-rails (~> 2.14)

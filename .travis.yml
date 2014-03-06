@@ -5,8 +5,8 @@ rvm:
   - 1.9.3
 before_script:
   - cd spec/dummy
-  - bundle exec rake db:migrate RAILS_ENV=test
-  - bundle exec rails s &
+  - RAILS_ENV=test bundle exec rake db:migrate
+  - RAILS_ENV=test bundle exec rails s &
   - cd ../..
 script: ./travis.sh
 notifications:
