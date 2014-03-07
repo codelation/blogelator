@@ -103,9 +103,12 @@
     }.property('content'),
     
     willDestroyElement: function() {
+      // Remove scrolling observers
       var editor = this.get('editor');
       editor.off('change');
       editor.off('scroll');
+      // Remove Command/Ctrl + S observer
+      $(this.get('element')).off('keydown');
     }
 	});
   
