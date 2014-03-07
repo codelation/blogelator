@@ -6,29 +6,32 @@
       willTransition: function(transition) {
         var record = this.get('controller.content');
         
-        if (record.get('isNew')) {
+        // Allow transition if nothing is entered
+        if (Ember.isEmpty(record.get('title')) &&
+            Ember.isEmpty(record.get('bodyMarkdown'))
+        ) {
+          return true;
+        }
+        
+        // Confirm transition if there are unsaved changes
+        if (record.get('isNew')) { 
+          if (confirm("Are you sure you want to lose unsaved changes?")) {
+            record.deleteRecord();
+            return true;
+          } else {
+            transition.abort();
+          }
+        } else {
           if (record.get('isDirty')) {
             if (confirm("Are you sure you want to lose unsaved changes?")) {
-              record.deleteRecord();
+              record.rollback();
               return true;
             } else {
               transition.abort();
             }
           } else {
-            record.deleteRecord();
             return true;
           }
-        } else {
-          // if (record.get('isDirty')) {
-          //   if (confirm("Are you sure you want to lose unsaved changes?")) {
-          //     record.rollback();
-          //     return true;
-          //   } else {
-          //     transition.abort();
-          //   }
-          // } else {
-          //   return true;
-          // }
         }
       }
     },

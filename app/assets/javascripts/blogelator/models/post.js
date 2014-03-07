@@ -10,10 +10,22 @@
     title:        DS.attr('string'),
     updatedAt:    DS.attr('date'),
     
-    lastUpdatedAt: function() {
+    publishedAtFormatted: function() {
+      var publishedAt = this.get('publishedAt');
+      
+      if (Ember.isNone(publishedAt)) {
+        return "Unpublished";
+      } else {
+        return moment(publishedAt).format('MMMM D, YYYY');
+      }
+    }.property('publishedAt'),
+    
+    updatedAtFormatted: function() {
       var updatedAt = this.get('updatedAt');
       
-      if (!Ember.isNone(updatedAt)) {
+      if (Ember.isNone(updatedAt)) {
+        return "Never";
+      } else {
         return moment(updatedAt).fromNow();
       }
     }.property('secondsPassed', 'updatedAt')

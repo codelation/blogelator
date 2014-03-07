@@ -6,11 +6,10 @@
       {{#link-to "posts.show" post class="post" tagName="div"}}
         <h2>{{post.title}}</h2>
         <div class="date">
-          TODO: Show Date
+          {{post.publishedAtFormatted}}
         </div>
         <div class="summary">
-          TODO: Show Summary<br />
-          TODO: Show Summary
+          {{{post.summary}}}
         </div>
       {{/link-to}}
     {{else}}

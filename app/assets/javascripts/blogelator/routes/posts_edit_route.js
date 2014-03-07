@@ -2,22 +2,23 @@
   "use strict";
   
   App.PostsEditRoute = Ember.Route.extend({
-    // actions: {
-    //   willTransition: function(transition) {
-    //     var record = this.get('controller.content');
-    //     
-    //     if (record.get('isDirty')) {
-    //       if (confirm("Are you sure you want to lose unsaved changes?")) {
-    //         record.rollback();
-    //         return true;
-    //       } else {
-    //         transition.abort();
-    //       }
-    //     } else {
-    //       return true;
-    //     }
-    //   }
-    // },
+    actions: {
+      willTransition: function(transition) {
+        var record = this.get('controller.content');
+        
+        // Confirm transition if there are unsaved changes
+        if (record.get('isDirty')) {
+          if (confirm("Are you sure you want to lose unsaved changes?")) {
+            record.rollback();
+            return true;
+          } else {
+            transition.abort();
+          }
+        } else {
+          return true;
+        }
+      }
+    },
     
     renderTemplate: function() {
       this.render(); 
