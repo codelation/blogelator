@@ -3,20 +3,71 @@
   
   App.PostsEditController = Ember.ObjectController.extend({
     needs: ['posts'],
+    secondsPassed: 0,
     
     actions: {
-      save: function() {
-        var post = this.get('content'),
-            controller = this.get('controllers.posts');
-            
-        post.save().then(function(post) {
-          controller.transitionToRoute('posts.show', post);
-        }, function(post) {
-          console.log('POST ERRORS', post.get('errors'));
-        });
+      publish: function(defer) {
+        var post = this.get('content');
+        
+        if (Ember.isNone(defer)) {
+          post.save();
+          return post;
+        }
+        
+        if (!post.get('isDirty')) {
+          defer.resolve();
+        } else {
+          post.save().then(function() {
+            defer.resolve();
+          }, function() {
+            defer.reject();
+          });
+        }
+        
+        return post;
+      },
+      
+      save: function(defer) {
+        var post = this.get('content');
+        
+        if (Ember.isNone(defer)) {
+          post.save();
+          return post;
+        }
+        
+        if (!post.get('isDirty')) {
+          defer.resolve();
+        } else {
+          post.save().then(function() {
+            defer.resolve();
+          }, function() {
+            defer.reject();
+          });
+        }
         
         return post;
       }
+    },
+    
+    init: function() {
+      this._super();
+      this.updateSecondsPassed();
+    },
+    
+    lastUpdatedAt: function() {
+      var updatedAt = this.get('updatedAt');
+      
+      if (!Ember.isNone(updatedAt)) {
+        return moment(updatedAt).fromNow();
+      }
+    }.property('secondsPassed', 'updatedAt'),
+    
+    updateSecondsPassed: function() {
+      var self = this;
+      this.incrementProperty('secondsPassed', 1);
+      Ember.run.later(function() {
+        self.updateSecondsPassed();
+      }, 1000);
     }
   });
 

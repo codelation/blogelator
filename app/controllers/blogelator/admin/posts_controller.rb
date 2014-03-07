@@ -34,7 +34,7 @@ module Blogelator
       # PATCH/PUT /admin/posts/1
       def update
         if @post.update(post_params)
-          head :no_content
+          render json: @post
         else
           render json: @post, status: :unprocessable_entity
         end

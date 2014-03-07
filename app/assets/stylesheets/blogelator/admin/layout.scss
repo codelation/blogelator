@@ -36,9 +36,12 @@ body.blogelator.admin {
           color: lighten($admin-header-accent-color, 5%);
           display: block;
           font-size: 1.2em;
+          height: 45px;
+          line-height: 40px;
           margin: 0 0 -5px;
-          padding: 0.5em 0.5em 0.5em 0.5em;
+          padding: 0 0.5em;
           text-decoration: none;
+          @include transition(color 0.1s linear);
           
           &:hover {
             border-bottom: 5px solid $admin-header-highlight-color;

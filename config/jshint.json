@@ -31,6 +31,7 @@
     "marked": true,
     "prettyPrintOne": true,
     "CodeMirror": true,
+    "moment": true,
     "module": true,
     "test": true,
     "visit": true,

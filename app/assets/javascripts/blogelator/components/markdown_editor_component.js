@@ -19,7 +19,6 @@
 
   App.MarkdownEditorComponent = Ember.Component.extend({
     classNames: ['blogelator-markdown-editor'],
-    negativeHeight: 165, // Editor will take up 100% of window height - negativeHeight(px)
     parseDelay: 100,
     resizeDelay: 50,
     scrollDelay: 10,
@@ -43,6 +42,15 @@
         }
       });
       this.set('editor', editor);
+      
+      // Capture Command/Ctrl + S
+      var self = this;
+      $(this.get('element')).on('keydown', function(e) {
+        if (e.keyCode === 83 && (e.metaKey || e.ctrlKey)) {
+          self.sendAction();
+          return false;
+        }
+      });
     },
     
     editorDidChange: function() {
@@ -52,6 +60,7 @@
           parseDelay = this.get('parseDelay'),
           scrollContext = { name: 'scrollViewport' },
           scrollDelay = this.get('scrollDelay'),
+          viewport = $(this.get('element')),
           self = this;
           
       // Set initial editor value from component content
@@ -59,7 +68,7 @@
       
       // Syncs the preview scroll top from editor scroll top
       var syncEditorScrolling = function() {
-        var viewportHeight = self.get('viewportHeight'),
+        var viewportHeight = viewport.height(),
             editorScrollInfo = editor.getScrollInfo(),
             codeHeight = editorScrollInfo.height - viewportHeight,
             codeTop = editorScrollInfo.top,

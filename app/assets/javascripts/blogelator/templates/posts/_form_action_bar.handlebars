@@ -1,6 +1,12 @@
 <div class="form-action-bar">
-  <a href="#" {{action "save"}}>Save</a>
-  {{#link-to "posts.show" content}}
-    Cancel
-  {{/link-to}}
+  {{#save-button action="publish" class="publish"}}
+    Publish
+  {{/save-button}}
+  {{#save-button action="save" classNameBindings="isDirty::disabled"}}
+    Save
+  {{/save-button}}
+  <div class="last-saved">
+    <label>Last Saved:</label>
+    {{lastUpdatedAt}}
+  </div>
 </div>

@@ -7,7 +7,8 @@
     createdAt: DS.attr('date'),
     publishedAt: DS.attr('date'),
     summary: DS.attr('string'),
-    title: DS.attr('string')
+    title: DS.attr('string'),
+    updatedAt: DS.attr('date')
   });
 
 })();

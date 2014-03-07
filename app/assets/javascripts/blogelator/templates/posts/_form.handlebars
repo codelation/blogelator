@@ -2,5 +2,5 @@
   <div>
     {{view Ember.TextField class="title" placeholder="Blog Post Title" valueBinding="title"}}
   </div>
-  {{markdown-editor contentBinding="bodyMarkdown"}}
+  {{markdown-editor contentBinding="bodyMarkdown" action="save"}}
 </div>
