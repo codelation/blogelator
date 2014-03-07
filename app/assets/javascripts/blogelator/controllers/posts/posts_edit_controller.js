@@ -6,29 +6,6 @@
     secondsPassed: 0,
     
     actions: {
-      publish: function(defer) {
-        var post = this.get('content');
-        
-        post.set('publishedAt', new Date());
-        
-        if (Ember.isNone(defer)) {
-          post.save();
-          return post;
-        }
-        
-        if (!post.get('isDirty')) {
-          defer.resolve();
-        } else {
-          post.save().then(function() {
-            defer.resolve();
-          }, function() {
-            defer.reject();
-          });
-        }
-        
-        return post;
-      },
-      
       save: function(defer) {
         var post = this.get('content');
         
@@ -50,10 +27,14 @@
         return post;
       },
       
-      unpublish: function(defer) {
+      togglePublished: function(defer) {
         var post = this.get('content');
         
-        post.set('publishedAt', null);
+        if (Ember.isNone(post.get('publishedAt'))) {
+          post.set('publishedAt', new Date());
+        } else {
+          post.set('publishedAt', null);
+        }
         
         if (Ember.isNone(defer)) {
           post.save();
@@ -82,14 +63,6 @@
     isClean: function() {
       return !this.get('isDirty');
     }.property('isDirty'),
-    
-    lastUpdatedAt: function() {
-      var updatedAt = this.get('updatedAt');
-      
-      if (!Ember.isNone(updatedAt)) {
-        return moment(updatedAt).fromNow();
-      }
-    }.property('secondsPassed', 'updatedAt'),
     
     updateSecondsPassed: function() {
       var self = this;

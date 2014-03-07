@@ -1,10 +1,16 @@
 <div class="form-action-bar">
-  {{#save-button action="publish" class="publish"}}
-    Publish
+  {{#save-button action="togglePublished" class="publish"}}
+    {{#if publishedAt}}
+      Unpublish
+    {{else}}
+      Publish
+    {{/if}}
   {{/save-button}}
+  
   {{#save-button action="save" isDisabledBinding="isClean"}}
     Save
   {{/save-button}}
+  
   <div class="last-saved">
     <label>Last Saved:</label>
     {{lastUpdatedAt}}
