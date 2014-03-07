@@ -2,7 +2,7 @@
   {{#save-button action="publish" class="publish"}}
     Publish
   {{/save-button}}
-  {{#save-button action="save" classNameBindings="isDirty::disabled"}}
+  {{#save-button action="save" isDisabledBinding="isClean"}}
     Save
   {{/save-button}}
   <div class="last-saved">

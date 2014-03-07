@@ -59,7 +59,7 @@ module Blogelator
       
       # Only allow a trusted parameter "white list" through.
       def post_params
-        params.require(:post).permit(:title, :body_markdown)
+        params.require(:post).permit(:body_markdown, :custom_summary, :published_at, :title)
       end
     end
   end

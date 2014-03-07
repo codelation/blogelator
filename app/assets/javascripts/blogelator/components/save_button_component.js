@@ -4,15 +4,16 @@
   App.SaveButtonComponent = Ember.Component.extend({
     attributeBindings: ['href'],
     classNames: ['save-button'],
-    classNameBindings: ['isSaving:saving', 'isSaved:saved', 'isError:error'],
+    classNameBindings: ['disabled', 'isSaving:saving', 'isSaved:saved', 'isError:error'],
     href: '#',
+    isDisabled: false,
     isSaving: false,
     isSaved: false,
     isError: false,
     tagName: 'a',
     
     click: function() {
-      if (this.get('isSaving')) {
+      if (this.get('isSaving') || this.get('isDisabled')) {
         return false;
       }
       
@@ -45,7 +46,18 @@
       this.sendAction('action', defer);
       
       return false;
-    }
+    },
+    
+    disabled: function() {
+      if (this.get('isSaving') ||
+          this.get('isSaved')  ||
+          this.get('isError')
+      ) {
+        return false;
+      } else {
+        return this.get('isDisabled');
+      }
+    }.property('isDisabled', 'isSaving', 'isSaved', 'isError')
   });
   
 })();

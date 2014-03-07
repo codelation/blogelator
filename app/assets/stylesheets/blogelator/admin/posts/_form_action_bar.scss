@@ -15,6 +15,7 @@ body.blogelator.admin.posts .form-action-bar .save-button {
   -webkit-font-smoothing: antialiased;
   
   &.disabled {
+    cursor: default;
     opacity: 0.6;
   }
 }
@@ -47,6 +48,11 @@ body.blogelator.admin.posts .form-action-bar .save-button {
   &:hover {
     .button-label {
       border-color: rgba($base-body-color, 0.8);
+    }
+    &.disabled {
+      .button-label {
+        border-color: $base-accent-color;
+      }
     }
   }
 }
