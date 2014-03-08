@@ -40,11 +40,11 @@ body.blogelator.posts.index .pagination {
   padding: 0 1em;
   
   a.older {
-    @include blogelator-button($base-body-color, $base-accent-color, "chevron-circle-left", "left");
-    float: left;
-  }
-  a.newer {
     @include blogelator-button($base-body-color, $base-accent-color, "chevron-circle-right", "right");
     float: right;
+  }
+  a.newer {
+    @include blogelator-button($base-body-color, $base-accent-color, "chevron-circle-left", "left");
+    float: left;
   }
 }

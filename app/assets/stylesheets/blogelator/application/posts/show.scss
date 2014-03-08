@@ -33,13 +33,13 @@ body.blogelator.posts.show .more-posts {
   padding: 0 1em;
   
   a.previous {
-    @include blogelator-button($base-body-color, $base-accent-color, "chevron-circle-left", "left");
-    float: left;
+    @include blogelator-button($base-body-color, $base-accent-color, "chevron-circle-right", "right");
+    float: right;
   }
   
   a.next {
-    @include blogelator-button($base-body-color, $base-accent-color, "chevron-circle-right", "right");
-    float: right;
+    @include blogelator-button($base-body-color, $base-accent-color, "chevron-circle-left", "left");
+    float: left;
   }
   
   a.previous,
