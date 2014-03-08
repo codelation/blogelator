@@ -46,10 +46,14 @@ Blogelator.user_class     = "User"
 Blogelator does not include authentication because there's a good chance
 you've already added authentication to your Rails app.
 
+TODO: Add info about requirements/configuration.
+
 ### Authorization
 
 Blogelator uses [CanCan](https://github.com/ryanb/cancan) for authorization.
 By default, any logged in user can create, update, and delete any blog post.
+
+TODO: Add example for limiting access to admin users.
 
 ### Styles
 
@@ -68,7 +72,7 @@ aims to follow Spree's conventions, so you can simply follow their documentation
 
 > <http://guides.spreecommerce.com/developer/view.html#using-deface>
 
-TODO: Add example for using Deface to add author's name to posts
+TODO: Add example for using Deface to add author's name to post
 
 ## Contributing
 
