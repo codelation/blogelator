@@ -21,11 +21,9 @@ module Blogelator
     
     def create_initializer_file
       create_file "config/initializers/blogelator.rb", <<-INITIALIZER
-Blogelator::Config.tap do |config|
-  config.posts_per_page = 5
-  config.site_name      = "#{@site_name}"
-  config.user_class     = "#{@user_class}"
-end
+Blogelator.posts_per_page = 5
+Blogelator.site_name      = "#{@site_name}"
+Blogelator.user_class     = "#{@user_class}"
 INITIALIZER
     end
     
@@ -50,6 +48,27 @@ ADMINCSS
       source = "lib/assets/stylesheets/blogelator/_variables_sample.scss"
       destination = "app/assets/stylesheets/blogelator/_variables.scss"
       copy_file source, destination
+    end
+    
+    def create_overrides_directory
+      empty_directory "app/overrides"
+    end
+    
+    def configure_application
+      application <<-APP
+
+    config.to_prepare do
+      # Load application's model / class decorators
+      Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
+      end
+
+      # Load application's view overrides
+      Dir.glob(File.join(File.dirname(__FILE__), "../app/overrides/*.rb")) do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
+      end
+    end
+      APP
     end
     
     def install_migrations

@@ -5,7 +5,7 @@ require "spec_helper"
 feature "User visits the blog" do
   
   it "has the site name" do
-    Blogelator::Config.site_name = "Brian's Blog"
+    Blogelator.site_name = "Brian's Blog"
     
     visit blogelator.root_path
     
@@ -27,7 +27,7 @@ feature "User visits the blog" do
     create(:post, title: "Post 5", published_at: Time.now - 4.days)
     create(:post, title: "Post 6", published_at: Time.now - 5.days)
     
-    Blogelator::Config.posts_per_page = nil
+    Blogelator.posts_per_page = nil
     
     visit blogelator.root_path
     
@@ -48,7 +48,7 @@ feature "User visits the blog" do
     create(:post, title: "Post 5", published_at: Time.now - 4.days)
     create(:post, title: "Post 6", published_at: Time.now - 5.days)
     
-    Blogelator::Config.posts_per_page = 3
+    Blogelator.posts_per_page = 3
     
     visit blogelator.root_path
     

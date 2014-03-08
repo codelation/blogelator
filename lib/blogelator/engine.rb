@@ -1,4 +1,3 @@
-require_relative "config"
 require_relative "version"
 require "bourbon"
 require "cancan"

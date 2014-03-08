@@ -23,6 +23,7 @@ module Blogelator
       # POST /admin/posts
       def create
         @post = Blogelator::Post.new(post_params)
+        @post.author = blogelator_current_user
         
         if @post.save
           render json: @post, status: :created

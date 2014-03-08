@@ -3,7 +3,7 @@ module Blogelator
     attr_accessor :custom_summary
     
     has_many :tags
-    belongs_to :author, class_name: Blogelator::Config.user_class
+    belongs_to :author, class_name: Blogelator.user_class
     
     before_save :parse_markdown, :set_slug, :set_summary
     

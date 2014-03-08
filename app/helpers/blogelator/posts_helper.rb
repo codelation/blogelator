@@ -21,7 +21,7 @@ module Blogelator
     end
     
     def site_title
-      Blogelator::Config.site_name || "Blogelator"
+      Blogelator.site_name || "Blogelator"
     end
     
   end

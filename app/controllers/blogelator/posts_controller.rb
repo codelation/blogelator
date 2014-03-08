@@ -7,7 +7,7 @@ module Blogelator
     # GET /
     def index
       page = params[:page] ? params[:page].to_i : 1
-      per_page = Blogelator::Config.posts_per_page
+      per_page = Blogelator.posts_per_page
       
       @posts = Blogelator::Post.published.page(page).per(per_page)
     end
