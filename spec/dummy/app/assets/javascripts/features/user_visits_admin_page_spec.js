@@ -7,6 +7,6 @@ test('User visits the admin page.', function() {
     equal(find('.posts-list .post:first .summary').text().trim(), 'Hello world.', 'The summary should be displayed for each post');
     
     // Main content area
-    ok(find('article.post .logo').length, 'The logo should be in the main content area.');
+    equal(find('article.post h1').text().trim(), 'Ember Is Fun!', 'The first post title should be displayed');
   });
 });
