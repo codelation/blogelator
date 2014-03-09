@@ -142,7 +142,7 @@
           var formData = new FormData(),
               filename = 'image-',
               extension = 'png',
-              uploadUrl = App.get('blogelatorPath') + '/api/images';
+              uploadUrl = (App.get('blogelatorPath') === '/' ? '' : App.get('blogelatorPath').substring(1) + '/') + 'api/images';
 
           // Attach the file. If coming from clipboard, add a default filename (only works in Chrome for now)
           // http://stackoverflow.com/questions/6664967/how-to-give-a-blob-uploaded-as-formdata-a-file-name
