@@ -21,8 +21,6 @@
     },
     
     model: function(params) {
-      var post = this.store.find('post', params.post_id);
-      console.log(params, post);
       return this.store.find('post', params.post_id);
     },
     

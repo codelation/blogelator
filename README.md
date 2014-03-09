@@ -36,9 +36,12 @@ rails g blogelator:install
 The install generator will create `config/initializers/blogelator.rb`:
 
 ```ruby
-Blogelator.posts_per_page = 5
-Blogelator.site_name      = "My Awesome Blog"
-Blogelator.user_class     = "User"
+Blogelator.posts_per_page       = 5
+Blogelator.site_name            = "My Awesome Blog"
+Blogelator.user_class           = "User"
+Blogelator.s3_access_key_id     = ENV["BLOGELATOR_S3_KEY"]
+Blogelator.s3_secret_access_key = ENV["BLOGELATOR_S3_SECRET"]
+Blogelator.s3_bucket            = ENV["BLOGELATOR_S3_BUCKET"]
 ```
 
 ### Authentication

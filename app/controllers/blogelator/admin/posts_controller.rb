@@ -7,20 +7,8 @@ module Blogelator
       before_action :set_post, only: [:show, :edit, :update, :destroy]
       respond_to :json
       respond_to :html, only: [:index]
-
-      # GET /admin/posts
-      def index
-        @posts = Blogelator::Post.unpublished + Blogelator::Post.published
-        respond_with @posts
-      end
-
-      # GET /admin/posts/1
-      def show
-        @title = @post.title
-        render json: @post
-      end
-
-      # POST /admin/posts
+      
+      # POST /api/posts
       def create
         @post = Blogelator::Post.new(post_params)
         @post.author = blogelator_current_user
@@ -31,20 +19,32 @@ module Blogelator
           render json: @post, status: :unprocessable_entity
         end
       end
+      
+      # DELETE /api/posts/1
+      def destroy
+        @post.destroy
+        head :no_content
+      end
 
-      # PATCH/PUT /admin/posts/1
+      # GET /api/posts
+      def index
+        @posts = Blogelator::Post.unpublished + Blogelator::Post.published
+        respond_with @posts
+      end
+
+      # GET /api/posts/1
+      def show
+        @title = @post.title
+        render json: @post
+      end
+      
+      # PATCH/PUT /api/posts/1
       def update
         if @post.update(post_params)
           render json: @post
         else
           render json: @post, status: :unprocessable_entity
         end
-      end
-
-      # DELETE /admin/posts/1
-      def destroy
-        @post.destroy
-        head :no_content
       end
 
     private

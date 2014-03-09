@@ -12,6 +12,7 @@
 //= require codemirror/sass
 //= require codemirror/xml
 //= require codemirror/yaml
+//= require inline-attach
 //= require marked
 
 (function() {
@@ -56,7 +57,7 @@
     editorDidChange: function() {
       var editor = this.get('editor'),
           preview = this.$('.html-preview .post'),
-          parserContext = { name: 'parseMarkdown' },
+          parseContext = { name: 'parseMarkdown' },
           parseDelay = this.get('parseDelay'),
           scrollContext = { name: 'scrollViewport' },
           scrollDelay = this.get('scrollDelay'),
@@ -85,13 +86,18 @@
         Ember.run.debounce(scrollContext, syncEditorScrolling, scrollDelay);
       };
       
+      // Update preview on change
       editor.on('change', function() {
-        Ember.run.debounce(parserContext, updateContent, parseDelay);
+        Ember.run.debounce(parseContext, updateContent, parseDelay);
       });
       
+      // Scroll preview when markdown is scrolled
       editor.on('scroll', function() {
         Ember.run.debounce(scrollContext, syncEditorScrolling, scrollDelay);
       });
+      
+      // Handle image drag and drop uploading
+      this._addInlineAttach(editor);
     }.observes('editor'),
     
     html: function() {
@@ -109,6 +115,72 @@
       editor.off('scroll');
       // Remove Command/Ctrl + S observer
       $(this.get('element')).off('keydown');
+    },
+    
+    _addInlineAttach: function(editor) {
+      function CodeMirrorEditor(instance) {
+        var codeMirror = instance;
+        
+        return {
+          getValue: function() {
+            return codeMirror.getValue();
+          },
+          setValue: function(val) {
+            var cursor = codeMirror.getCursor();
+            codeMirror.setValue(val);
+            codeMirror.setCursor(cursor);
+          }
+        };
+      }
+      CodeMirrorEditor.prototype = new inlineAttach.Editor();
+      
+      var inlineAttachInstance,
+          inlineAttachEditor = new CodeMirrorEditor(editor);
+          
+      inlineAttachInstance = new inlineAttach({
+        customUploadHandler: function(file) {
+          var formData = new FormData(),
+              filename = 'image-',
+              extension = 'png',
+              uploadUrl = App.get('blogelatorPath') + '/api/images';
+
+          // Attach the file. If coming from clipboard, add a default filename (only works in Chrome for now)
+          // http://stackoverflow.com/questions/6664967/how-to-give-a-blob-uploaded-as-formdata-a-file-name
+          if (file.name) {
+            var fileNameMatches = file.name.match(/\.(.+)$/);
+            if (fileNameMatches) {
+              extension = fileNameMatches[1];
+              filename = file.name.replace('.' + extension, '-');
+            }
+          }
+          formData.append('file', file, filename + Date.now() + '.' + extension);
+          
+          $.ajax({
+            url: uploadUrl,
+            data: formData,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function(data){
+              inlineAttachInstance.onUploadedFile(data);
+            },
+            error: function() {
+              inlineAttachInstance.onErrorUploading();
+            }
+          });
+          
+          return false;
+        },
+        urlText: "![image]({filename})"
+      }, inlineAttachEditor);
+      
+      editor.setOption('onDragEvent', function(data, e) {
+        if (e.type === "drop") {
+          e.stopPropagation();
+          e.preventDefault();
+          return inlineAttachInstance.onDrop(e);
+        }
+      });
     }
 	});
   

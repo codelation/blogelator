@@ -3,6 +3,7 @@ Blogelator::Engine.routes.draw do
   get "/admin", to: "admin/posts#index"
   get "/admin/*path", to: "admin/posts#index"
   namespace :admin, path: "api" do
+    resources :images
     resources :posts
   end
   

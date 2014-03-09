@@ -21,9 +21,12 @@ module Blogelator
     
     def create_initializer_file
       create_file "config/initializers/blogelator.rb", <<-INITIALIZER
-Blogelator.posts_per_page = 5
-Blogelator.site_name      = "#{@site_name}"
-Blogelator.user_class     = "#{@user_class}"
+Blogelator.posts_per_page       = 5
+Blogelator.site_name            = "#{@site_name}"
+Blogelator.user_class           = "#{@user_class}"
+Blogelator.s3_access_key_id     = ENV["BLOGELATOR_S3_KEY"]
+Blogelator.s3_secret_access_key = ENV["BLOGELATOR_S3_SECRET"]
+Blogelator.s3_bucket            = ENV["BLOGELATOR_S3_BUCKET"]
 INITIALIZER
     end
     

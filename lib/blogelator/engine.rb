@@ -1,16 +1,3 @@
-require_relative "version"
-require "bourbon"
-require "cancan"
-require "deface"
-require "ember-rails"
-require "font-awesome-sass"
-require "jquery-rails"
-require "kaminari"
-require "local_time"
-require "neat"
-require "pygments.rb"
-require "redcarpet"
-
 module Blogelator
   class Engine < ::Rails::Engine
     isolate_namespace Blogelator
