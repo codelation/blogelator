@@ -19,9 +19,7 @@
     color: $base-font-color;
     float: left;
     font-family: "Menlo", "Monaco", monospace;
-    font-size: 14px;
     height: 100%;
-    line-height: 1.5em;
     padding: 0.5em;
     position: relative;
     width: 49.8%;
@@ -45,7 +43,12 @@
     }
     
     .CodeMirror-lines {
-      padding-top: 2.5em;
+      padding-top: 2em;
+    }
+    
+    .CodeMirror-scroll {
+      font-size: 14px;
+      line-height: 1.5em;
     }
   }
   .html-preview {

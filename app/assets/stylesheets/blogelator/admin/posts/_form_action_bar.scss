@@ -27,17 +27,6 @@ body.blogelator.admin.posts .form-action-bar .save-button {
     @include transition(border-color 0.1s linear);
   }
   
-  &:hover {
-    .button-label {
-      border-color: rgba($base-body-color, 0.8);
-    }
-    &.disabled {
-      .button-label {
-        border-color: $base-accent-color;
-      }
-    }
-  }
-  
   &.publish {
     background-color: adjust-hue($base-accent-color, 210deg);
     
@@ -58,6 +47,17 @@ body.blogelator.admin.posts .form-action-bar .save-button {
     &.disabled:hover {
       .button-label {
         border: 1px solid adjust-hue($base-accent-color, 210deg);
+      }
+    }
+  }
+  
+  &:hover {
+    .button-label {
+      border-color: rgba($base-body-color, 0.8);
+    }
+    &.disabled {
+      .button-label {
+        border-color: $base-accent-color;
       }
     }
   }
