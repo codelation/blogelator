@@ -10,7 +10,7 @@ module Blogelator
 
       # GET /admin/posts
       def index
-        @posts = Blogelator::Post.all
+        @posts = Blogelator::Post.unpublished + Blogelator::Post.published
         respond_with @posts
       end
 

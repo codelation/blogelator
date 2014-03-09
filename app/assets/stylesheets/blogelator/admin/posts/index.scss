@@ -7,7 +7,7 @@ body.blogelator.admin.posts.index {
     text-align: center;
     
     .logo {
-      @include blogelator-logo(100);
+      @include blogelator-logo(50);
       margin: 2em auto 1em;
     }
   }

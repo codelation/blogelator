@@ -6,6 +6,27 @@
     secondsPassed: 0,
     
     actions: {
+      destroy: function(defer) {
+        var post = this.get('content'),
+            controller = this.get('controllers.posts');
+        
+        if (Ember.isNone(defer)) {
+          post.destroyRecord();
+          return post;
+        }
+                
+        post.destroyRecord().then(function() {
+          defer.resolve();
+          Ember.run.later(function() {
+            controller.transitionToRoute('posts.index');
+          }, 900);
+        }, function() {
+          defer.reject();
+        });
+        
+        return post;
+      },
+      
       save: function(defer) {
         var post = this.get('content');
         

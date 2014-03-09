@@ -1,4 +1,8 @@
 <div class="form-action-bar">
+  {{#save-button action="destroy" confirm="true" class="destroy"}}
+    Delete
+  {{/save-button}}
+  
   {{#save-button action="togglePublished" confirm="true" class="publish"}}
     {{#if publishedAt}}
       Unpublish

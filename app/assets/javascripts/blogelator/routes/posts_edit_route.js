@@ -20,6 +20,12 @@
       }
     },
     
+    model: function(params) {
+      var post = this.store.find('post', params.post_id);
+      console.log(params, post);
+      return this.store.find('post', params.post_id);
+    },
+    
     renderTemplate: function() {
       this.render(); 
       this.render('posts/_form_action_bar', {
