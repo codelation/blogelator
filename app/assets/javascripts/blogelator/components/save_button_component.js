@@ -4,22 +4,35 @@
   App.SaveButtonComponent = Ember.Component.extend({
     attributeBindings: ['href'],
     classNames: ['save-button'],
-    classNameBindings: ['disabled', 'isSaving:saving', 'isSaved:saved', 'isError:error'],
+    classNameBindings: ['disabled', 'isConfirming:confirm', 'isSaving:saving', 'isSaved:saved', 'isError:error'],
     href: '#',
     isDisabled: false,
+    isConfirming: false,
     isSaving: false,
     isSaved: false,
     isError: false,
     tagName: 'a',
     
-    click: function() {
+    click: function(event) {
       if (this.get('isSaving') || this.get('isDisabled')) {
         return false;
       }
       
+      if (this.get('confirm')) {
+        if (!this.get('isConfirming')) {
+          this.set('isConfirming', true);
+          return false;
+        } else {
+          this.set('isConfirming', false);
+          if ($(event.target).hasClass('no')) {
+            return false;
+          }
+        }
+      }
+      
       var defer = Ember.RSVP.defer(),
           self = this;
-
+      
       defer.promise.then(function() {
         if (self && !self.isDestroyed) {
           self.set('isSaved', true);

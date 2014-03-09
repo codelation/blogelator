@@ -13,9 +13,49 @@
     @include transition-property(all);
   }
   
-  .saving,
+  .confirm {
+    bottom: 0;
+    display: block;
+    font-size: 20px;
+    left: 100%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    @include transition-duration(0.3s);
+    @include transition-property(all);
+    
+    .no,
+    .yes {
+      bottom: 0;
+      padding: 3px 0;
+      position: absolute;
+      top: 0;
+      width: 50%;
+    }
+    
+    .no {
+      background-color: adjust-hue($base-accent-color, 210deg);
+      color: $base-body-color;
+      right: 0;
+    }
+    .yes {
+      background-color: $base-accent-color;
+      color: $base-body-color;
+      left: 0;
+    } 
+  }
+  
+  &.confirm {
+    .confirm {
+      left: 0;
+    }
+  }
+  
+  .error,
   .saved,
-  .error {
+  .saving {
     background-color: $base-body-color;
     color: $base-accent-color;
     bottom: 0;
@@ -40,28 +80,10 @@
     padding: 6px 0;
   }
   
-  &.saving,
+  &.error,
   &.saved,
-  &.error {
-    .button-label {
-      opacity: 0;
-      @include transform(scale(0));
-    }
-  }
-  
   &.saving {
-    .saving {
-      opacity: 1;
-      @include transform(scale(1));
-    }
-  }
-  
-  &.saved {
-    .saved {
-      opacity: 1;
-      @include transform(scale(1));
-    }
-    .saving {
+    .button-label {
       opacity: 0;
       @include transform(scale(0));
     }
@@ -77,4 +99,23 @@
       @include transform(scale(0));
     }
   }
+  
+  &.saved {
+    .saved {
+      opacity: 1;
+      @include transform(scale(1));
+    }
+    .saving {
+      opacity: 0;
+      @include transform(scale(0));
+    }
+  }
+  
+  &.saving {
+    .saving {
+      opacity: 1;
+      @include transform(scale(1));
+    }
+  }
+  
 }
