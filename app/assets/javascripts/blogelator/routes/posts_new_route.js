@@ -10,13 +10,14 @@
         if (Ember.isEmpty(record.get('title')) &&
             Ember.isEmpty(record.get('bodyMarkdown'))
         ) {
+          record.destroyRecord();
           return true;
         }
         
         // Confirm transition if there are unsaved changes
         if (record.get('isNew')) { 
           if (confirm("Are you sure you want to lose unsaved changes?")) {
-            record.deleteRecord();
+            record.destroyRecord();
             return true;
           } else {
             transition.abort();
@@ -37,7 +38,7 @@
     },
     
     model: function() {
-      return App.Post.createRecord();
+      return this.store.createRecord('post');
     },
     
     renderTemplate: function() {
