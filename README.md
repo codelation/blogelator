@@ -16,7 +16,7 @@ Blogelator is a mountable `Rails::Engine` for adding a blog to your Rails app.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "blogelator", github: "codelation/blogelator"
+gem "blogelator"
 ```
 
 Install the Blogelator gem with Bundler:
