@@ -28,7 +28,7 @@ $ bundle install
 Use the install generator to set up Blogelator:
 
 ```bash
-rails g blogelator:install
+$ rails g blogelator:install
 ```
 
 ## Configuration
