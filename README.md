@@ -14,8 +14,9 @@ Check out Blogelator in action. No login required. Content resets every hour.
 
 ## Features
 
-- Awesome writing experience for developers with GitHub Flavored Markdown.
-- [Ember.js](http://emberjs.com) backend with live GFM -> HTML preview.
+- Awesome writing experience for developers with GitHub Flavored Markdown
+- [Ember.js](http://emberjs.com) backend with live GFM -> HTML preview
+- Upload images to Amazon S3 via drag and drop
 - Follows [Spree](https://github.com/spree/spree)'s conventions for extending and overriding defaults
 
 ## Installation
