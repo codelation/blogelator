@@ -5,6 +5,13 @@
 
 Blogelator is a mountable `Rails::Engine` for adding a blog to your Rails app.
 
+## Demo
+
+Check out Blogelator in action. No login required. Content resets every hour.
+
+- **Blog**: <http://blogelator.herokuapp.com>
+- **Admin**: <http://blogelator.herokuapp.com/admin>
+
 ## Features
 
 - Awesome writing experience for developers with GitHub Flavored Markdown.
