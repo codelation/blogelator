@@ -81,7 +81,7 @@ or by replacing view templates. If you have experience with customizing
 [Spree](https://github.com/spree/spree), you'll be right at home. Blogelator
 aims to follow Spree's conventions, so you can simply follow their documentation:
 
-> <http://guides.spreecommerce.com/developer/view.html#using-deface>
+> <http://guides.spreecommerce.com/developer/view.html>
 
 TODO: Add example for using Deface to add author's name to post
 
