@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = "Blogelator is a mountable Rails::Engine for adding a blog to your Rails app."
   s.licenses    = ["MIT"]
 
-  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "aws-sdk", "~> 1.36"
