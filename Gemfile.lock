@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    blogelator (0.1.0)
+    blogelator (0.1.4)
       aws-sdk (~> 1.36)
       bourbon (~> 3.1)
       cancan (~> 1.6)
