@@ -16,16 +16,9 @@ body.blogelator.posts.index .post {
   
   .summary {
     .continue {
-      color: $base-body-color;
+      color: lighten($base-font-color, 30%);
       font-size: 0.8em;
       margin: 0 0.2em;
-    }
-  }
-  
-  &:hover {
-    .summary .continue {
-      border-bottom: 1px solid $base-body-color;
-      color: lighten($base-font-color, 30%);
       
       &:hover {
         color: $base-accent-color;

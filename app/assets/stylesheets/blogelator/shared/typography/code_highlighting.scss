@@ -1,8 +1,9 @@
 @import "bourbon";
 @import "blogelator/variables";
 
-body.blogelator .highlight,
-body.blogelator .post pre code.highlight {
+body.blogelator.posts .highlight,
+body.blogelator.posts .post pre code,
+body.blogelator.posts .post pre code.highlight {
   background-color: darken($base-body-color, 3%);
   border: 1px solid $base-border-color;
   border-radius: $base-border-radius;
