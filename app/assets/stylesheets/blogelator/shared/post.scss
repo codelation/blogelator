@@ -1,7 +1,7 @@
 // Styles for all blog posts
-@import "bourbon";
+@import "blogelator/bourbon";
 @import "blogelator/variables";
-@import "neat";
+@import "blogelator/neat";
 
 body.blogelator.posts .post {
   border-bottom: 1px solid lighten($base-border-color, 8%);
@@ -108,13 +108,13 @@ body.blogelator.posts .post {
   del {
     color: lighten($base-font-color, 15);
   }
-  
+
   pre {
     font-family: "Menlo", "Monaco", monospace;
     margin: 0;
     padding: 0;
   }
-  
+
   code {
     background-color: darken($base-body-color, 3%);
     border: 1px solid $base-border-color;
@@ -140,7 +140,7 @@ body.blogelator.posts .post {
     &:before {
       content: '\2014 \00A0';
     }
-  } 
+  }
 }
 
 // Post margins

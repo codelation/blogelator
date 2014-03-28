@@ -1,9 +1,9 @@
 // Global styles for the application layout
 
-@import "bourbon";
+@import "blogelator/bourbon";
 @import "blogelator/variables";
 @import "blogelator/mixins/blogelator_logo";
-@import "neat";
+@import "blogelator/neat";
 
 body.blogelator {
   header {
@@ -16,7 +16,7 @@ body.blogelator {
         padding: 0 1em 0.5em 1em;
         text-decoration: none;
         @include transition(border-bottom 0.2s linear);
-        
+
         &:hover {
           border-bottom: 1px solid lighten($base-accent-color, 30%);
         }
@@ -26,7 +26,7 @@ body.blogelator {
       border-bottom: 1px solid #f2f2f2;
       margin-bottom: 1em;
       padding: 0 0.5em 0.5em;
-      
+
       a {
         @include outer-container;
         color: $base-font-color;
@@ -34,14 +34,14 @@ body.blogelator {
         max-width: 900px;
         text-decoration: none;
         @include transition(color 0.1s linear);
-        
+
         &:hover {
           color: $base-accent-color;
         }
       }
     }
   }
-  
+
   footer .logo {
     @include blogelator-logo(32);
     margin: 2em auto;

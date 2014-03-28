@@ -1,4 +1,4 @@
-@import "bourbon";
+@import "blogelator/bourbon";
 @import "blogelator/variables";
 
 .blogelator-markdown-editor {
@@ -8,7 +8,7 @@
   position: absolute;
   right: 0.5em;
   top: 3.5em;
-  
+
   .CodeMirror {
     background-color: $base-body-color;
     border: 1px solid $base-border-color;
@@ -20,7 +20,7 @@
     position: relative;
     width: 49.8%;
     @include box-sizing(border-box);
-    
+
     &:before {
       background-color: rgba($base-body-color, 0.92);
       content: "GitHub Flavored Markdown";
@@ -37,11 +37,11 @@
       z-index: 10;
       @include box-sizing(border-box);
     }
-    
+
     .CodeMirror-lines {
       padding-top: 2em;
     }
-    
+
     .CodeMirror-scroll {
       font-size: 14px;
       line-height: 1.5em;
@@ -57,7 +57,7 @@
     position: relative;
     width: 49.8%;
     @include box-sizing(border-box);
-    
+
     &:before {
       background-color: rgba($base-body-color, 0.92);
       content: "Preview";
@@ -74,14 +74,14 @@
       z-index: 10;
       @include box-sizing(border-box);
     }
-    
+
     .post {
       height: 100%;
       overflow: auto;
       padding-top: 2em;
     }
   }
-  
+
   // Markdown styles
   // ------------------------------------
   .cm-header-1,
@@ -104,7 +104,7 @@
   .cm-comment {
     color: #aaa;
   }
-  
+
   .cm-link {
     color: $base-link-color;
     & + .cm-tag {
@@ -115,7 +115,7 @@
       color: #aaa;
     }
   }
-  
+
   // Code Styles
   // ------------------------------------
   .cm-atom,
@@ -134,5 +134,5 @@
   .cm-string {
     color: #ca2969;
   }
-  
+
 }

@@ -1,19 +1,19 @@
-//= require codemirror/codemirror
-//= require codemirror/closebrackets
-//= require codemirror/overlay
-//= require codemirror/markdown
-//= require codemirror/gfm
-//= require codemirror/coffeescript
-//= require codemirror/css
-//= require codemirror/htmlmixed
-//= require codemirror/javascript
-//= require codemirror/php
-//= require codemirror/ruby
-//= require codemirror/sass
-//= require codemirror/xml
-//= require codemirror/yaml
-//= require inline-attach
-//= require marked
+//= require blogelator/codemirror/codemirror
+//= require blogelator/codemirror/closebrackets
+//= require blogelator/codemirror/overlay
+//= require blogelator/codemirror/markdown
+//= require blogelator/codemirror/gfm
+//= require blogelator/codemirror/coffeescript
+//= require blogelator/codemirror/css
+//= require blogelator/codemirror/htmlmixed
+//= require blogelator/codemirror/javascript
+//= require blogelator/codemirror/php
+//= require blogelator/codemirror/ruby
+//= require blogelator/codemirror/sass
+//= require blogelator/codemirror/xml
+//= require blogelator/codemirror/yaml
+//= require blogelator/inline-attach
+//= require blogelator/marked
 
 (function() {
   "use strict";
@@ -23,7 +23,7 @@
     parseDelay: 100,
     resizeDelay: 50,
     scrollDelay: 10,
-    
+
     didInsertElement: function() {
       var textArea = this.$('textarea')[0],
           editor = CodeMirror.fromTextArea(textArea, {
@@ -34,7 +34,7 @@
             smartIndent: false,
             tabSize: 2
           });
-      
+
       // Replace tab with spaces
       editor.addKeyMap({
         Tab: function(cm) {
@@ -43,7 +43,7 @@
         }
       });
       this.set('editor', editor);
-      
+
       // Capture Command/Ctrl + S
       var self = this;
       $(this.get('element')).on('keydown', function(e) {
@@ -53,7 +53,7 @@
         }
       });
     },
-    
+
     editorDidChange: function() {
       var editor = this.get('editor'),
           preview = this.$('.html-preview .post'),
@@ -63,10 +63,10 @@
           scrollDelay = this.get('scrollDelay'),
           viewport = $(this.get('element')),
           self = this;
-          
+
       // Set initial editor value from component content
       editor.setValue(this.get('content'));
-      
+
       // Syncs the preview scroll top from editor scroll top
       var syncEditorScrolling = function() {
         var viewportHeight = viewport.height(),
@@ -75,31 +75,31 @@
             codeTop = editorScrollInfo.top,
             previewHeight = preview[0].scrollHeight - viewportHeight,
             ratio = previewHeight / codeHeight;
-            
+
         preview.scrollTop(codeTop * ratio);
       };
-      
+
       // Syncs the component content w/ the new editor value
       // And syncs scrolling after a change occurs
       var updateContent = function() {
         self.set('content', editor.getValue());
         Ember.run.debounce(scrollContext, syncEditorScrolling, scrollDelay);
       };
-      
+
       // Update preview on change
       editor.on('change', function() {
         Ember.run.debounce(parseContext, updateContent, parseDelay);
       });
-      
+
       // Scroll preview when markdown is scrolled
       editor.on('scroll', function() {
         Ember.run.debounce(scrollContext, syncEditorScrolling, scrollDelay);
       });
-      
+
       // Handle image drag and drop uploading
       this._addInlineAttach(editor);
     }.observes('editor'),
-    
+
     html: function() {
       var content = this.get('content');
       if (Ember.isNone(content)) {
@@ -107,7 +107,7 @@
       }
       return marked(content);
     }.property('content'),
-    
+
     willDestroyElement: function() {
       // Remove scrolling observers
       var editor = this.get('editor');
@@ -116,11 +116,11 @@
       // Remove Command/Ctrl + S observer
       $(this.get('element')).off('keydown');
     },
-    
+
     _addInlineAttach: function(editor) {
       function CodeMirrorEditor(instance) {
         var codeMirror = instance;
-        
+
         return {
           getValue: function() {
             return codeMirror.getValue();
@@ -133,10 +133,10 @@
         };
       }
       CodeMirrorEditor.prototype = new inlineAttach.Editor();
-      
+
       var inlineAttachInstance,
           inlineAttachEditor = new CodeMirrorEditor(editor);
-          
+
       inlineAttachInstance = new inlineAttach({
         customUploadHandler: function(file) {
           var formData = new FormData(),
@@ -154,7 +154,7 @@
             }
           }
           formData.append('file', file, filename + Date.now() + '.' + extension);
-          
+
           $.ajax({
             url: uploadUrl,
             data: formData,
@@ -168,12 +168,12 @@
               inlineAttachInstance.onErrorUploading();
             }
           });
-          
+
           return false;
         },
         urlText: "![image]({filename})"
       }, inlineAttachEditor);
-      
+
       editor.setOption('onDragEvent', function(data, e) {
         if (e.type === "drop") {
           e.stopPropagation();
@@ -183,5 +183,5 @@
       });
     }
 	});
-  
+
 })();

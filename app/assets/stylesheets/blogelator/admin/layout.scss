@@ -1,7 +1,7 @@
-@import "bourbon";
+@import "blogelator/bourbon";
 @import "blogelator/variables";
 @import "blogelator/mixins/blogelator_logo";
-@import "neat";
+@import "blogelator/neat";
 
 body.blogelator.admin {
   header,
@@ -16,7 +16,7 @@ body.blogelator.admin {
     width: 100%;
   }
 }
-  
+
 body.blogelator.admin {
   header,
   footer {
@@ -25,12 +25,12 @@ body.blogelator.admin {
       margin: 0;
       padding: 0;
       @include clearfix;
-      
+
       li {
         display: block;
         float: left;
         margin: 0;
-        
+
         a {
           border-bottom: 5px solid $base-accent-color;
           color: lighten($admin-header-accent-color, 5%);
@@ -42,7 +42,7 @@ body.blogelator.admin {
           padding: 0 0.5em;
           text-decoration: none;
           @include transition(color 0.1s linear);
-          
+
           &:hover {
             border-bottom: 5px solid $admin-header-highlight-color;
             color: $admin-header-highlight-color;
@@ -64,7 +64,7 @@ body.blogelator.admin {
     position: absolute;
     top: 45px;
     width: 100%;
-    
+
     section.posts-list {
       @include span-columns(4);
       height: 100%;
@@ -85,7 +85,7 @@ body.blogelator.admin {
   footer {
     bottom: 0;
     top: auto;
-    
+
     .logo {
       @include blogelator-logo(30);
       margin: 5px 0 0 5px;

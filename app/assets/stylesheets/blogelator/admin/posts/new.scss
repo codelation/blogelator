@@ -1,10 +1,10 @@
-@import "bourbon";
+@import "blogelator/bourbon";
 @import "blogelator/variables";
-@import "neat";
+@import "blogelator/neat";
 
 body.blogelator.admin.posts.new {
   background-color: darken($base-body-color, 5%);
-  
+
   header ul li a.posts-index-link.active {
     border-bottom: 5px solid $base-accent-color;
     color: $base-accent-color;

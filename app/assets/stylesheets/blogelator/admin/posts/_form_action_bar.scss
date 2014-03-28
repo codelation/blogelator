@@ -1,6 +1,6 @@
-@import "bourbon";
+@import "blogelator/bourbon";
 @import "blogelator/variables";
-@import "neat";
+@import "blogelator/neat";
 
 body.blogelator.admin.posts .form-action-bar .save-button {
   background-color: $base-accent-color;
@@ -13,48 +13,48 @@ body.blogelator.admin.posts .form-action-bar .save-button {
   text-align: center;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
-  
+
   &.destroy {
     float: left;
   }
-  
+
   &.disabled {
     cursor: default;
     opacity: 0.6;
   }
 }
-  
+
 body.blogelator.admin.posts .form-action-bar .save-button {
   .button-label {
     border: 1px solid $base-accent-color;
     padding: 4px;
     @include transition(border-color 0.1s linear);
   }
-  
+
   &.publish {
     background-color: adjust-hue($base-accent-color, 210deg);
-    
+
     .button-label {
       border: 1px solid adjust-hue($base-accent-color, 210deg);
     }
-    
+
     .saving {
       background-color: adjust-hue($base-accent-color, 210deg);
       color: $base-body-color;
     }
-    
+
     .saved,
     .error {
       color: adjust-hue($base-accent-color, 210deg);
     }
-    
+
     &.disabled:hover {
       .button-label {
         border: 1px solid adjust-hue($base-accent-color, 210deg);
       }
     }
   }
-  
+
   &:hover {
     .button-label {
       border-color: rgba($base-body-color, 0.8);
@@ -76,7 +76,7 @@ body.blogelator.admin.posts .form-action-bar .last-saved {
   min-width: 110px;
   text-align: center;
   -webkit-font-smoothing: antialiased;
-  
+
   label {
     font-size: 1em;
     margin: 4px 0 0 0;

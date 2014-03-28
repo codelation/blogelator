@@ -1,5 +1,5 @@
-//= require marked
-//= require prettify
+//= require blogelator/marked
+//= require blogelator/prettify
 
 marked.setOptions({
   langPrefix: 'highlight lang-',

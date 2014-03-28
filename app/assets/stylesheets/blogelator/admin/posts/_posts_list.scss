@@ -1,7 +1,7 @@
-@import "bourbon";
+@import "blogelator/bourbon";
 @import "blogelator/variables";
 @import "blogelator/mixins/blogelator_logo";
-@import "neat";
+@import "blogelator/neat";
 
 body.blogelator.admin.posts section.posts-list .post {
   background-color: darken($base-body-color, 2%);
@@ -14,7 +14,7 @@ body.blogelator.admin.posts section.posts-list .post {
   padding: 0.6em 0.5em 0.8em 0.4em;
   position: relative;
   z-index: 1;
-  
+
   .summary {
     font-size: 0.8em;
     line-height: 1.2em;
@@ -27,7 +27,7 @@ body.blogelator.admin.posts section.posts-list .post {
     font-size: 1.2em;
     margin-bottom: 0;
   }
-  
+
   &.active {
     background-color: $base-body-color;
     border-bottom: 1px solid $base-accent-color;
@@ -35,7 +35,7 @@ body.blogelator.admin.posts section.posts-list .post {
     border-top: 1px solid $base-accent-color;
     color: $base-font-color;
     z-index: 2;
-    
+
     h2 {
       color: $base-font-color;
     }

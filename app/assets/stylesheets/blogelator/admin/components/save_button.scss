@@ -1,10 +1,10 @@
-@import "bourbon";
+@import "blogelator/bourbon";
 @import "blogelator/variables";
 
 .save-button {
   overflow: hidden;
   position: relative;
-  
+
   .button-label {
     display: block;
     opacity: 1;
@@ -12,7 +12,7 @@
     @include transition-duration(0.3s);
     @include transition-property(all);
   }
-  
+
   .confirm {
     bottom: 0;
     display: block;
@@ -25,7 +25,7 @@
     z-index: 10;
     @include transition-duration(0.3s);
     @include transition-property(all);
-    
+
     .no,
     .yes {
       bottom: 0;
@@ -34,7 +34,7 @@
       top: 0;
       width: 50%;
     }
-    
+
     .no {
       background-color: adjust-hue($base-accent-color, 210deg);
       color: $base-body-color;
@@ -44,15 +44,15 @@
       background-color: $base-accent-color;
       color: $base-body-color;
       left: 0;
-    } 
+    }
   }
-  
+
   &.confirm {
     .confirm {
       left: 0;
     }
   }
-  
+
   .error,
   .saved,
   .saving {
@@ -72,14 +72,14 @@
     @include transition-duration(0.3s);
     @include transition-property(all);
   }
-  
+
   .saving {
     background-color: $base-accent-color;
     color: $base-body-color;
     font-size: 16px;
     padding: 6px 0;
   }
-  
+
   &.error,
   &.saved,
   &.saving {
@@ -88,7 +88,7 @@
       @include transform(scale(0));
     }
   }
-  
+
   &.error {
     .error {
       opacity: 1;
@@ -99,7 +99,7 @@
       @include transform(scale(0));
     }
   }
-  
+
   &.saved {
     .saved {
       opacity: 1;
@@ -110,12 +110,12 @@
       @include transform(scale(0));
     }
   }
-  
+
   &.saving {
     .saving {
       opacity: 1;
       @include transform(scale(1));
     }
   }
-  
+
 }
