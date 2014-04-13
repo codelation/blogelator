@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
 bundle exec rspec &&
-bundle exec rake teaspoon
+RAILS_ENV=development bundle exec rake teaspoon
