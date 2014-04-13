@@ -47,6 +47,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rb-fsevent", "~> 0.9"
   s.add_development_dependency "rspec-rails", "~> 2.14"
   s.add_development_dependency "sqlite3", "~> 1.3"
-  s.add_development_dependency "teaspoon"
+  s.add_development_dependency "teaspoon", "~> 0.7"
   s.add_development_dependency "terminal-notifier-guard", "~> 1.5"
 end
