@@ -1,8 +1,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require handlebars
-//= require ember
-//= require ember-data
+//= require blogelator/ember
+//= require blogelator/ember-data
 //= require blogelator/moment
 //= require_self
 //= require_tree ./config
@@ -13,6 +13,5 @@
 //= require_tree ./templates
 
 App = Ember.Application.create({
-  LOG_TRANSITIONS: true,
-  blogelatorPath: '/' + (location.pathname.split('/')[1] === 'admin' ? '' : location.pathname.split('/')[1])
+  appPath: '/' + (location.pathname.split('/')[1] === 'admin' ? '' : location.pathname.split('/')[1])
 });
