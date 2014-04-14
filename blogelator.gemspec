@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "foreman", "~> 0.63"
   s.add_development_dependency "guard", "~> 2.5"
   s.add_development_dependency "guard-rspec", "~> 4.2"
-  s.add_development_dependency "guard-teaspoon"
+  s.add_development_dependency "guard-teaspoon", "~> 0.0", ">= 0.0.4"
   s.add_development_dependency "puma", "~> 2.8"
   s.add_development_dependency "quiet_assets", "~> 1.0"
   s.add_development_dependency "rake", "~> 10.2"
