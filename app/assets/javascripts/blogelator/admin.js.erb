@@ -13,5 +13,5 @@
 //= require_tree ./templates
 
 App = Ember.Application.create({
-  appPath: '/' + (location.pathname.split('/')[1] === 'admin' ? '' : location.pathname.split('/')[1])
+  appPath: '<%= Blogelator::Engine.routes.url_helpers.root_path.gsub(/\/$/, "") %>'
 });
