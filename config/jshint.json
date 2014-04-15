@@ -19,6 +19,7 @@
     "console": true,
     "test": true,
     "equal": true,
+    "deepEqual": true,
     "ok": true,
     "sinon": true,
     "require": true,
@@ -33,11 +34,19 @@
     "CodeMirror": true,
     "inlineAttach": true,
     "moment": true,
+    "emq": true,
     "module": true,
     "test": true,
     "visit": true,
     "find": true,
-    "andThen": true
+    "andThen": true,
+    "moduleFor": true,
+    "moduleForComponent": true,
+    "moduleForModel": true,
+    "setResolver": true,
+    "currentPath": true,
+    "currentUrl": true,
+    "dataStore": true
   }
 }
 
