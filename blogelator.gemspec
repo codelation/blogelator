@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.name        = "blogelator"
   s.version     = Blogelator::VERSION
   s.authors     = ["Brian Pattison", "Matthew Sullivan"]
-  s.email       = ["brian@81designs.com", "matthew@81designs.com"]
-  s.homepage    = "http://github.com/codelation/blogelator"
+  s.email       = ["brian@brianpattison.com", "msull92@gmail.com"]
+  s.homepage    = "https://github.com/codelation/blogelator"
   s.summary     = "A blog in the form of a mountable Rails::Engine."
   s.description = "Blogelator is a mountable Rails::Engine for adding a blog to your Rails app."
   s.licenses    = ["MIT"]

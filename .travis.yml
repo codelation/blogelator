@@ -1,7 +1,7 @@
 language: ruby
 rvm:
   - 2.0.0
-  - 2.1.0
+  - 2.1.1
 before_script:
   - cd spec/dummy
   - RAILS_ENV=development bundle exec rake db:migrate

@@ -1,4 +1,4 @@
-<% cache(@posts) do %>
+<% cache [Blogelator::VERSION, @posts] do %>
   <% if @posts.length > 0 %>
     <%= render @posts %>
     <div class="pagination">

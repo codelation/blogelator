@@ -1,4 +1,4 @@
-<% cache(post) do %>
+<% cache [Blogelator::VERSION, post, "index", Blogelator.show_full_post] do %>
   <div class="post">
     <h2><%= link_to post.title, post %></h2>
     <div class="date">
@@ -6,8 +6,12 @@
     </div>
     <div class="summary">
       <p>
-        <%=raw post.summary %>
-        <%= link_to raw("Continue reading &raquo;"), post, class: "continue" %>
+        <% if Blogelator.show_full_post %>
+          <%=raw post.body_html %>
+        <% else %>
+          <%=raw post.summary %>
+          <%= link_to raw("Continue reading &raquo;"), post, class: "continue" %>
+        <% end %>
       </p>
     </div>
   </div>

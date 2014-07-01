@@ -44,8 +44,9 @@ $ rails g blogelator:install
 The install generator will create `config/initializers/blogelator.rb`:
 
 ```ruby
-Blogelator.posts_per_page       = 5
 Blogelator.site_name            = "My Awesome Blog"
+Blogelator.posts_per_page       = 5
+Blogelator.show_full_posts      = false
 Blogelator.user_class           = "User"
 Blogelator.s3_access_key_id     = ENV["BLOGELATOR_S3_KEY"]
 Blogelator.s3_secret_access_key = ENV["BLOGELATOR_S3_SECRET"]
@@ -77,7 +78,7 @@ The install generator will create three SCSS files in `app/assets/stylesheets/bl
 ### Views
 
 View customization can be done by using [Deface](https://github.com/spree/deface)
-or by replacing view templates. If you have experience with customizing 
+or by replacing view templates. If you have experience with customizing
 [Spree](https://github.com/spree/spree), you'll be right at home. Blogelator
 aims to follow Spree's conventions, so you can simply follow their documentation:
 

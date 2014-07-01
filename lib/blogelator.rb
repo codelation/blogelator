@@ -13,8 +13,9 @@ require "blogelator/engine"
 require "blogelator/version"
 
 module Blogelator
-  mattr_accessor :posts_per_page, :site_name, :s3_access_key_id,
-                 :s3_bucket, :s3_secret_access_key, :user_class
+  mattr_accessor :posts_per_page,  :site_name,             :s3_access_key_id,
+                 :s3_bucket,       :s3_secret_access_key,  :show_full_post,
+                 :user_class
 
   def self.posts_per_page
     @@posts_per_page ||= 5

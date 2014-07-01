@@ -1,4 +1,4 @@
-<% cache(@post) do %>
+<% cache [Blogelator::VERSION, @post, "show"] do %>
   <div class="post">
     <h1><%= link_to @post.title, @post %></h1>
     <div class="date">
@@ -17,7 +17,7 @@
       <%= local_time(@previous_post.published_at, format: '%B %e, %Y') %>
     <% end %>
   <% end %>
-  
+
   <% if @next_post %>
     <%= link_to @next_post, class: "next" do %>
       <%= @next_post.title %><br />

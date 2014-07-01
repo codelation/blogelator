@@ -3,7 +3,7 @@
 
   App.Store = DS.Store.extend({
     adapter: DS.ActiveModelAdapter.extend({
-      namespace: (App.get('appPath') + '/').substring(1) + 'api'
+      namespace: '<%= File.join(Blogelator::Engine.routes.url_helpers.root_path, "api").gsub(/^\//, "") %>'
     })
   });
 

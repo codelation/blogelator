@@ -1,0 +1,9 @@
+(function() {
+  "use strict";
+
+  App.Router.reopen({
+    rootURL: '<%= Blogelator::Engine.routes.url_helpers.admin_path %>',
+    location: 'history'
+  });
+
+})();
