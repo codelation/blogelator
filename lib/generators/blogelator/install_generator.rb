@@ -22,7 +22,7 @@ module Blogelator
     def create_initializer_file
       create_file "config/initializers/blogelator.rb", <<-INITIALIZER
 Blogelator.site_name            = "#{@site_name}"
-Blogelator.show_full_posts      = false
+Blogelator.show_full_post       = false
 Blogelator.posts_per_page       = 5
 Blogelator.user_class           = "#{@user_class}"
 Blogelator.s3_access_key_id     = ENV["BLOGELATOR_S3_KEY"]
