@@ -17,16 +17,16 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "aws-sdk", "~> 1.27"
+  s.add_dependency "aws-sdk"
   s.add_dependency "cancancan"
-  s.add_dependency "deface", "~> 1.0"
+  s.add_dependency "deface"
   s.add_dependency "ember-rails"
   s.add_dependency "jquery-rails"
-  s.add_dependency "kaminari", "~> 0.15"
-  s.add_dependency "local_time", "~> 0.3"
-  s.add_dependency "pygments.rb", "~> 0.5"
+  s.add_dependency "kaminari"
+  s.add_dependency "local_time"
+  s.add_dependency "pygments.rb"
   s.add_dependency "rails"
-  s.add_dependency "redcarpet", "~> 3.1"
+  s.add_dependency "redcarpet"
   s.add_dependency "sass-rails"
   s.add_dependency "uglifier"
 
