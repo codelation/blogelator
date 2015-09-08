@@ -2,8 +2,14 @@ module Blogelator
   class InstallGenerator < Rails::Generators::Base
     source_root File.expand_path("../../../..", __FILE__)
 
+    def ask_questions
+      @user_class = ask("What class is used for user authentication? [User]")
+      @user_class = "User" if @user_class.blank?
+    end
+
     def create_initializer_file
       create_file "config/initializers/blogelator.rb", <<-INITIALIZER
+Blogelator.user_class           = "#{@user_class}"
 Blogelator.s3_access_key_id     = ENV["BLOGELATOR_S3_KEY"]
 Blogelator.s3_secret_access_key = ENV["BLOGELATOR_S3_SECRET"]
 Blogelator.s3_bucket            = ENV["BLOGELATOR_S3_BUCKET"]
