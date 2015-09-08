@@ -2,7 +2,7 @@
   {{#if content.isUpdating}}
     Loading...
   {{else}}
-    {{#each post in content}}
+    {{#each content as |post|}}
       {{#link-to "posts.show" post class="post" tagName="div"}}
         <h2>{{post.title}}</h2>
         <div class="date">
