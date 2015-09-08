@@ -2,7 +2,7 @@
   {{#save-button action="destroy" confirm="true" class="destroy"}}
     Delete
   {{/save-button}}
-  
+
   {{#save-button action="togglePublished" confirm="true" class="publish"}}
     {{#if publishedAt}}
       Unpublish
@@ -10,11 +10,11 @@
       Publish
     {{/if}}
   {{/save-button}}
-  
-  {{#save-button action="save" isDisabledBinding="isClean"}}
+
+  {{#save-button action="save" isDisabled=isClean}}
     Save
   {{/save-button}}
-  
+
   <div class="last-saved">
     <label>Last Saved:</label>
     {{updatedAtFormatted}}

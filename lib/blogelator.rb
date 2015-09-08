@@ -1,7 +1,5 @@
 require "aws-sdk"
-require "cancan"
 require "coffee_script"
-require "deface"
 require "ember-rails"
 require "jquery-rails"
 require "kaminari"

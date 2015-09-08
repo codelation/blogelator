@@ -17,18 +17,16 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "aws-sdk", "~> 1.27"
-  s.add_dependency "cancan", "~> 1.6"
-  s.add_dependency "deface", "~> 1.0"
-  s.add_dependency "ember-rails", "~> 0.14"
-  s.add_dependency "jquery-rails", "~> 3.1"
-  s.add_dependency "kaminari", "~> 0.15"
-  s.add_dependency "local_time", "~> 0.3"
-  s.add_dependency "pygments.rb", "~> 0.5"
-  s.add_dependency "rails", "~> 4.0"
-  s.add_dependency "redcarpet", "~> 3.1"
-  s.add_dependency "sass-rails", "~> 4.0", ">= 4.0.2"
-  s.add_dependency "uglifier", "~> 2.4"
+  s.add_dependency "aws-sdk", "~> 1.66"
+  s.add_dependency "ember-rails", "~> 0.19"
+  s.add_dependency "jquery-rails", "~> 4.0"
+  s.add_dependency "kaminari", "~> 0.16"
+  s.add_dependency "local_time", "~> 1.0"
+  s.add_dependency "pygments.rb", "~> 0.6"
+  s.add_dependency "rails", "~> 4.2"
+  s.add_dependency "redcarpet", "~> 3.3"
+  s.add_dependency "sass-rails", "~> 5.0"
+  s.add_dependency "uglifier", "~> 2.7"
 
   s.add_development_dependency "awesome_print", "~> 1.2"
   s.add_development_dependency "better_errors", "~> 1.1"
