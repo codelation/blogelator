@@ -36,7 +36,7 @@ module Blogelator
     # @return [String]
     def url(request = nil)
       @url ||= begin
-        if request.ssl?
+        if request.try(:ssl?)
           "https://#{ENV.fetch('HOST')}/blog/#{slug}"
         else
           "http://#{ENV.fetch('HOST')}/blog/#{slug}"
