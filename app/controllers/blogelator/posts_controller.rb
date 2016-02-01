@@ -1,34 +1,24 @@
-require_dependency "blogelator/application_controller"
-
 module Blogelator
   class PostsController < ApplicationController
-    before_action :set_post, only: [:show]
+    layout "blogelator"
+    PER_PAGE = 5
 
     def index
-      page = params[:page] ? params[:page].to_i : 1
-      per_page = Blogelator.posts_per_page
-      @posts = Blogelator::Post.published.page(page).per(per_page)
+      if try(:current_admin_user)
+        @posts = Blogelator::Post.page(params[:page]).per(PER_PAGE)
+      else
+        @posts = Blogelator::Post.published.page(params[:page]).per(PER_PAGE)
+      end
     end
 
     def show
+      if try(:current_admin_user)
+        @post = Blogelator::Post.find_by(slug: params[:id])
+      else
+        @post = Blogelator::Post.published.find_by(slug: params[:id])
+      end
+      fail ActionController::RoutingError.new("Not Found") unless @post
       @title = @post.title
-    end
-
-  private
-
-    def set_next_post
-      @next_post = Blogelator::Post.where("published_at > ?", @post.published_at).order(published_at: :asc).first
-    end
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Blogelator::Post.find_by_slug(params[:id])
-      set_previous_post
-      set_next_post
-    end
-
-    def set_previous_post
-      @previous_post = Blogelator::Post.where("published_at < ?", @post.published_at).order(published_at: :desc).first
     end
   end
 end

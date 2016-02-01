@@ -1,0 +1,40 @@
+<meta name="description" content="<%=strip_tags(@post.summary_html) %>">
+
+<link rel="canonical" href="<%= @post.url %>" />
+
+<meta property="article:published_time" content="<%= @post.created_at %>" />
+<meta property="og:site_name" content="In the Booth" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="<%= @post.title %>" />
+<meta property="og:description" content="<%=strip_tags(@post.summary_html) %>" />
+<meta property="og:url" content="<%= @post.url %>" />
+<meta property="og:image" content="<%= @post.image.url %>" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="<%= @post.title %>" />
+<meta name="twitter:description" content="<%=strip_tags(@post.summary_html) %>" />
+<meta name="twitter:url" content="<%= @post.url %>" />
+<meta name="twitter:image:src" content="<%= @post.image.url %>" />
+
+<script type="application/ld+json">
+  {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "publisher": "In the Booth",
+      "author": {
+          "@type": "Person",
+          "name": "Josh Christy",
+          "image":  "https://s3.amazonaws.com/blog.booth/2015/Aug/IWV8HQ72__1_-1439403715393.jpg",
+          "url": "https://trybooth.com/blog/",
+          "sameAs": "https://trybooth.com",
+          "description": "Founder of Booth, passionate about helping to grow businesses that matter."
+      },
+      "headline": "<%= @post.title %>",
+      "url": "<%= request.original_url %>",
+      "datePublished": "<%= @post.created_at %>",
+      "image": "<%= @post.image.url %>",
+      "description": "<%=strip_tags(@post.summary_html) %>"
+  }
+</script>

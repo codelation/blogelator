@@ -1,27 +1,15 @@
 <% cache [Blogelator::VERSION, @post, "show"] do %>
-  <div class="post">
-    <h1><%= link_to @post.title, @post %></h1>
+  <div class="post <%= @post.status %>">
+    <h1><%= link_to @post.title, @post.url(request) %></h1>
     <div class="date">
       <%= local_time(@post.published_at, format: '%B %e, %Y') %>
     </div>
     <div class="body">
-      <%=raw @post.body_html %>
+      <%== @post.body_html %>
     </div>
   </div>
+
+  <% content_for :head do %>
+    <% render "meta" %>
+  <% end %>
 <% end %>
-
-<div class="more-posts">
-  <% if @previous_post %>
-    <%= link_to @previous_post, class: "previous" do %>
-      <%= @previous_post.title %><br />
-      <%= local_time(@previous_post.published_at, format: '%B %e, %Y') %>
-    <% end %>
-  <% end %>
-
-  <% if @next_post %>
-    <%= link_to @next_post, class: "next" do %>
-      <%= @next_post.title %><br />
-      <%= local_time(@next_post.published_at, format: '%B %e, %Y') %>
-    <% end %>
-  <% end %>
-</div>

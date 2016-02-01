@@ -1,63 +1,67 @@
 module Blogelator
   class Post < ActiveRecord::Base
-    attr_accessor :custom_summary
-    
-    has_many :tags
-    belongs_to :author, class_name: Blogelator.user_class
-    
-    before_save :parse_markdown, :set_slug, :set_summary
-    
-    scope :published,   -> { where("published_at IS NOT NULL").order("published_at DESC") }
-    scope :unpublished, -> { where("published_at IS NULL").order("created_at DESC") }
-    
-    validates_presence_of :title
-    
-    def active_model_serializer
-      Blogelator::PostSerializer
-    end
-    
-    def published?
-      !self.published_at.nil?
-    end
-    
+    # Assocations
+    belongs_to :author
+
+    # Paperclip attached file
+    # @see https://github.com/thoughtbot/paperclip
+    has_attached_file(
+      :image,
+      styles: {
+        retina:    "242x116>",
+        thumbnail: "121x58>"
+      }
+    )
+
+    # Validations
+    validates :title, presence: true
+    validates :slug,  presence: true, uniqueness: true
+    validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
+    # Callbacks
+    before_save :parse_markdown
+
+    enum status: {
+      preview:   0,
+      published: 1
+    }
+
+    # Uses the slug as the :id parameter in URLs
+    # @return [String]
     def to_param
-      self.slug
+      slug
     end
-    
-  private
-  
-    def markdown
-      @markdown ||= Redcarpet::Markdown.new(Blogelator::HTMLRenderer, {
-        autolink: true,
-        disable_indented_code_blocks: true,
-        fenced_code_blocks: true,
-        space_after_headers: true
-      })
-    end
-    
-    def parse_markdown
-      self.body_html = markdown.render(self.body_markdown)
-    end
-    
-    def set_summary
-      if @custom_summary.blank?
-        summary_text = self.body_markdown.split("\n\n").first.to_s.first(300).strip
-        summary_text += "..." if self.body_markdown.length > 300
-        summary_text = markdown.render(summary_text).to_s
-        self.summary = summary_text.gsub("<p>", "").gsub("</p>", "")
-      else
-        self.summary = markdown.render(@custom_summary)
-      end
-    end
-    
-    def set_slug
-      if self.published_at && self.slug.nil?
-        self.slug = self.title.parameterize
-        existing_slug_count = self.class.where(slug: self.slug).count
-        if existing_slug_count > 0
-          self.slug = self.slug + "-#{existing_slug_count}"
+
+    # The URL for the blog post.
+    # @return [String]
+    def url(request = nil)
+      @url ||= begin
+        if request.ssl?
+          "https://#{ENV.fetch('HOST')}/blog/#{slug}"
+        else
+          "http://#{ENV.fetch('HOST')}/blog/#{slug}"
         end
       end
+    end
+
+  private
+
+    # Returns a customized Redcarpet Markdown -> HTML renderer.
+    # @return [Redcarpet::Markdown]
+    def markdown
+      @markdown ||= Redcarpet::Markdown.new(
+        Blogelator::HTMLRenderer,
+        autolink:                     true,
+        disable_indented_code_blocks: true,
+        fenced_code_blocks:           true,
+        space_after_headers:          true
+      )
+    end
+
+    # Convert the Markdown for the post body and summary to HTML.
+    def parse_markdown
+      self.body_html = markdown.render(body_markdown)
+      self.summary_html = markdown.render(summary_markdown)
     end
   end
 end

@@ -8,7 +8,7 @@
   <% else %>
     <div class="post">
       <h2>
-        <a href="https://github.com/codelation/blogelator">
+        <a href="https://github.com/codelation/blogelator" target="_blank">
           Welcome to Blogelator
         </a>
       </h2>
@@ -17,15 +17,15 @@
       </div>
       <div class="summary">
         <p>
-          Navigate to <%= link_to "#{File.join(request.path, "admin")}", blogelator.admin_path %>
-          to create your first blog post. You will need to have your authentication set up
-          already before you can access the Blogelator admin section.
+          Navigate to <%= link_to "/admin", "/admin" %> to create your first blog post.
         </p>
         <p>
           For more information about setting up Blogelator, check out the Readme on GitHub:
         </p>
         <blockquote>
-          <a href="https://github.com/codelation/blogelator">https://github.com/codelation/blogelator</a>
+          <a href="https://github.com/codelation/blogelator" target="_blank">
+            https://github.com/codelation/blogelator
+          </a>
         </blockquote>
         <p>
           Thanks for using Blogelator,

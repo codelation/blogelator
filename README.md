@@ -1,22 +1,8 @@
 # Blogelator
 
-[![Build Status](https://travis-ci.org/codelation/blogelator.png?branch=master)](https://travis-ci.org/codelation/blogelator)
 [![Code Climate](https://codeclimate.com/github/codelation/blogelator.png)](https://codeclimate.com/github/codelation/blogelator)
 
-Blogelator is a mountable `Rails::Engine` for adding a blog to your Rails app.
-
-## Demo
-
-Check out Blogelator in action. No login required. Content resets every hour.
-
-- **Blog**: <http://blogelator.herokuapp.com>
-- **Admin**: <http://blogelator.herokuapp.com/admin>
-
-## Features
-
-- Awesome writing experience for developers with GitHub Flavored Markdown
-- [Ember.js](http://emberjs.com) backend with live GFM -> HTML preview
-- Upload images to Amazon S3 via drag and drop
+Blogelator is a Ruby gem for adding a blog to a Rails project.
 
 ## Installation
 
@@ -29,32 +15,26 @@ gem "blogelator"
 Install the Blogelator gem with Bundler:
 
 ```bash
-$ bundle install
+bundle install
 ```
 
-Use the install generator to set up Blogelator:
+Install the database migrations and migrate the database:
 
 ```bash
-$ rails g blogelator:install
+rake blogelator:install:migrations
+rake db:migrate
 ```
 
-## Configuration
+### Active Admin
 
-The install generator will create `config/initializers/blogelator.rb`:
+Blogelator registers the blog posts with [Active Admin](http://activeadmin.info) to
+provide the editing interface for your blog posts. Everything works best if you
+are using Active Admin and if `current_admin_user` is used to return an authenticated
+user who can manage the blog posts when signed in.
 
-```ruby
-Blogelator.s3_access_key_id     = ENV["BLOGELATOR_S3_KEY"]
-Blogelator.s3_secret_access_key = ENV["BLOGELATOR_S3_SECRET"]
-Blogelator.s3_bucket            = ENV["BLOGELATOR_S3_BUCKET"]
-```
-
-### Styles
-
-The install generator will create three SCSS files in `app/assets/stylesheets/blogelator/`:
-
-- **_variables.scss** - Easiest way to change fonts and/or colors
-- **admin.css.scss** - Loads the default styles for the backend
-- **application.css.scss** - Loads the default styles for the frontend
+If you're not using Active Admin, it should be pretty easy to create a simple interface
+for managing your blog posts. The reason the old admin interface was removed was to
+simplify the project and remove authorization methods that don't belong in this gem.
 
 ## Contributing
 

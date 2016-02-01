@@ -1,7 +1,0 @@
-@import "blogelator/bourbon";
-@import "blogelator/variables";
-@import "blogelator/neat";
-
-body.blogelator.admin.posts.edit {
-  background-color: darken($base-body-color, 5%);
-}

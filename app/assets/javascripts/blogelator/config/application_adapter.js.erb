@@ -1,8 +1,0 @@
-(function() {
-  "use strict";
-
-  App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
-    namespace: '<%= File.join(Blogelator::Engine.routes.url_helpers.root_path, "api").gsub(/^\//, "") %>'
-  });
-
-})();

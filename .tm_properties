@@ -1,9 +1,0 @@
-includeFiles = "{$includeFiles,.env,.gitignore,.foreman,.travis.yml}"
-excludeFiles = "{$excludeFiles,*.sqlite3}"
-excludeInFileChooser = "{$excludeInFileChooser,log,tmp}"
-excludeInFolderSearch = "{$excludeInFolderSearch,log,tmp}"
-
-softTabs = true
-tabSize = 2
-
-TM_STRIP_WHITESPACE_ON_SAVE = true

@@ -1,18 +1,18 @@
-<% cache [Blogelator::VERSION, post, "index", Blogelator.show_full_post] do %>
-  <div class="post">
-    <h2><%= link_to post.title, post %></h2>
+<% cache [Blogelator::VERSION, post, "index"] do %>
+  <div class="post <%= post.status %>">
+    <h2><%= link_to post.title, post.url(request) %></h2>
     <div class="date">
       <%= local_time(post.published_at, format: '%B %e, %Y') %>
     </div>
-    <div class="summary">
-      <p>
-        <% if Blogelator.show_full_post %>
-          <%=raw post.body_html %>
-        <% else %>
-          <%=raw post.summary %>
-          <%= link_to raw("Continue reading &raquo;"), post, class: "continue" %>
-        <% end %>
-      </p>
-    </div>
+    <% if post.summary_html.blank? %>
+      <div class="body">
+        <%== post.body_html %>
+      </div>
+    <% else %>
+      <div class="summary">
+        <%== post.summary_html %>
+        <%= link_to raw("Continue reading &raquo;"), post.url(request), class: "continue" %>
+      </div>
+    <% end %>
   </div>
 <% end %>

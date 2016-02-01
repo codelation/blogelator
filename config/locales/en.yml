@@ -1,0 +1,55 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  activerecord:
+    attributes:
+      blogelator/author:
+        bio_html: Bio
+        bio_markdown: Bio (Markdown)
+        cover_photo: Cover Photo
+        location: Location
+        meta_description: Meta Description
+        meta_keywords: Meta Keywords
+        name: Full Name
+        profile_photo: Profile Photo
+        slug: Slug
+        website: Website URL
+      blogelator/post:
+        body_html: Post Content
+        body_markdown: Post Content (Markdown)
+        featured: Featured Post?
+        image: Featured Image
+        meta_description: Meta Description
+        meta_keywords: Meta Keywords
+        published_at: Date Published
+        slug: Slug
+        summary_html: Summary
+        summary_markdown: Summary (Markdown)
+        title: Post Title
+        url: URL
+    models:
+      author:
+        one: Blog Author
+        other: Blog Authors
+      post:
+        one: Blog Post
+        other: Blog Posts
