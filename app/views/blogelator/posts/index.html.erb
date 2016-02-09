@@ -1,39 +1,10 @@
 <% cache [Blogelator::VERSION, @posts] do %>
   <% if @posts.length > 0 %>
     <%= render @posts %>
-    <div class="pagination">
-      <%= link_to_next_page @posts, "Older", class: "older" %>
-      <%= link_to_previous_page @posts, "Newer", class: "newer" %>
-    </div>
+    <%= paginate @posts, views_prefix: "blogelator" %>
   <% else %>
-    <div class="post">
-      <h2>
-        <a href="https://github.com/codelation/blogelator" target="_blank">
-          Welcome to Blogelator
-        </a>
-      </h2>
-      <div class="date">
-        <%= local_time(Time.now, format: '%B %e, %Y') %>
-      </div>
-      <div class="summary">
-        <p>
-          Navigate to <%= link_to "/admin", "/admin" %> to create your first blog post.
-        </p>
-        <p>
-          For more information about setting up Blogelator, check out the Readme on GitHub:
-        </p>
-        <blockquote>
-          <a href="https://github.com/codelation/blogelator" target="_blank">
-            https://github.com/codelation/blogelator
-          </a>
-        </blockquote>
-        <p>
-          Thanks for using Blogelator,
-        </p>
-        <p>
-          <a href="http://twitter.com/brianpattison">@brianpattison</a>
-        </p>
-      </div>
-    </div>
+    <p>
+      There are no blog posts.
+    </p>
   <% end %>
 <% end %>

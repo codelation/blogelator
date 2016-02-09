@@ -1,0 +1,19 @@
+<%# The container tag
+  - available local variables
+    current_page:  a page object for the currently displayed page
+    total_pages:   total number of pages
+    per_page:      number of items to fetch per page
+    remote:        data-remote
+    paginator:     the paginator that renders the pagination tags inside
+-%>
+
+<nav class="pagination">
+  <%# We're hard coding the URLs with the assumption that the blog will be served at /blog %>
+  <% if @tag %>
+    <%= link_to "Newer", "/blog/tags/#{@tag.slug}?page=#{current_page - 1}", class: "newer" unless current_page.first? %>
+    <%= link_to "Older", "/blog/tags/#{@tag.slug}?page=#{current_page + 1}", class: "older" unless current_page.last? %>
+  <% else %>
+    <%= link_to "Newer", "/blog?page=#{current_page - 1}", class: "newer" unless current_page.first? %>
+    <%= link_to "Older", "/blog?page=#{current_page + 1}", class: "older" unless current_page.last? %>
+  <% end %>
+</nav>

@@ -18,10 +18,10 @@ Install the Blogelator gem with Bundler:
 bundle install
 ```
 
-Install the database migrations and migrate the database:
+Install the controller, views, and database migrations:
 
 ```bash
-rake blogelator:install:migrations
+rails g blogelator:install
 rake db:migrate
 ```
 

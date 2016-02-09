@@ -2,7 +2,6 @@ module Blogelator
   class PostsController < ApplicationController
     before_action :set_tag, :set_posts, only: [:index]
     before_action :set_post, only: [:show]
-    layout "blogelator"
     PER_PAGE = 5
 
     def index
