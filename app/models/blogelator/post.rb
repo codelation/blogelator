@@ -2,6 +2,8 @@ module Blogelator
   class Post < ActiveRecord::Base
     # Assocations
     belongs_to :author
+    has_and_belongs_to_many :related_posts, class_name: "Blogelator::Post", foreign_key: :post_id, association_foreign_key: :related_post_id
+    has_and_belongs_to_many :tags
 
     # Paperclip attached file
     # @see https://github.com/thoughtbot/paperclip
@@ -14,12 +16,16 @@ module Blogelator
     )
 
     # Validations
-    validates :title, presence: true
     validates :slug,  presence: true, uniqueness: true
+    validates :title, presence: true
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
     # Callbacks
     before_save :parse_markdown
+    after_save :touch_tags
+
+    # Scopes
+    default_scope { includes(:author, :tags) }
 
     enum status: {
       preview:   0,
@@ -62,6 +68,11 @@ module Blogelator
     def parse_markdown
       self.body_html = markdown.render(body_markdown)
       self.summary_html = markdown.render(summary_markdown)
+    end
+
+    # Touch the associated tags to update cache keys.
+    def touch_tags
+      tags.each(&:touch)
     end
   end
 end

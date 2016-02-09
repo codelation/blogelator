@@ -1,8 +1,11 @@
 <% cache [Blogelator::VERSION, post, "index"] do %>
   <div class="post <%= post.status %>">
     <h2><%= link_to post.title, post.url(request) %></h2>
-    <div class="date">
-      <%= local_time(post.published_at, format: '%B %e, %Y') %>
+    <div class="published-at">
+      <%= local_time(post.published_at, format: "%B %e, %Y") %>
+    </div>
+    <div class="tags">
+      <%= render post.tags %>
     </div>
     <% if post.summary_html.blank? %>
       <div class="body">

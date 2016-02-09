@@ -11,8 +11,9 @@ if defined?(ActiveAdmin)
       :slug,
       :status,
       :summary_markdown,
-      :title
-      # category_ids: []
+      :title,
+      related_post_ids: [],
+      tag_ids:          []
     ]
 
     controller do
@@ -22,7 +23,7 @@ if defined?(ActiveAdmin)
     filter :title
     filter :body_html
     filter :published_at
-    # filter :categories
+    filter :tags
 
     index do
       selectable_column
@@ -49,6 +50,14 @@ if defined?(ActiveAdmin)
         input :published_at, as: :datepicker
       end
 
+      inputs "Tags" do
+        input :tags, as: :check_boxes, label: false
+      end
+
+      inputs "Related Posts" do
+        input :related_posts, as: :check_boxes, label: false
+      end
+
       inputs "Search Engine Optimization" do
         input :meta_keywords
         input :meta_description
@@ -73,11 +82,34 @@ if defined?(ActiveAdmin)
         row :published_at
         row :created_at
         row :updated_at
+        row :tags do
+          post.tags.each do |tag|
+            a href: admin_tag_path(tag) do
+              tag.name
+            end
+          end
+        end
         row :summary do
           raw post.summary_html
         end
         row :content do
           raw post.body_html
+        end
+      end
+
+      panel "Related Posts" do
+        if post.related_posts.length > 0
+          ul do
+            post.related_posts.each do |post|
+              li do
+                a href: admin_post_path(post) do
+                  post.title
+                end
+              end
+            end
+          end
+        else
+          para "No related posts"
         end
       end
       active_admin_comments

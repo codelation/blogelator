@@ -4,6 +4,24 @@ module Blogelator
     belongs_to :user, polymorphic: true
     has_many :posts
 
+    # Paperclip attached files
+    # @see https://github.com/thoughtbot/paperclip
+    has_attached_file(
+      :profile_photo,
+      styles: {
+        retina:    "242x116>",
+        thumbnail: "121x58>"
+      }
+    )
+
+    has_attached_file(
+      :cover_photo,
+      styles: {
+        retina:    "242x116>",
+        thumbnail: "121x58>"
+      }
+    )
+
     # Validations
     validates :name, presence: true
     validates :slug, presence: true, uniqueness: true

@@ -53,3 +53,6 @@ en:
       post:
         one: Blog Post
         other: Blog Posts
+      tag:
+        one: Blog Tag
+        other: Blog Tags
