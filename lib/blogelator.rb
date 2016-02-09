@@ -1,3 +1,4 @@
+require "paperclip"
 require "pygments"
 require "rails"
 require "redcarpet"
