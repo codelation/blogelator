@@ -31,8 +31,10 @@ if defined?(ActiveAdmin)
       column :title do |post|
         link_to post.title, admin_post_path(post)
       end
-      column :created_at
-      column :updated_at
+      column :published_at
+      column :status do |post|
+        post.status.titleize
+      end
     end
 
     form do |f|
