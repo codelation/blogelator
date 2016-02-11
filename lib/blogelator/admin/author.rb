@@ -53,13 +53,27 @@ if defined?(ActiveAdmin)
     show do
       attributes_table do
         row :name
+        row :bio do
+          raw author.bio_html
+        end
+        row :profile_photo do
+          if author.profile_photo.exists?
+            img src: author.profile_photo.url(:small)
+          else
+            "No Profile Photo"
+          end
+        end
+        row :cover_photo do
+          if author.cover_photo.exists?
+            img src: author.cover_photo.url(:small)
+          else
+            "No Cover Photo"
+          end
+        end
         row :location
         row :website
         row :created_at
         row :updated_at
-        row :bio do |author|
-          raw author.bio_html
-        end
       end
       active_admin_comments
     end

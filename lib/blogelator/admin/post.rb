@@ -82,6 +82,13 @@ if defined?(ActiveAdmin)
           end
         end
         row :published_at
+        row :image do
+          if post.image.exists?
+            img src: post.image.url(:small)
+          else
+            "No Image"
+          end
+        end
         row :created_at
         row :updated_at
         row :tags do
