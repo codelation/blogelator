@@ -1,6 +1,6 @@
 <% cache [Blogelator::VERSION, @post, "show"] do %>
   <div class="post <%= @post.status %>">
-    <h1><%= link_to @post.title, @post.url(request) %></h1>
+    <h1><%= link_to @post.title, @post %></h1>
     <%= local_time(@post.published_at, format: "%B %e, %Y", class: "published-at") %>
     <div class="tags">
       <%= render @post.tags %>

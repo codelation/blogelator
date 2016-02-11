@@ -1,4 +1,4 @@
-<link rel="canonical" href="<%= @post.url(request) %>" />
+<link rel="canonical" href="<%= blogelator_post_url(@post) %>" />
 <% unless @post.meta_description.blank? %>
   <meta name="description" content="<%= @post.meta_description %>">
 <% end %>
@@ -11,12 +11,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:title" content="<%= @post.title %>" />
 <meta property="og:description" content="<%=strip_tags(@post.summary_html) %>" />
-<meta property="og:url" content="<%= @post.url(request) %>" />
+<meta property="og:url" content="<%= blogelator_post_url(@post) %>" />
 <meta property="og:image" content="<%= @post.image.url %>" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="<%= @post.title %>" />
 <meta name="twitter:description" content="<%=strip_tags(@post.summary_html) %>" />
-<meta name="twitter:url" content="<%= @post.url(request) %>" />
+<meta name="twitter:url" content="<%= blogelator_post_url(@post) %>" />
 <meta name="twitter:image:src" content="<%= @post.image.url %>" />
 
 <script type="application/ld+json">
@@ -32,9 +32,9 @@
           "description": "<%= strip_tags(@post.author.bio_html) %>"
       },
       "headline": "<%= @post.title %>",
-      "url": "<%= @post.url(request) %>",
+      "url": "<%= blogelator_post_url(@post) %>",
       "datePublished": "<%= @post.created_at %>",
-      "image": "<%= @post.image.url %>",
+      "image": "<%= blogelator_post_url(@post) %>",
       "description": "<%= strip_tags(@post.summary_html) %>"
   }
 </script>

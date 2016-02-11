@@ -1,6 +1,6 @@
 <% cache [Blogelator::VERSION, post, "index"] do %>
   <div class="post <%= post.status %>">
-    <h2><%= link_to post.title, post.url(request) %></h2>
+    <h2><%= link_to post.title, post %></h2>
     <div class="published-at">
       <%= local_time(post.published_at, format: "%B %e, %Y") %>
     </div>
@@ -14,7 +14,7 @@
     <% else %>
       <div class="summary">
         <%== post.summary_html %>
-        <%= link_to raw("Continue reading &raquo;"), post.url(request), class: "continue" %>
+        <%= link_to raw("Continue reading &raquo;"), post, class: "continue" %>
       </div>
     <% end %>
   </div>

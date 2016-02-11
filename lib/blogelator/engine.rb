@@ -1,7 +1,5 @@
 module Blogelator
   class Engine < ::Rails::Engine
-    isolate_namespace Blogelator
-
     # Load Rails Generators
     generators do
       require File.join(File.expand_path("../..", __FILE__), "generators", "blogelator", "install_generator.rb")
