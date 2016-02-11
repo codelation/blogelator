@@ -7,7 +7,7 @@ module Blogelator
     # Paperclip attached files
     # @see https://github.com/thoughtbot/paperclip
     has_attached_file(
-      :profile_photo,
+      :cover_photo,
       styles: {
         retina:    "242x116>",
         thumbnail: "121x58>"
@@ -15,7 +15,7 @@ module Blogelator
     )
 
     has_attached_file(
-      :cover_photo,
+      :profile_photo,
       styles: {
         retina:    "242x116>",
         thumbnail: "121x58>"
@@ -25,6 +25,8 @@ module Blogelator
     # Validations
     validates :name, presence: true
     validates :slug, presence: true, uniqueness: true
+    validates_attachment_content_type :cover_photo,   content_type: /\Aimage\/.*\Z/
+    validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
 
     # Callbacks
     before_save :parse_markdown
