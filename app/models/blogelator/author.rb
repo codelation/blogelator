@@ -3,22 +3,25 @@ module Blogelator
     # Assocations
     belongs_to :user, polymorphic: true
     has_many :posts
-
+    # - 100x100 w/ 200x200 being retina
+    # - 200x200 w/ 400x400 being retina
     # Paperclip attached files
     # @see https://github.com/thoughtbot/paperclip
     has_attached_file(
       :cover_photo,
       styles: {
-        retina:    "242x116>",
-        thumbnail: "121x58>"
+        small:  "400x225#",
+        medium: "800x450#",
+        large:  "1200x675#"
       }
     )
 
     has_attached_file(
       :profile_photo,
       styles: {
-        retina:    "242x116>",
-        thumbnail: "121x58>"
+        small:  "150x150#",
+        medium: "300x300#",
+        large:  "600x600#"
       }
     )
 

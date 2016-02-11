@@ -1,0 +1,43 @@
+body.posts.show {
+  main {
+    margin: 1em auto;
+    max-width: 1440px;
+  }
+
+  .post-image {
+    display: block;
+    max-height: 360px;
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .post-content {
+    margin: 0 auto;
+    max-width: $max-width;
+  }
+
+  .title {
+    color: $body-color;
+    text-decoration: none;
+
+    &:hover {
+      border-bottom: 1px solid $accent-color;
+    }
+  }
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  .published-at {
+    display: block;
+    font-size: 0.8em;
+  }
+
+  .tags {
+    font-size: 0.7em;
+  }
+}

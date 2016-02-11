@@ -1,0 +1,47 @@
+$alert-background-color:  rgba($red, 0.85);
+$alert-font-color:        $white;
+$notice-background-color: rgba($green, 0.85);
+$notice-font-color:       $white;
+
+@include keyframes(flash-up) {
+  0% {
+    @include transform(translateZ(0) translate3d(0, 100%, 0));
+  }
+
+  5% {
+    @include transform(translateZ(0) translate3d(0, 0, 0));
+  }
+
+  95% {
+    @include transform(translateZ(0) translate3d(0, 0, 0));
+  }
+
+  100% {
+    @include transform(translateZ(0) translate3d(0, 100%, 0));
+  }
+}
+
+.flash-alert,
+.flash-notice {
+  @include animation(flash-up 6s 1);
+  @include transform(translateZ(0) translate3d(0, 100%, 0));
+  bottom: 0;
+  font-size: 1.6em;
+  left: 0;
+  line-height: 1.2;
+  padding: 0.6em 0.9em;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  z-index: 1000;
+}
+
+.flash-alert {
+  background-color: $alert-background-color;
+  color: $alert-font-color;
+}
+
+.flash-notice {
+  background-color: $notice-background-color;
+  color: $notice-font-color;
+}

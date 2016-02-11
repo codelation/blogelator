@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @title || try(:title) %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/<%= ENV['FONT_AWESOME_VERSION'] || '4.5.0' %>/css/font-awesome.min.css">
+  <%= stylesheet_link_tag "blog", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "blog", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
+</head>
+
+<body class="<%= try(:body_class) %>">
+  <%= render partial: "layouts/blog/header" unless @hide_header %>
+
+  <main>
+    <%= yield %>
+  </main>
+
+  <%= render partial: "layouts/blog/footer" unless @hide_footer %>
+  <%= yield :scripts %>
+</body>
+
+</html>

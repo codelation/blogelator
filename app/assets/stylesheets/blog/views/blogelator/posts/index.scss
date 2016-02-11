@@ -1,0 +1,7 @@
+body.posts.index {
+  main {
+    @include has-grid(3, 1em);
+    margin: 1em auto;
+    max-width: $max-width;
+  }
+}

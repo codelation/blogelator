@@ -1,0 +1,24 @@
+<div class="author">
+  <% if author.profile_photo.exists? %>
+    <div class="profile-photo">
+      <%= image_tag author.profile_photo.url(:small) %>
+    </div>
+  <% end %>
+
+  <div class="name">
+    <%= author.name %>
+  </div>
+
+  <div class="bio">
+    <%== author.bio_html %>
+  </div>
+
+  <div>
+    <small class="location">
+      <%= author.location %>
+    </small>
+    <small class="website">
+      <%= link_to author.website, author.website %>
+    </small>
+  </div>
+</div>

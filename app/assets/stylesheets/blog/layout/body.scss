@@ -1,0 +1,15 @@
+$body-background-color: color($grey, 50);
+$body-color:            color($grey, 900);
+$body-font-family:      sans-serif;
+$body-font-size:        16px;
+$body-line-height:      1.6875;
+
+body {
+  background-color: $body-background-color;
+  color: $body-color;
+  font-family: $body-font-family;
+  font-size: $body-font-size;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: $body-line-height;
+  text-rendering: optimizelegibility;
+}

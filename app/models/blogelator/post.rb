@@ -10,8 +10,9 @@ module Blogelator
     has_attached_file(
       :image,
       styles: {
-        retina:    "242x116>",
-        thumbnail: "121x58>"
+        small:  "400x225#",
+        medium: "800x450#",
+        large:  "1440x810#"
       }
     )
 

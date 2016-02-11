@@ -1,0 +1,30 @@
+body.posts.index .post {
+  border: 1px solid $grey;
+  border-radius: 2px;
+  text-align: center;
+
+  .post-link {
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .post-image {
+    display: block;
+    height: 120px;
+    overflow: hidden;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .published-at {
+    display: block;
+    font-size: 0.8em;
+  }
+
+  .tags {
+    font-size: 0.7em;
+  }
+}

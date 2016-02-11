@@ -7,8 +7,8 @@ require "blogelator/version"
 Gem::Specification.new do |s|
   s.name        = "blogelator"
   s.version     = Blogelator::VERSION
-  s.authors     = ["Brian Pattison", "Matthew Sullivan"]
-  s.email       = ["brian@brianpattison.com", "msull92@gmail.com"]
+  s.authors     = ["Brian Pattison"]
+  s.email       = ["brian@brianpattison.com"]
   s.homepage    = "https://github.com/codelation/blogelator"
   s.summary     = "Simple blog for Rails apps."
   s.description = "Blogelator is an easy way to add a blog to your Rails app."
@@ -17,9 +17,11 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
+  s.add_dependency "codelation_assets", "~> 0.3"
   s.add_dependency "paperclip", ">= 4.0.0"
   s.add_dependency "pygments.rb", "~> 0.6"
   s.add_dependency "rails", "~> 4.0"
   s.add_dependency "redcarpet", "~> 3.3"
+  s.add_dependency "turbolinks", "~> 2.5"
   s.add_development_dependency "rake"
 end

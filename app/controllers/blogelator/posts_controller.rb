@@ -1,5 +1,6 @@
 module Blogelator
   class PostsController < ApplicationController
+    layout "blog"
     before_action :set_tag, :set_posts, only: [:index]
     before_action :set_post, only: [:show]
     PER_PAGE = 5
@@ -35,9 +36,9 @@ module Blogelator
 
     def set_post
       if try(:current_admin_user)
-        @post = Blogelator::Post.find_by(slug: params[:id])
+        @post = Blogelator::Post.includes(:author).find_by(slug: params[:id])
       else
-        @post = Blogelator::Post.published.find_by(slug: params[:id])
+        @post = Blogelator::Post.includes(:author).published.find_by(slug: params[:id])
       end
       fail ActionController::RoutingError.new("Not Found") unless @post
     end

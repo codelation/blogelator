@@ -1,7 +1,9 @@
+require "codelation_assets"
 require "paperclip"
 require "pygments"
 require "rails"
 require "redcarpet"
+require "turbolinks"
 require "blogelator/engine"
 require "blogelator/version"
 
