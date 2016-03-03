@@ -1,40 +1,40 @@
-<link rel="canonical" href="<%= blogelator_post_url(@post) %>" />
-<% unless @post.meta_description.blank? %>
-  <meta name="description" content="<%= @post.meta_description %>">
-<% end %>
-<% unless @post.meta_keywords.blank? %>
-  <meta name="keywords" content="<%= @post.meta_keywords %>">
-<% end %>
+<link rel="canonical" href="<%= @post.url(request) %>" />
+<meta property="article:published_time" content="<%= @post.published_at %>" />
 
-<meta property="article:published_time" content="<%= @post.created_at %>" />
-<meta property="og:site_name" content="In the Booth" />
+<meta name="description" content="<%= @post.meta_description %>">
+<meta name="keywords" content="<%= @post.meta_keywords %>">
+
+<meta property="og:site_name" content="<%= t('titles.application') %>" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="<%= @post.title %>" />
-<meta property="og:description" content="<%=strip_tags(@post.summary_html) %>" />
-<meta property="og:url" content="<%= blogelator_post_url(@post) %>" />
+<meta property="og:url" content="<%= @post.url(request) %>" />
 <meta property="og:image" content="<%= @post.image.url %>" />
+<meta property="og:description" content="<%= @post.meta_description %>" />
+
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="<%= @post.title %>" />
-<meta name="twitter:description" content="<%=strip_tags(@post.summary_html) %>" />
-<meta name="twitter:url" content="<%= blogelator_post_url(@post) %>" />
+<meta name="twitter:url" content="<%= @post.url(request) %>" />
 <meta name="twitter:image:src" content="<%= @post.image.url %>" />
+<meta property="twitter:description" content="<%= @post.meta_description %>" />
 
 <script type="application/ld+json">
   {
       "@context": "http://schema.org",
       "@type": "Article",
-      "publisher": "<%= t('titles.application') %>",
+      "publisher": {
+        "name": "<%= t('titles.application') %>"
+      },
       "author": {
           "@type": "Person",
           "name": "<%= @post.author.name %>",
           "image": "<%= @post.author.profile_photo.url %>",
-          "url": "/blog",
+          "url": "<%= @post.author.website %>",
           "description": "<%= strip_tags(@post.author.bio_html) %>"
       },
       "headline": "<%= @post.title %>",
-      "url": "<%= blogelator_post_url(@post) %>",
+      "url": "<%= @post.url(request) %>",
       "datePublished": "<%= @post.created_at %>",
-      "image": "<%= blogelator_post_url(@post) %>",
-      "description": "<%= strip_tags(@post.summary_html) %>"
+      "image": "<%= @post.image.url %>",
+      "description": "<%= strip_tags(@post.meta_description) %>"
   }
 </script>

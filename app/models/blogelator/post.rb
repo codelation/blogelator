@@ -67,8 +67,8 @@ module Blogelator
 
     # Convert the Markdown for the post body and summary to HTML.
     def parse_markdown
-      self.body_html = markdown.render(body_markdown)
-      self.summary_html = markdown.render(summary_markdown)
+      self.body_html = markdown.render(body_markdown.to_s)
+      self.summary_html = markdown.render(summary_markdown.to_s)
     end
 
     # Touch the associated tags to update cache keys.

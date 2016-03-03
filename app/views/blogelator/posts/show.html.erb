@@ -1,29 +1,32 @@
-<% cache [Blogelator::VERSION, @post, "show"] do %>
-  <div class="post <%= @post.status %>">
-    <div class="post-image">
-      <%= image_tag @post.image.url(:large) %>
-    </div>
-
-    <div class="post-content">
-      <h1>
-        <%= link_to @post.title, @post, class: "title" %>
-      </h1>
-
-      <%= local_time(@post.published_at, format: "%B %e, %Y", class: "published-at") %>
-
-      <div class="tags">
+<div class="post <%= @post.status %>">
+  <div class="banner" style="background-image: url(<%= @post.image.exists? ? @post.image.url(:large) : "" %>)">
+    <div class="darken-background"></div>
+    <div class="tags">
+      Found In:
+      <ul>
         <%= render @post.tags %>
-      </div>
-
-      <div class="body">
-        <%== @post.body_html %>
-      </div>
-
-      <%= render @post.author if @post.author %>
+      </ul>
     </div>
+    <h1><%= link_to @post.title, @post %></h1>
+    <%= local_time(@post.published_at, format: "%B %e, %Y", class: "published-at") %>
   </div>
 
-  <% content_for :head do %>
-    <% render "meta" %>
-  <% end %>
+  <div class="body">
+    <%== @post.body_html %>
+    <%= render @post.author %>
+
+    <% if @post.related_posts.length > 0 %>
+      <div class="related-posts">
+        <h2>Related Posts</h2>
+        <hr>
+        <div class="related-posts-wrap">
+          <%= render @post.related_posts %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :head do %>
+  <% render "meta" %>
 <% end %>

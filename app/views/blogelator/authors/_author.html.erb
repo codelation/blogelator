@@ -1,24 +1,19 @@
 <div class="author">
   <% if author.profile_photo.exists? %>
-    <div class="profile-photo">
-      <%= image_tag author.profile_photo.url(:small) %>
+    <div class="author-image">
+      <%= image_tag author.profile_photo(:medium) %>
     </div>
   <% end %>
+  <div class="author-bio">
+    <h4><a href="<%= author.website %>" target="_blank"><%= author.name %></a></h4>
+    <p><%= author.bio_markdown %></p>
 
-  <div class="name">
-    <%= author.name %>
-  </div>
-
-  <div class="bio">
-    <%== author.bio_html %>
-  </div>
-
-  <div>
-    <small class="location">
-      <%= author.location %>
-    </small>
-    <small class="website">
-      <%= link_to author.website, author.website %>
-    </small>
+    <div class="author-meta">
+      <i class="icon icon-location-on"></i> <%= author.location %>
+      <a href="<%= author.website %>">
+        <i class="icon icon-link"></i>
+        <%= author.website %>
+      </a>
+    </div>
   </div>
 </div>

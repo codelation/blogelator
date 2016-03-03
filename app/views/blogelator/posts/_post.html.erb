@@ -1,21 +1,13 @@
-<% cache [Blogelator::VERSION, post, "index"] do %>
-  <div class="post <%= post.status %>">
-    <%= link_to post, class: "post-link" do %>
-      <% if post.image.exists? %>
-        <span class="post-image">
-          <%= image_tag post.image.url(:small) %>
-        </span>
-      <% end %>
-
-      <span class="title">
-        <%= post.title %>
-      </span>
-    <% end %>
-
-    <%= local_time(post.published_at, format: "%B %e, %Y", class: "published-at") %>
-
-    <div class="tags">
-      <%= render post.tags %>
-    </div>
+<div class="post <%= post.status %>">
+  <%= link_to post, class: "post-image" do %>
+    <% if post.image.exists? %>
+       <span class="post-image">
+         <%= image_tag post.image.url(:small) %>
+       </span>
+     <% end %>
+  <% end %>
+  <h2><%= link_to post.title, post %></h2>
+  <div class="published-at">
+    <%= local_time(post.published_at, format: "%B %e, %Y") %>
   </div>
-<% end %>
+</div>

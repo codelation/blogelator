@@ -1,10 +1,32 @@
-<% cache [Blogelator::VERSION, @posts] do %>
+<% if @featured_post %>
+  <section class="featured-post">
+    <span>Featured Article</span>
+    <h3>
+      <%= link_to @featured_post.url(request) do %>
+        <%= @featured_post.title %>
+      <% end %>
+    </h3>
+    <div class="darken-background"></div>
+    <% if @featured_post.image.exists? %>
+      <div class="background-image">
+        <%= image_tag @featured_post.image.url(:large) %>
+      </div>
+    <% end %>
+  </section>
+<% end %>
+
+<% if @tag %>
+  <h1 class="tag-header">Articles in: <%= @tag.name %></h1>
+<% end %>
+
+<section class="post-wrap">
   <% if @posts.length > 0 %>
     <%= render @posts %>
-    <%= paginate @posts, views_prefix: "blogelator" %>
   <% else %>
     <p>
       There are no blog posts.
     </p>
   <% end %>
-<% end %>
+</section>
+
+<%= paginate @posts, views_prefix: "blogelator" %>
