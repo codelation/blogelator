@@ -7,8 +7,8 @@ require "blogelator/version"
 Gem::Specification.new do |s|
   s.name        = "blogelator"
   s.version     = Blogelator::VERSION
-  s.authors     = ["Brian Pattison"]
-  s.email       = ["brian@brianpattison.com"]
+  s.authors     = ["Brian Pattison", "Jake Humphrey"]
+  s.email       = ["brian@brianpattison.com", "jake@codelation.com"]
   s.homepage    = "https://github.com/codelation/blogelator"
   s.summary     = "Simple blog for Rails apps."
   s.description = "Blogelator is an easy way to add a blog to your Rails app."
